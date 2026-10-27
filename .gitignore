@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# Environment and editor files
+.vscode/
+.idea/
+
+# Scratch & temporary development scripts
+scratch/
+
+# OS metadata
+.DS_Store
+Thumbs.db
