@@ -7,6 +7,30 @@ A dignified, eye-soothing academic technology transfer and patent rebirth atelie
 
 ---
 
+## Repository Architecture & Directory Layout
+
+```
+GhostLAB-/
+├── code_base/                     # Full Interactive Web Application & DeepTech Engine
+│   ├── index.html                 # Complete UI Architecture, 10 Modules & Academic Strips
+│   ├── app.js                     # 12-Item Universal Polyglot Catalog, AER Matrix & Vector Radar
+│   ├── styles.css                 # Botanical Editorial Theme, Layouts & Modal Styling
+│   ├── server.js                  # Lightweight Native Node.js Static Server (Port 5175)
+│   ├── package.json               # Project Metadata & NPM Start Scripts
+│   ├── launch.bat                 # 1-Click Server Launcher
+│   ├── ACADEMIC_COURSE_BLUEPRINT.md # Course Syllabus Mapping (CO1-CO4, Dr. Nirupama M P)
+│   ├── IDEA_SPECIFICATION.md      # Technical Specification & Patent Jurisprudence Doctrine
+│   ├── LEAN_CANVAS_AND_BUSINESS_MODEL.md # Unit Economics, CAC/LTV & Sunk R&D Model
+│   └── PITCH_DECK_SCRIPT.md       # Presentation Script & Slide-by-Slide Defense Notes
+├── documentation/                 # Dedicated Project Documentation Repository
+│   └── .gitkeep                   # Reserved for Project Reports, Viva Transcripts & Briefs
+├── launch.bat                     # Convenience Root Launcher (executes code_base/server.js)
+├── README.md                      # Primary Repository Overview & Architecture Guide
+└── .gitignore                     # Clean Hygiene Configuration
+```
+
+---
+
 ## 1. Quick Launch Instructions
 
 You have two frictionless ways to run GhostLab:
