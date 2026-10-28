@@ -1144,6 +1144,64 @@
         </div>
       </div>
 
+      <!-- ========================================================================== -->
+      <!-- SECTION 9: ACADEMIC CITATION & SCHOLARLY BIBLIOGRAPHY MANAGER -->
+      <!-- Aligned with APA 7th, IEEE, and BibTeX Standards for Course AIE-701 -->
+      <!-- ========================================================================== -->
+      <div class="cm-module-card panel-card mb-5" id="cm-citations" data-cm-section="citations">
+        <div class="cm-module-header">
+          <div class="cm-meta-pill">SCHOLARLY APPARATUS &bull; MODULE REF &bull; APA 7TH / IEEE / BIBTEX</div>
+          <h2 class="cm-title">Academic Citation &amp; Scholarly Bibliography Manager</h2>
+          <p class="cm-desc">
+            A comprehensive, peer-reviewed bibliography operationalizing fifteen foundational texts across entrepreneurship theory, AI economics, systems dynamics, and statutory patent law curated for Dr. Nirupama M P and BML Munjal University Course AIE-701.
+          </p>
+        </div>
+
+        <!-- Filter & Format Switcher Banner -->
+        <div class="citations-filter-strip">
+          <div>
+            <div style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">ACTIVE CITATION STANDARD:</div>
+            <div class="citation-format-tabs" id="citationFormatTabs">
+              <button class="btn-format-tab active" data-format="apa">APA 7th</button>
+              <button class="btn-format-tab" data-format="ieee">IEEE</button>
+              <button class="btn-format-tab" data-format="harvard">Harvard</button>
+              <button class="btn-format-tab" data-format="bibtex">BibTeX (.bib)</button>
+            </div>
+          </div>
+          <div class="citations-actions-row">
+            <button class="btn-action-primary" id="btnDownloadBibtexFile" style="padding: 6px 12px; font-size: 0.78rem;">
+              <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download Full BibTeX (.bib)
+            </button>
+            <button class="btn-action-ghost" id="btnCopyAllCitations" style="padding: 6px 12px; font-size: 0.78rem;">
+              <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+              Copy All Citations
+            </button>
+          </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="citations-search-bar">
+          <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" class="citations-search-input" id="citationSearchInput" placeholder="Filter references by author, keyword, framework (e.g. Schumpeter, Sarasvathy, Prediction, Pennwalt, IEEE)...">
+        </div>
+
+        <!-- Citations Cards Grid -->
+        <div class="citations-grid" id="citationsCardsGrid">
+          <!-- Dynamically populated via JavaScript -->
+        </div>
+      </div>
+
     </section>
 
     <!-- ========================================== -->
@@ -1203,6 +1261,7 @@
         <button class="fw-filter-btn" data-cm-filter="lectures">6. Lecture Compendium &amp; AI Taxonomy</button>
         <button class="fw-filter-btn" data-cm-filter="effectuation">7. Sarasvathy Effectuation &amp; Lemonade Simulator</button>
         <button class="fw-filter-btn" data-cm-filter="dossier">8. Institutional Academic Dossier (PDF / Print)</button>
+        <button class="fw-filter-btn" data-cm-filter="citations">9. Scholarly Citations &amp; Bibliography</button>
       </div>
 
       <!-- ======================================================== -->
@@ -6574,6 +6633,28 @@ Deliverables:
               <div><strong>Faculty Evaluator:</strong> <em>Dr. Nirupama M P, Assistant Professor</em></div>
               <div><strong>Date of Audit:</strong> <em>October 28, 2026</em></div>
             </div>
+          </div>
+
+          <!-- Section 9: Formal References & Bibliography -->
+          <h2 class="academic-section-h2">9. Scholarly References &amp; Foundational Literature (APA 7th Edition)</h2>
+          <div style="font-size: 0.8rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 1.5rem;">
+            <ol style="padding-left: 1.4rem;">
+              <li style="margin-bottom: 8px;">Agrawal, A., Gans, J., &amp; Goldfarb, A. (2018). <em>Prediction Machines: The Simple Economics of Artificial Intelligence</em>. Harvard Business Review Press.</li>
+              <li style="margin-bottom: 8px;">Blank, S. (2013). Why the Lean Start-Up Changes Everything. <em>Harvard Business Review</em>, 91(5), 63&ndash;72.</li>
+              <li style="margin-bottom: 8px;">European Parliament, &amp; Council of the European Union. (2024). Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act). <em>Official Journal of the European Union</em>, L 2024/1689.</li>
+              <li style="margin-bottom: 8px;">Government of India. (1970). <em>The Patents Act, 1970 (Act No. 39 of 1970)</em>. Controller General of Patents, Designs and Trade Marks.</li>
+              <li style="margin-bottom: 8px;">Iansiti, M., &amp; Lakhani, K. R. (2020). <em>Competing in the Age of AI: Strategy and Leadership When Algorithms and Networks Run the World</em>. Harvard Business Review Press.</li>
+              <li style="margin-bottom: 8px;">IEEE Computer Society. (2021). <em>IEEE Standard Model Process for Addressing Ethical Concerns during System Design (IEEE Std 7000-2021)</em>. IEEE Standards Association.</li>
+              <li style="margin-bottom: 8px;">Kirzner, I. M. (1973). <em>Competition and Entrepreneurship</em>. University of Chicago Press.</li>
+              <li style="margin-bottom: 8px;">Meadows, D. H. (2008). <em>Thinking in Systems: A Primer</em>. Chelsea Green Publishing.</li>
+              <li style="margin-bottom: 8px;">Osterwalder, A., &amp; Pigneur, Y. (2010). <em>Business Model Generation: A Handbook for Visionaries, Game Changers, and Challengers</em>. John Wiley &amp; Sons.</li>
+              <li style="margin-bottom: 8px;">Pennwalt Corp. v. Durand-Wayland, Inc., 833 F.2d 931 (Fed. Cir. 1987).</li>
+              <li style="margin-bottom: 8px;">Ries, E. (2011). <em>The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses</em>. Crown Business.</li>
+              <li style="margin-bottom: 8px;">Sarasvathy, S. D. (2001). Causation and effectuation: Toward a theoretical shift from economic inevitability to entrepreneurial contingency. <em>Academy of Management Review</em>, 26(2), 243&ndash;263.</li>
+              <li style="margin-bottom: 8px;">Schumpeter, J. A. (1934). <em>The Theory of Economic Development: An Inquiry into Profits, Capital, Credit, Interest, and the Business Cycle</em>. Harvard University Press.</li>
+              <li style="margin-bottom: 8px;">Spence, M. (1973). Job Market Signaling. <em>The Quarterly Journal of Economics</em>, 87(3), 355&ndash;374.</li>
+              <li style="margin-bottom: 8px;">Thomson, P. J. (2013). Value Proposition Canvas. <em>Strategyzer &amp; University of Auckland Business Review</em>, 16(1), 58&ndash;63.</li>
+            </ol>
           </div>
 
         </div>

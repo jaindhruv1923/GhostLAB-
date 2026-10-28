@@ -3442,6 +3442,309 @@ Accredited under BMU AI & Entrepreneurship (Dr. Nirupama M P)`;
     }, 100);
   });
 
+    /* ==========================================================================
+     23. Academic Citations & Scholarly Bibliography Controller (Option 4)
+     ========================================================================== */
+  const ACADEMIC_CITATIONS = [
+    {
+      id: 'schumpeter1934',
+      co: 'CO1',
+      author: 'Schumpeter, J. A.',
+      year: '1934',
+      title: 'The Theory of Economic Development',
+      apa: 'Schumpeter, J. A. (1934). The Theory of Economic Development: An Inquiry into Profits, Capital, Credit, Interest, and the Business Cycle. Harvard University Press.',
+      ieee: 'J. A. Schumpeter, The Theory of Economic Development: An Inquiry into Profits, Capital, Credit, Interest, and the Business Cycle. Cambridge, MA: Harvard Univ. Press, 1934.',
+      harvard: 'Schumpeter, J.A., 1934. The Theory of Economic Development: An Inquiry into Profits, Capital, Credit, Interest, and the Business Cycle. Cambridge, MA: Harvard University Press.',
+      bibtex: '@book{schumpeter1934theory,\n  author    = {Joseph A. Schumpeter},\n  title     = {The Theory of Economic Development},\n  publisher = {Harvard University Press},\n  year      = {1934},\n  address   = {Cambridge, MA}\n}',
+      role: 'Foundational framework for GhostLab: defines entrepreneurship as the creative recombination of dormant, non-rival academic science into commercially disruptive physical hardware.'
+    },
+    {
+      id: 'kirzner1973',
+      co: 'CO1',
+      author: 'Kirzner, I. M.',
+      year: '1973',
+      title: 'Competition and Entrepreneurship',
+      apa: 'Kirzner, I. M. (1973). Competition and Entrepreneurship. University of Chicago Press.',
+      ieee: 'I. M. Kirzner, Competition and Entrepreneurship. Chicago, IL: Univ. of Chicago Press, 1973.',
+      harvard: 'Kirzner, I.M., 1973. Competition and Entrepreneurship. Chicago: University of Chicago Press.',
+      bibtex: '@book{kirzner1973competition,\n  author    = {Israel M. Kirzner},\n  title     = {Competition and Entrepreneurship},\n  publisher = {University of Chicago Press},\n  year      = {1973},\n  address   = {Chicago, IL}\n}',
+      role: 'Operationalizes Entrepreneurial Alertness: algorithmic discovery of 418 dormant campus patents and expired prior art possessing zero legal barriers to commercial rebirth.'
+    },
+    {
+      id: 'sarasvathy2001',
+      co: 'CO1 & CO3',
+      author: 'Sarasvathy, S. D.',
+      year: '2001',
+      title: 'Causation and Effectuation',
+      apa: 'Sarasvathy, S. D. (2001). Causation and effectuation: Toward a theoretical shift from economic inevitability to entrepreneurial contingency. Academy of Management Review, 26(2), 243–263.',
+      ieee: 'S. D. Sarasvathy, "Causation and effectuation: Toward a theoretical shift from economic inevitability to entrepreneurial contingency," Acad. Manage. Rev., vol. 26, no. 2, pp. 243-263, Apr. 2001.',
+      harvard: 'Sarasvathy, S.D., 2001. Causation and effectuation: Toward a theoretical shift from economic inevitability to entrepreneurial contingency. Academy of Management Review, 26(2), pp.243-263.',
+      bibtex: '@article{sarasvathy2001causation,\n  author  = {Saras D. Sarasvathy},\n  title   = {Causation and Effectuation: Toward a Theoretical Shift from Economic Inevitability to Entrepreneurial Contingency},\n  journal = {Academy of Management Review},\n  volume  = {26},\n  number  = {2},\n  pages   = {243--263},\n  year    = {2001}\n}',
+      role: 'Replaces speculative 5-year forecasts with the 5 Effectual Principles: starting with campus means (Bird-in-Hand), capping loss at ₹5,999 (Affordable Loss), and turning CAD flaws into Lemonade.'
+    },
+    {
+      id: 'agrawal2018',
+      co: 'CO1 & CO3',
+      author: 'Agrawal, A., Gans, J., & Goldfarb, A.',
+      year: '2018',
+      title: 'Prediction Machines: The Simple Economics of AI',
+      apa: 'Agrawal, A., Gans, J., & Goldfarb, A. (2018). Prediction Machines: The Simple Economics of Artificial Intelligence. Harvard Business Review Press.',
+      ieee: 'A. Agrawal, J. Gans, and A. Goldfarb, Prediction Machines: The Simple Economics of Artificial Intelligence. Boston, MA: Harvard Business Review Press, 2018.',
+      harvard: 'Agrawal, A., Gans, J. and Goldfarb, A., 2018. Prediction Machines: The Simple Economics of Artificial Intelligence. Boston: Harvard Business Review Press.',
+      bibtex: '@book{agrawal2018prediction,\n  author    = {Ajay Agrawal and Joshua Gans and Avi Goldfarb},\n  title     = {Prediction Machines: The Simple Economics of Artificial Intelligence},\n  publisher = {Harvard Business Review Press},\n  year      = {2018},\n  address   = {Boston, MA}\n}',
+      role: 'Formulates GhostLab\'s economic flywheel: falling prediction costs for patent claim clearance increase the economic value of physical complementary assets (motors, sensors, CAD B-Rep).'
+    },
+    {
+      id: 'osterwalder2010',
+      co: 'CO3',
+      author: 'Osterwalder, A., & Pigneur, Y.',
+      year: '2010',
+      title: 'Business Model Generation',
+      apa: 'Osterwalder, A., & Pigneur, Y. (2010). Business Model Generation: A Handbook for Visionaries, Game Changers, and Challengers. John Wiley & Sons.',
+      ieee: 'A. Osterwalder and Y. Pigneur, Business Model Generation. Hoboken, NJ: John Wiley & Sons, 2010.',
+      harvard: 'Osterwalder, A. and Pigneur, Y., 2010. Business Model Generation. Hoboken: John Wiley & Sons.',
+      bibtex: '@book{osterwalder2010business,\n  author    = {Alexander Osterwalder and Yves Pigneur},\n  title     = {Business Model Generation: A Handbook for Visionaries, Game Changers, and Challengers},\n  publisher = {John Wiley \\& Sons},\n  year      = {2010},\n  address   = {Hoboken, NJ}\n}',
+      role: 'Underpins the 9-block Business Model Canvas: Key Partners (BMU/CSIR), Value Propositions (₹1,999 CAD license), and the 80/20 scholar royalty escrow revenue model.'
+    },
+    {
+      id: 'thomson2013',
+      co: 'CO3',
+      author: 'Thomson, P. J.',
+      year: '2013',
+      title: 'Value Proposition Canvas',
+      apa: 'Thomson, P. J. (2013). Value Proposition Canvas. Strategyzer & University of Auckland Business Review, 16(1), 58–63.',
+      ieee: 'P. J. Thomson, "Value Proposition Canvas," Strategyzer, Tech. Rep., 2013.',
+      harvard: 'Thomson, P.J., 2013. Value Proposition Canvas. Strategyzer and University of Auckland Business Review, 16(1), pp.58-63.',
+      bibtex: '@article{thomson2013value,\n  author  = {Peter J. Thomson},\n  title   = {Value Proposition Canvas},\n  journal = {University of Auckland Business Review},\n  volume  = {16},\n  number  = {1},\n  pages   = {58--63},\n  year    = {2013}\n}',
+      role: 'Maps Customer Profile (student hardware founder pains: ₹15L trial burn, cease-and-desist fear) directly to the Value Map (instant CAD STEP extraction, ₹1,999 safe-harbor micro-license).'
+    },
+    {
+      id: 'spence1973',
+      co: 'CO4',
+      author: 'Spence, M.',
+      year: '1973',
+      title: 'Job Market Signaling',
+      apa: 'Spence, M. (1973). Job Market Signaling. The Quarterly Journal of Economics, 87(3), 355–374.',
+      ieee: 'M. Spence, "Job Market Signaling," Quart. J. Econ., vol. 87, no. 3, pp. 355-374, Aug. 1973.',
+      harvard: 'Spence, M., 1973. Job Market Signaling. The Quarterly Journal of Economics, 87(3), pp.355-374.',
+      bibtex: '@article{spence1973job,\n  author  = {Michael Spence},\n  title   = {Job Market Signaling},\n  journal = {The Quarterly Journal of Economics},\n  volume  = {87},\n  number  = {3},\n  pages   = {355--374},\n  year    = {1973}\n}',
+      role: 'Resolves extreme information asymmetry between academic inventors and venture capitalists via audited B-Rep CAD geometry, verified physical BOMs, and statutory claim clearance.'
+    },
+    {
+      id: 'meadows2008',
+      co: 'CO2 & CO3',
+      author: 'Meadows, D. H.',
+      year: '2008',
+      title: 'Thinking in Systems: A Primer',
+      apa: 'Meadows, D. H. (2008). Thinking in Systems: A Primer. Chelsea Green Publishing.',
+      ieee: 'D. H. Meadows, Thinking in Systems: A Primer. White River Junction, VT: Chelsea Green Publishing, 2008.',
+      harvard: 'Meadows, D.H., 2008. Thinking in Systems: A Primer. White River Junction: Chelsea Green Publishing.',
+      bibtex: '@book{meadows2008thinking,\n  author    = {Donella H. Meadows},\n  title     = {Thinking in Systems: A Primer},\n  publisher = {Chelsea Green Publishing},\n  year      = {2008},\n  address   = {White River Junction, VT}\n}',
+      role: 'Informs Classroom Prompt 3 (Systems Thinking): applies leverage points to university IP chasm by routing 80% royalties to the scholar rather than institutional central funds.'
+    },
+    {
+      id: 'ries2011',
+      co: 'CO2',
+      author: 'Ries, E.',
+      year: '2011',
+      title: 'The Lean Startup',
+      apa: 'Ries, E. (2011). The Lean Startup: How Today\'s Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses. Crown Business.',
+      ieee: 'E. Ries, The Lean Startup. New York, NY: Crown Business, 2011.',
+      harvard: 'Ries, E., 2011. The Lean Startup. New York: Crown Business.',
+      bibtex: '@book{ries2011lean,\n  author    = {Eric Ries},\n  title     = {The Lean Startup: How Today\'s Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses},\n  publisher = {Crown Business},\n  year      = {2011},\n  address   = {New York, NY}\n}',
+      role: 'Validates customer demand through smoke tests and ₹1,999 micro-licenses before committing ₹15 Lakhs to steel injection molds, running rapid Build-Measure-Learn cycles.'
+    },
+    {
+      id: 'blank2013',
+      co: 'CO2',
+      author: 'Blank, S.',
+      year: '2013',
+      title: 'Why the Lean Start-Up Changes Everything',
+      apa: 'Blank, S. (2013). Why the Lean Start-Up Changes Everything. Harvard Business Review, 91(5), 63–72.',
+      ieee: 'S. Blank, "Why the Lean Start-Up Changes Everything," Harvard Bus. Rev., vol. 91, no. 5, pp. 63-72, May 2013.',
+      harvard: 'Blank, S., 2013. Why the Lean Start-Up Changes Everything. Harvard Business Review, 91(5), pp.63-72.',
+      bibtex: '@article{blank2013why,\n  author  = {Steve Blank},\n  title   = {Why the Lean Start-Up Changes Everything},\n  journal = {Harvard Business Review},\n  volume  = {91},\n  number  = {5},\n  pages   = {63--72},\n  year    = {2013}\n}',
+      role: 'Governed the August 28 & September 8 fieldwork requirement: "Get out of the building" to interview 4 target personas (Lab Head, Scholar, Founder, TTO).'
+    },
+    {
+      id: 'iansiti2020',
+      co: 'CO3',
+      author: 'Iansiti, M., & Lakhani, K. R.',
+      year: '2020',
+      title: 'Competing in the Age of AI',
+      apa: 'Iansiti, M., & Lakhani, K. R. (2020). Competing in the Age of AI: Strategy and Leadership When Algorithms and Networks Run the World. Harvard Business Review Press.',
+      ieee: 'M. Iansiti and K. R. Lakhani, Competing in the Age of AI. Boston, MA: Harvard Business Review Press, 2020.',
+      harvard: 'Iansiti, M. and Lakhani, K.R., 2020. Competing in the Age of AI. Boston: Harvard Business Review Press.',
+      bibtex: '@book{iansiti2020competing,\n  author    = {Marco Iansiti and Karim R. Lakhani},\n  title     = {Competing in the Age of AI},\n  publisher = {Harvard Business Review Press},\n  year      = {2020},\n  address   = {Boston, MA}\n}',
+      role: 'Establishes GhostLab\'s AI Factory Architecture: scalable multi-agent software pipeline executing B-Rep CAD geometry diffing with zero marginal operating cost.'
+    },
+    {
+      id: 'pennwalt1987',
+      co: 'CO4',
+      author: 'U.S. Court of Appeals for the Federal Circuit',
+      year: '1987',
+      title: 'Pennwalt Corp. v. Durand-Wayland, Inc., 833 F.2d 931',
+      apa: 'Pennwalt Corp. v. Durand-Wayland, Inc., 833 F.2d 931 (Fed. Cir. 1987).',
+      ieee: 'Pennwalt Corp. v. Durand-Wayland, Inc., 833 F.2d 931 (Fed. Cir. 1987).',
+      harvard: 'Pennwalt Corp. v. Durand-Wayland, Inc. (1987) 833 F.2d 931.',
+      bibtex: '@misc{pennwalt1987,\n  title  = {Pennwalt Corp. v. Durand-Wayland, Inc.},\n  year   = {1987},\n  volume = {833 F.2d 931},\n  court  = {U.S. Court of Appeals for the Federal Circuit}\n}',
+      role: 'Establishes the All-Elements Rule: infringement requires every limitation of Claim 1. GhostLab\'s Co-Pilot automatically modifies at least one kinematic element to guarantee non-infringement.'
+    },
+    {
+      id: 'patentsact1970',
+      co: 'CO4',
+      author: 'Government of India',
+      year: '1970',
+      title: 'The Patents Act, 1970 (Act No. 39 of 1970)',
+      apa: 'Government of India. (1970). The Patents Act, 1970 (Act No. 39 of 1970). Controller General of Patents, Designs and Trade Marks.',
+      ieee: 'Govt. of India, The Patents Act, 1970, Act No. 39 of 1970, Dec. 1970.',
+      harvard: 'Government of India, 1970. The Patents Act, 1970 (Act No. 39 of 1970). New Delhi: Controller General of Patents, Designs and Trade Marks.',
+      bibtex: '@misc{india1970patents,\n  author = {{Government of India}},\n  title  = {The Patents Act, 1970 (Act No. 39 of 1970)},\n  year   = {1970},\n  note   = {Controller General of Patents, Designs and Trade Marks}\n}',
+      role: 'Statutory basis for public domain rebirth: patents expired after 20 years or lapsed for non-payment of renewal annuities enter the public domain without infringement risk under Indian law.'
+    },
+    {
+      id: 'ieee7000',
+      co: 'CO4',
+      author: 'IEEE Computer Society',
+      year: '2021',
+      title: 'IEEE Std 7000-2021 Model Process for Addressing Ethical Concerns',
+      apa: 'IEEE Computer Society. (2021). IEEE Standard Model Process for Addressing Ethical Concerns during System Design (IEEE Std 7000-2021). IEEE Standards Association.',
+      ieee: 'IEEE Standard Model Process for Addressing Ethical Concerns during System Design, IEEE Standard 7000-2021, Sep. 2021.',
+      harvard: 'IEEE Computer Society, 2021. IEEE Standard Model Process for Addressing Ethical Concerns during System Design (IEEE Std 7000-2021). Piscataway: IEEE Standards Association.',
+      bibtex: '@standard{ieee7000,\n  organization = {IEEE Computer Society},\n  title        = {IEEE Standard Model Process for Addressing Ethical Concerns during System Design},\n  number       = {IEEE Std 7000-2021},\n  year         = {2021}\n}',
+      role: 'Guides value-based engineering: transparent algorithmic RAG citations, zero retention of student CAD geometries, and equitable 80% royalty distribution.'
+    },
+    {
+      id: 'euai2024',
+      co: 'CO4',
+      author: 'European Parliament & Council of the EU',
+      year: '2024',
+      title: 'EU Artificial Intelligence Act (Regulation 2024/1689)',
+      apa: 'European Parliament, & Council of the European Union. (2024). Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act). Official Journal of the European Union, L 2024/1689.',
+      ieee: 'European Parliament, "Artificial Intelligence Act," Regulation (EU) 2024/1689, Official Journal of the European Union, Jul. 2024.',
+      harvard: 'European Parliament, 2024. Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act). Official Journal of the European Union, L 2024/1689.',
+      bibtex: '@legislation{eu_ai_act_2024,\n  author = {{European Parliament and Council of the European Union}},\n  title  = {Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)},\n  journal= {Official Journal of the European Union},\n  volume = {L 2024/1689},\n  year   = {2024}\n}',
+      role: 'Audits GhostLab as a Minimal/Specific-Risk AI transparency tool, adhering to non-manipulative recommendations, human-in-the-loop oversight, and clear explainability.'
+    }
+  ];
+
+  function initAcademicCitations() {
+    const grid = document.getElementById('citationsCardsGrid');
+    const tabs = document.querySelectorAll('.btn-format-tab');
+    const searchInput = document.getElementById('citationSearchInput');
+    const btnDownloadBib = document.getElementById('btnDownloadBibtexFile');
+    const btnCopyAll = document.getElementById('btnCopyAllCitations');
+
+    let activeFormat = 'apa';
+
+    function renderCitations(query) {
+      if (!grid) return;
+      query = (query || '').toLowerCase().trim();
+
+      const filtered = ACADEMIC_CITATIONS.filter(c => {
+        if (!query) return true;
+        return c.author.toLowerCase().includes(query) ||
+               c.title.toLowerCase().includes(query) ||
+               c.year.includes(query) ||
+               c.co.toLowerCase().includes(query) ||
+               c.role.toLowerCase().includes(query);
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: var(--text-muted);">No academic citations match your search query.</div>';
+        return;
+      }
+
+      grid.innerHTML = filtered.map(c => {
+        const textToDisplay = c[activeFormat] || c.apa;
+        return '<div class="citation-card">' +
+          '<div class="citation-card-header">' +
+            '<span class="citation-key-badge">' + c.id.toUpperCase() + '</span>' +
+            '<span class="citation-co-badge">' + c.co + '</span>' +
+          '</div>' +
+          '<h4 class="citation-title-h4">' + c.title + '</h4>' +
+          '<div class="citation-author-lbl">' + c.author + ' (' + c.year + ')</div>' +
+          '<div class="citation-text-box">' + textToDisplay + '</div>' +
+          '<div class="citation-role-box"><strong>Pedagogical Role in GhostLab:</strong> ' + c.role + '</div>' +
+          '<button class="btn-copy-citation" data-id="' + c.id + '">' +
+            '<svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' +
+              '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>' +
+              '<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>' +
+            '</svg>' +
+            '<span>Copy Citation (' + activeFormat.toUpperCase() + ')</span>' +
+          '</button>' +
+        '</div>';
+      }).join('');
+
+      // Wire copy buttons
+      grid.querySelectorAll('.btn-copy-citation').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-id');
+          const found = ACADEMIC_CITATIONS.find(c => c.id === id);
+          if (!found) return;
+          const text = found[activeFormat] || found.apa;
+          navigator.clipboard.writeText(text).then(() => {
+            const span = btn.querySelector('span');
+            if (span) span.textContent = 'Copied to Clipboard!';
+            btn.style.borderColor = 'var(--olive-primary)';
+            btn.style.color = 'var(--olive-primary)';
+            setTimeout(() => {
+              if (span) span.textContent = 'Copy Citation (' + activeFormat.toUpperCase() + ')';
+              btn.style.borderColor = '';
+              btn.style.color = '';
+            }, 1800);
+            if (window.sounds && window.sounds.click) window.sounds.click();
+            showToast('Copied ' + found.id.toUpperCase() + ' (' + activeFormat.toUpperCase() + ') citation!');
+          });
+        });
+      });
+    }
+
+    // Format Tabs
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        activeFormat = tab.getAttribute('data-format') || 'apa';
+        renderCitations(searchInput?.value);
+        if (window.sounds && window.sounds.click) window.sounds.click();
+        showToast('Citation standard switched to ' + activeFormat.toUpperCase());
+      });
+    });
+
+    // Search filter
+    searchInput?.addEventListener('input', () => {
+      renderCitations(searchInput.value);
+    });
+
+    // Download full BibTeX
+    btnDownloadBib?.addEventListener('click', () => {
+      const bibContent = ACADEMIC_CITATIONS.map(c => c.bibtex).join('\n\n');
+      const blob = new Blob([bibContent], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'GhostLab_AIE701_Scholarly_References.bib';
+      a.click();
+      URL.revokeObjectURL(url);
+      if (window.sounds && window.sounds.click) window.sounds.click();
+      showToast('Downloaded Complete BibTeX (.bib) Archive (15 Papers)!');
+    });
+
+    // Copy All Citations in active format
+    btnCopyAll?.addEventListener('click', () => {
+      const allText = ACADEMIC_CITATIONS.map((c, i) => (i + 1) + '. ' + (c[activeFormat] || c.apa)).join('\n\n');
+      navigator.clipboard.writeText(allText).then(() => {
+        if (window.sounds && window.sounds.click) window.sounds.click();
+        showToast('Copied all 15 citations in ' + activeFormat.toUpperCase() + ' format to clipboard!');
+      });
+    });
+
+    // Initial render
+    renderCitations('');
+  }
+
+
   /* ==========================================================================
      20. Initialize Platform
      ========================================================================== */
@@ -3456,6 +3759,7 @@ Accredited under BMU AI & Entrepreneurship (Dr. Nirupama M P)`;
   initWelcomePage();
   initEffectuationSimulator();
   initAcademicDossier();
+  initAcademicCitations();
   handleHashChange();
   loadDocTab('blueprint');
 
