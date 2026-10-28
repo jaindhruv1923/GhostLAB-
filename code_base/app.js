@@ -778,6 +778,216 @@
       showToast(next === 'dark' ? 'Midnight Forest Walnut theme active' : 'Botanical Linen Creme theme active');
     });
   }
+  /* ==========================================================================
+     Global Currency Conversion Engine (INR ₹ <-> USD $)
+     ========================================================================== */
+  var USD_EXCHANGE_RATE = 85;
+  var currentCurrency = 'INR';
+  try {
+    currentCurrency = localStorage.getItem('ghostlab_currency') || 'INR';
+  } catch (e) {}
+
+  function convertInrStringToUsd(text) {
+    if (typeof text !== 'string') return text;
+
+    // 0. Ranges: e.g. ₹15–25 Lakhs or ₹15 to 25 Lakhs
+    text = text.replace(/(?:&#x20B9;|₹|INR)\s*([\d,.]+)\s*[-–—to]+\s*(?:&#x20B9;|₹|INR)?\s*([\d,.]+)\s*(?:Lakhs?|L)\b/gi, function(match, n1, n2) {
+      var v1 = parseFloat(n1.replace(/,/g, '')) * 100000 / USD_EXCHANGE_RATE;
+      var v2 = parseFloat(n2.replace(/,/g, '')) * 100000 / USD_EXCHANGE_RATE;
+      return '$' + Math.round(v1 / 1000) + 'K–$' + Math.round(v2 / 1000) + 'K';
+    });
+
+    // 1. Crores: e.g. ₹48.6 Cr, &#x20B9;48.6 Cr, ₹10 Cr, INR 48.6 Cr
+    text = text.replace(/(?:&#x20B9;|₹|INR)\s*([\d,.]+)\s*(?:Cr|Crores?)\b/gi, function(match, numStr) {
+      var num = parseFloat(numStr.replace(/,/g, ''));
+      if (isNaN(num)) return match;
+      var usdMillions = (num * 10000000) / USD_EXCHANGE_RATE / 1000000;
+      return '$' + usdMillions.toFixed(1) + 'M';
+    });
+
+    // 2. Lakhs: e.g. ₹15 Lakhs, ₹1.5L, &#x20B9;1.5L, ₹15L, INR 15 Lakhs, ₹2.4 Lakhs
+    text = text.replace(/(?:&#x20B9;|₹|INR)\s*([\d,.]+)\s*(?:Lakhs?|L)\b/gi, function(match, numStr) {
+      var num = parseFloat(numStr.replace(/,/g, ''));
+      if (isNaN(num)) return match;
+      var inrVal = num * 100000;
+      var usdVal = inrVal / USD_EXCHANGE_RATE;
+      if (usdVal >= 1000) {
+        return '$' + (usdVal / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+      } else {
+        return '$' + Math.round(usdVal);
+      }
+    });
+
+    // 3. Standard numbers: e.g. ₹1,999, &#x20B9;1,599, ₹110, ₹1,50,000, ₹50,00,000
+    text = text.replace(/(?:&#x20B9;|₹|INR)\s*([\d,]+(?:\.\d+)?)/gi, function(match, numStr) {
+      var cleanStr = numStr.replace(/,/g, '');
+      var num = parseFloat(cleanStr);
+      if (isNaN(num) || num === 0) return match;
+      var usdVal = num / USD_EXCHANGE_RATE;
+      if (num <= 150) {
+        return '$' + usdVal.toFixed(2);
+      } else if (usdVal >= 100000) {
+        return '$' + (usdVal / 1000000).toFixed(2) + 'M';
+      } else if (usdVal >= 10000) {
+        return '$' + (usdVal / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+      } else {
+        return '$' + Math.round(usdVal).toLocaleString('en-US');
+      }
+    });
+
+    return text;
+  }
+
+  function formatCurrency(inrAmount) {
+    if (inrAmount == null || isNaN(inrAmount)) return '';
+    var num = Number(inrAmount);
+    if (currentCurrency === 'USD') {
+      var usd = num / USD_EXCHANGE_RATE;
+      if (num <= 150) {
+        return '$' + usd.toFixed(2);
+      } else if (usd >= 1000000) {
+        return '$' + (usd / 1000000).toFixed(2) + 'M';
+      } else if (usd >= 10000) {
+        return '$' + (usd / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+      } else {
+        return '$' + Math.round(usd).toLocaleString('en-US');
+      }
+    } else {
+      return '₹' + Math.round(num).toLocaleString('en-IN');
+    }
+  }
+  window.formatCurrency = formatCurrency;
+
+  function updateDomCurrency(targetCurrency) {
+    try {
+      var walker = document.createTreeWalker(
+        document.body,
+        NodeFilter.SHOW_TEXT,
+        {
+          acceptNode: function (node) {
+            if (!node || !node.parentElement) return NodeFilter.FILTER_REJECT;
+            var tag = node.parentElement.tagName;
+            if (['SCRIPT', 'STYLE', 'CODE', 'PRE'].includes(tag)) return NodeFilter.FILTER_REJECT;
+            if (node.parentElement.closest && node.parentElement.closest('[data-no-currency]')) return NodeFilter.FILTER_REJECT;
+            if (node._origInrText || node.nodeValue.includes('₹') || node.nodeValue.includes('&#x20B9;') || /\bINR\s*\d+/i.test(node.nodeValue) || (targetCurrency === 'INR' && node.nodeValue.includes('$'))) {
+              return NodeFilter.FILTER_ACCEPT;
+            }
+            return NodeFilter.FILTER_REJECT;
+          }
+        }
+      );
+
+      var nodesToProcess = [];
+      var currentNode;
+      while ((currentNode = walker.nextNode())) {
+        nodesToProcess.push(currentNode);
+      }
+
+      nodesToProcess.forEach(function (node) {
+        if (targetCurrency === 'USD') {
+          if (!node._origInrText) {
+            node._origInrText = node.nodeValue;
+          }
+          if (node._origInrText && (node._origInrText.includes('₹') || node._origInrText.includes('&#x20B9;') || /\bINR\s*\d+/i.test(node._origInrText))) {
+            node.nodeValue = convertInrStringToUsd(node._origInrText);
+          }
+        } else {
+          if (node._origInrText != null) {
+            node.nodeValue = node._origInrText;
+          }
+        }
+      });
+    } catch (err) {
+      console.warn('Currency DOM update error:', err);
+    }
+  }
+
+  function setCurrency(targetCurrency, showNotification) {
+    if (showNotification === undefined) showNotification = true;
+    currentCurrency = targetCurrency;
+    try {
+      localStorage.setItem('ghostlab_currency', targetCurrency);
+    } catch (e) {}
+
+    var curBtn = document.getElementById('currencyToggleBtn');
+    var curIcon = document.getElementById('currencySymbolIcon');
+    var curLabel = document.getElementById('currencyLabel');
+
+    if (curIcon) curIcon.textContent = targetCurrency === 'USD' ? '$' : '₹';
+    if (curLabel) curLabel.textContent = targetCurrency;
+
+    if (curBtn) {
+      if (targetCurrency === 'USD') {
+        curBtn.classList.add('active-usd');
+      } else {
+        curBtn.classList.remove('active-usd');
+      }
+    }
+
+    // 1. Convert static text across the DOM
+    updateDomCurrency(targetCurrency);
+
+    // 2. Re-render catalog if present
+    try {
+      if (typeof renderInventions === 'function') {
+        var activeCat = document.querySelector('.category-pill.active')?.getAttribute('data-cat') || 'all';
+        renderInventions(activeCat);
+      }
+      if (typeof selectedInvention !== 'undefined' && selectedInvention && typeof selectInvention === 'function') {
+        selectInvention(selectedInvention.id);
+      }
+      if (typeof recalculateValuation === 'function') {
+        recalculateValuation();
+      }
+    } catch (e) {}
+
+    // 3. Update Effectuation displays
+    try {
+      var sliderProto = document.getElementById('sliderProtoLoss');
+      var sliderWorkshop = document.getElementById('sliderWorkshopLoss');
+      var dispLicense = document.getElementById('dispLicenseLoss');
+      var dispProto = document.getElementById('dispProtoLoss');
+      var dispWorkshop = document.getElementById('dispWorkshopLoss');
+      var dispTotal = document.getElementById('dispTotalAffordableLoss');
+
+      if (dispLicense) dispLicense.textContent = targetCurrency === 'USD' ? '$24 (Fixed)' : '₹1,999 (Fixed)';
+      if (sliderProto && dispProto) {
+        dispProto.textContent = formatCurrency(Number(sliderProto.value));
+      }
+      if (sliderWorkshop && dispWorkshop) {
+        dispWorkshop.textContent = formatCurrency(Number(sliderWorkshop.value));
+      }
+      if (sliderProto && sliderWorkshop && dispTotal) {
+        var tot = 1999 + Number(sliderProto.value) + Number(sliderWorkshop.value);
+        dispTotal.textContent = formatCurrency(tot);
+      }
+    } catch (e) {}
+
+    if (showNotification) {
+      if (window.sounds && window.sounds.playTone) {
+        window.sounds.playTone(targetCurrency === 'USD' ? 720 : 540, 0.05);
+      }
+      showToast(targetCurrency === 'USD'
+        ? 'Switched to USD ($) • Conversion applied at 1 USD = ₹85'
+        : 'Switched to INR (₹) • Indian Rupee format active');
+    }
+  }
+
+  function initCurrencySwitcher() {
+    var btn = document.getElementById('currencyToggleBtn');
+    if (btn) {
+      btn.addEventListener('click', function () {
+        setCurrency(currentCurrency === 'INR' ? 'USD' : 'INR', true);
+      });
+    }
+
+    if (currentCurrency === 'USD') {
+      setTimeout(function () {
+        setCurrency('USD', false);
+      }, 60);
+    }
+  }
+
 
   // Audio Toggle
   if (soundToggleBtn && soundIcon) {
@@ -918,10 +1128,10 @@
     selectedInvention = found;
 
     // Update Sidebar
-    if (sidebarGrantVal) sidebarGrantVal.textContent = `₹${found.grantVal.toLocaleString('en-IN')}`;
-    if (sidebarLicensePrice) sidebarLicensePrice.textContent = `₹${found.price.toLocaleString('en-IN')}`;
-    if (sidebarScholarSplit) sidebarScholarSplit.textContent = `₹${found.scholarFellowshipSplit.toLocaleString('en-IN')} direct to researcher`;
-    if (sidebarPlatformFee) sidebarPlatformFee.textContent = `₹${(found.price - found.scholarFellowshipSplit).toLocaleString('en-IN')}`;
+    if (sidebarGrantVal) sidebarGrantVal.textContent = formatCurrency(found.grantVal);
+    if (sidebarLicensePrice) sidebarLicensePrice.textContent = formatCurrency(found.price);
+    if (sidebarScholarSplit) sidebarScholarSplit.textContent = formatCurrency(found.scholarFellowshipSplit) + ' direct to researcher';
+    if (sidebarPlatformFee) sidebarPlatformFee.textContent = formatCurrency(found.price - found.scholarFellowshipSplit);
 
     // Update Handover Deed in view-handover
     const deedRefCode = document.getElementById('deedRefCode');
