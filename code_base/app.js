@@ -939,6 +939,12 @@
       if (typeof recalculateValuation === 'function') {
         recalculateValuation();
       }
+      if (typeof renderFrugalCase === 'function' && typeof activeFrugalCase !== 'undefined') {
+        renderFrugalCase(activeFrugalCase);
+      }
+      if (typeof updateScholarEscrowCalculator === 'function') {
+        updateScholarEscrowCalculator();
+      }
     } catch (e) {}
 
     // 3. Update Effectuation displays
@@ -3745,6 +3751,238 @@ Accredited under BMU AI & Entrepreneurship (Dr. Nirupama M P)`;
   }
 
 
+    /* ==========================================================================
+     24. Frugal Recombination Engine & Scholar Escrow Controller (Idea Betterment)
+     ========================================================================== */
+  var FRUGAL_CASES = {
+    spectrometer: {
+      title: 'Case A: Non-Invasive Photonic Biosensor (Spectrometry Sub-Assembly)',
+      origin: 'IIT Madras Biomedical Lab • Patent 201941038290',
+      labItem: 'Ocean Optics Maya2000-Pro Optical Spectrometer',
+      labCost: 450000,
+      labSpecs: [
+        'Imported from Germany (Hamamatsu high-sensitivity CCD detector)',
+        'Requires specialized fiber optic quartz probe and precision optical bench',
+        'Lead time 10-14 weeks with 28% customs import tariffs',
+        'High fragility: unusable in harsh outdoor field environments'
+      ],
+      frugalItem: 'Sony IMX219 CMOS + 1000 l/mm Holographic Film + ESP32 Spectral 1D-CNN',
+      frugalCost: 880,
+      frugalSpecs: [
+        'Locally fabricated 3D printed housing in campus FabLab (PETG filament: ₹80)',
+        'Raw Sony 8MP CMOS sensor module (₹450) + transmission grating film',
+        'Onboard 1D Convolutional Neural Network reconstructs 380-780nm absorption curve',
+        'Physical shock-resistant; zero fiber optics needed'
+      ],
+      collapse: '99.8% Cost Collapse',
+      metric: '91.4% Correlation with Lab Standard',
+      sources: 'Robu.in (Pune) & Nehru Place (Delhi Electronics Hub)'
+    },
+    gimbal: {
+      title: 'Case B: Autonomous 3-Axis UAV Kinematic Camera Gimbal',
+      origin: 'BMU Mechatronics Lab • Patent 202111004921',
+      labItem: 'Maxon EC-max 22 Brushless Motors + Swiss Harmonic Drive Gearhead',
+      labCost: 38000,
+      labSpecs: [
+        'Imported Swiss precision zero-backlash harmonic drive gearbox',
+        'High procurement barrier: ₹38,000 per single axis (₹1.14L per gimbal)',
+        'Requires proprietary high-voltage digital motor drivers (₹18,500)',
+        'Extreme lead time: minimum 8 weeks import clearance'
+      ],
+      frugalItem: 'NEMA-17 Stepper + 3D-Printed Compliant Planetary Flexure + AS5600 12-Bit Magnetic Encoder',
+      frugalCost: 930,
+      frugalSpecs: [
+        'Domestic standard NEMA-17 stepper motor sourced locally (₹620)',
+        '3D printed compliant monolithic planetary flexure eliminating gear slop (₹120)',
+        'High-resolution AS5600 contactless I2C magnetic absolute angle encoder (₹190)',
+        'Fabricated within 4 hours on any standard campus Ender-3 3D printer'
+      ],
+      collapse: '97.5% Cost Collapse',
+      metric: '< 0.08° Backlash (Zero Slop)',
+      sources: 'Mayapuri Tooling Cluster (Delhi) & Robocraze (Bangalore)'
+    },
+    soil: {
+      title: 'Case C: Multi-Spectral Soil Nitrogen & Moisture Biosensor',
+      origin: 'BMU Capstone Agri-Automation • Patent 202211048291',
+      labItem: 'Thermo Fisher Scientific Orion Multi-Parameter Ion Selective Electrode',
+      labCost: 185000,
+      labSpecs: [
+        'Laboratory-grade glass membrane electrochemical ion-selective electrode',
+        'Requires refrigerated chemical buffer replenishment every 14 days',
+        'Extreme sensitivity to temperature drift and soil particulate contamination',
+        'Single replacement probe cost: ₹45,000'
+      ],
+      frugalItem: 'Multi-Wavelength LED Matrix (365/470/660nm) + BPW34 Photodiode Bridge + Impedance Probe',
+      frugalCost: 475,
+      frugalSpecs: [
+        'Solid-state multi-band optical reflection emitter array (₹180)',
+        'Silicon PIN photodiode bridge with differential signal conditioning (₹75)',
+        'Dual stainless-steel capacitive impedance soil pins (₹40)',
+        'Calibrated via local Rewari/Gurugram topsoil regression model on Arduino Nano (₹180)'
+      ],
+      collapse: '99.7% Cost Collapse',
+      metric: '94.2% Field Correlation with Soil Lab Tests',
+      sources: 'Bhagirath Palace (Old Delhi) & Bharat Electronics Components'
+    }
+  };
+
+  var activeFrugalCase = 'spectrometer';
+
+  function renderFrugalCase(caseKey) {
+    var c = FRUGAL_CASES[caseKey] || FRUGAL_CASES.spectrometer;
+    activeFrugalCase = caseKey;
+    var container = document.getElementById('frugalCaseDisplay');
+    if (!container) return;
+
+    container.innerHTML = 
+      '<div style="border-bottom: 1px solid var(--border-subtle); padding-bottom: 10px; margin-bottom: 12px;">' +
+        '<div style="font-size: 0.72rem; font-weight: 700; color: var(--olive-primary); text-transform: uppercase;">' + c.origin + '</div>' +
+        '<h3 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--text-primary); margin: 4px 0 0 0;">' + c.title + '</h3>' +
+      '</div>' +
+      '<div class="frugal-diff-grid">' +
+        '<div class="frugal-col-card">' +
+          '<div class="frugal-col-header text-muted">' +
+            '<span>1. ACADEMIC LAB IMPORTED SPEC</span>' +
+            '<span class="badge-accreditation" style="font-size: 0.65rem;">HIGH OVER-SPECIFICATION</span>' +
+          '</div>' +
+          '<div class="frugal-cost-badge text-muted">' + formatCurrency(c.labCost) + ' <span style="font-size: 0.78rem; font-weight: 400;">/ unit</span></div>' +
+          '<div style="font-weight: 600; font-size: 0.85rem; color: var(--text-primary); margin-bottom: 6px;">' + c.labItem + '</div>' +
+          '<ul class="frugal-specs-list">' +
+            c.labSpecs.map(function(s) { return '<li>&bull; ' + s + '</li>'; }).join('') +
+          '</ul>' +
+        '</div>' +
+        '<div class="frugal-col-card highlight-col">' +
+          '<div class="frugal-col-header text-olive">' +
+            '<span>2. GHOSTLAB FRUGAL RECOMBINATION</span>' +
+            '<span class="badge-accreditation" style="background: var(--olive-primary); color: #fff; font-size: 0.65rem;">JUGAAD &times; AI</span>' +
+          '</div>' +
+          '<div class="frugal-cost-badge text-olive">' + formatCurrency(c.frugalCost) + ' <span style="font-size: 0.78rem; font-weight: 400;">/ unit</span></div>' +
+          '<div style="font-weight: 700; font-size: 0.85rem; color: var(--olive-primary); margin-bottom: 6px;">' + c.frugalItem + '</div>' +
+          '<ul class="frugal-specs-list">' +
+            c.frugalSpecs.map(function(s) { return '<li>&bull; ' + s + '</li>'; }).join('') +
+          '</ul>' +
+          '<div style="margin-top: 10px; font-size: 0.75rem; color: var(--text-secondary);">' +
+            '<strong>Domestic Sourcing Hubs:</strong> ' + c.sources +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="frugal-collapse-banner">' +
+        '<div><strong>Cost Collapse:</strong> ' + c.collapse + '</div>' +
+        '<div><strong>Accuracy / Precision Metric:</strong> ' + c.metric + '</div>' +
+      '</div>';
+
+    updateFrugalCalculator();
+  }
+
+  function updateFrugalCalculator() {
+    var c = FRUGAL_CASES[activeFrugalCase] || FRUGAL_CASES.spectrometer;
+    var slider = document.getElementById('sliderFrugalBatch');
+    var dispCount = document.getElementById('dispFrugalBatchCount');
+    var dispLab = document.getElementById('dispLabBOMTotal');
+    var dispFrugal = document.getElementById('dispFrugalBOMTotal');
+    var dispSaved = document.getElementById('dispCapitalSavedTotal');
+
+    var count = slider ? Number(slider.value) : 25;
+    if (dispCount) dispCount.textContent = count + ' Units';
+
+    var totalLab = c.labCost * count;
+    var totalFrugal = c.frugalCost * count;
+    var totalSaved = totalLab - totalFrugal;
+
+    if (dispLab) dispLab.textContent = formatCurrency(totalLab);
+    if (dispFrugal) dispFrugal.textContent = formatCurrency(totalFrugal);
+    if (dispSaved) dispSaved.textContent = formatCurrency(totalSaved);
+  }
+
+  function initFrugalEngine() {
+    var tabs = document.querySelectorAll('.btn-frugal-tab');
+    tabs.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        tabs.forEach(function(t) { t.classList.remove('active'); });
+        btn.classList.add('active');
+        var caseKey = btn.getAttribute('data-frugal-case');
+        if (caseKey) renderFrugalCase(caseKey);
+        if (window.sounds && window.sounds.click) window.sounds.click();
+      });
+    });
+
+    var slider = document.getElementById('sliderFrugalBatch');
+    slider?.addEventListener('input', updateFrugalCalculator);
+
+    // Export BOM (.CSV)
+    var btnExport = document.getElementById('btnExportFrugalBom');
+    btnExport?.addEventListener('click', function() {
+      var c = FRUGAL_CASES[activeFrugalCase] || FRUGAL_CASES.spectrometer;
+      var slider = document.getElementById('sliderFrugalBatch');
+      var count = slider ? Number(slider.value) : 25;
+
+      var csvContent = 'GhostLab Frugal Engineering BOM Procurement Schedule\\n' +
+        'Case,' + c.title + '\\n' +
+        'Origin,' + c.origin + '\\n' +
+        'Batch Quantity,' + count + ' Units\\n' +
+        'Academic Lab Component,' + c.labItem + '\\n' +
+        'Academic Lab Unit Cost (INR),' + c.labCost + '\\n' +
+        'Academic Lab Batch Total (INR),' + (c.labCost * count) + '\\n' +
+        'GhostLab Frugal Recombination,' + c.frugalItem + '\\n' +
+        'GhostLab Frugal Unit Cost (INR),' + c.frugalCost + '\\n' +
+        'GhostLab Frugal Batch Total (INR),' + (c.frugalCost * count) + '\\n' +
+        'Net Capital Saved (INR),' + ((c.labCost - c.frugalCost) * count) + '\\n' +
+        'Cost Reduction Percentage,' + c.collapse + '\\n' +
+        'Precision Benchmark,' + c.metric + '\\n' +
+        'Domestic Sourcing Hubs,' + c.sources + '\\n';
+
+      var blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'GhostLab_Frugal_BOM_' + activeFrugalCase + '.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+      if (window.sounds && window.sounds.click) window.sounds.click();
+      showToast('Exported Frugal Engineering BOM (.CSV)!');
+    });
+
+    // Initial render
+    renderFrugalCase('spectrometer');
+  }
+
+  function updateScholarEscrowCalculator() {
+    var slider = document.getElementById('sliderEscrowLicenses');
+    var dispCount = document.getElementById('dispEscrowLicenseCount');
+    var dispPlatform = document.getElementById('dispTotalPlatformVolume');
+    var dispScholar = document.getElementById('dispTotalScholarDisbursed');
+    var dispLab = document.getElementById('dispTotalLabOverhead');
+    var dispFee = document.getElementById('dispTotalPlatformFee');
+
+    var dispPerScholar = document.getElementById('dispEscrowScholarPerUnit');
+    var dispPerLab = document.getElementById('dispEscrowLabPerUnit');
+    var dispPerFee = document.getElementById('dispEscrowPlatformPerUnit');
+
+    if (dispPerScholar) dispPerScholar.textContent = formatCurrency(1599) + ' / License';
+    if (dispPerLab) dispPerLab.textContent = formatCurrency(200) + ' / License';
+    if (dispPerFee) dispPerFee.textContent = formatCurrency(200) + ' / License';
+
+    var count = slider ? Number(slider.value) : 20;
+    if (dispCount) dispCount.textContent = count + ' Licenses';
+
+    var grossVolume = count * 1999;
+    var scholarAmt = Math.round(grossVolume * 0.8);
+    var labAmt = Math.round(grossVolume * 0.1);
+    var platformAmt = grossVolume - scholarAmt - labAmt;
+
+    if (dispPlatform) dispPlatform.textContent = formatCurrency(grossVolume);
+    if (dispScholar) dispScholar.textContent = formatCurrency(scholarAmt);
+    if (dispLab) dispLab.textContent = formatCurrency(labAmt);
+    if (dispFee) dispFee.textContent = formatCurrency(platformAmt);
+  }
+
+  function initScholarEscrowSimulator() {
+    var slider = document.getElementById('sliderEscrowLicenses');
+    slider?.addEventListener('input', updateScholarEscrowCalculator);
+    updateScholarEscrowCalculator();
+  }
+
+
   /* ==========================================================================
      20. Initialize Platform
      ========================================================================== */
@@ -3760,6 +3998,8 @@ Accredited under BMU AI & Entrepreneurship (Dr. Nirupama M P)`;
   initEffectuationSimulator();
   initAcademicDossier();
   initAcademicCitations();
+  initFrugalEngine();
+  initScholarEscrowSimulator();
   handleHashChange();
   loadDocTab('blueprint');
 

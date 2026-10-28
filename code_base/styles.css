@@ -8250,3 +8250,250 @@ h2, h3, h4, .font-display, .card-title, .workaround-title {
   color: #FFFFFF;
   border-color: var(--olive-primary);
 }
+
+
+/* ==========================================================================
+   Frugal Recombination Engine & Scholar Escrow Styles (Idea Betterment)
+   ========================================================================== */
+.frugal-tabs-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1.2rem;
+  overflow-x: auto;
+}
+
+.btn-frugal-tab {
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-medium);
+  background: var(--bg-surface);
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.btn-frugal-tab:hover {
+  color: var(--text-primary);
+  border-color: var(--olive-border);
+}
+
+.btn-frugal-tab.active {
+  background: var(--olive-primary);
+  color: #FFFFFF;
+  border-color: var(--olive-primary);
+}
+
+.frugal-case-display {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.frugal-diff-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 1rem;
+}
+
+.frugal-col-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.frugal-col-card.highlight-col {
+  border-color: var(--olive-border);
+  background: var(--olive-subtle);
+}
+
+.frugal-col-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.frugal-cost-badge {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.frugal-specs-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.frugal-specs-list li {
+  padding: 4px 0;
+  border-bottom: 1px dashed var(--border-subtle);
+}
+
+.frugal-specs-list li:last-child {
+  border-bottom: none;
+}
+
+.frugal-collapse-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--olive-primary);
+  color: #FFFFFF;
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  margin-top: 14px;
+}
+
+.frugal-calc-card {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.frugal-calc-telemetry {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.frugal-stat-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  text-align: center;
+}
+
+.frugal-stat-box.highlight {
+  border-color: var(--olive-border);
+  background: var(--olive-subtle);
+}
+
+.frugal-stat-val {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--olive-primary);
+}
+
+.frugal-stat-lbl {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* Scholar Escrow Styles */
+.escrow-architecture-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 1.5rem;
+}
+
+.escrow-split-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem;
+  text-align: center;
+}
+
+.escrow-split-card.scholar-primary {
+  border-color: var(--olive-border);
+  background: var(--olive-subtle);
+  transform: scale(1.02);
+  box-shadow: var(--shadow-sm);
+}
+
+.escrow-percentage {
+  font-family: var(--font-mono);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--olive-primary);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.escrow-payout-amt {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.escrow-stakeholder-lbl {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.escrow-stakeholder-desc {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.escrow-sim-container {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.escrow-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.escrow-ledger-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
+
+.escrow-ledger-table th,
+.escrow-ledger-table td {
+  border: 1px solid var(--border-subtle);
+  padding: 8px 10px;
+  text-align: left;
+}
+
+.escrow-ledger-table th {
+  background: var(--bg-surface-elevated);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .frugal-diff-grid, .escrow-architecture-grid {
+    grid-template-columns: 1fr;
+  }
+}
