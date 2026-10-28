@@ -8009,3 +8009,53 @@ h2, h3, h4, .font-display, .card-title, .workaround-title {
     grid-template-columns: 1fr;
   }
 }
+
+/* Currency Switcher (INR ₹ / USD $) */
+.currency-toggle-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 5px 11px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.currency-toggle-btn:hover {
+  border-color: var(--olive-border);
+  color: var(--olive-primary);
+  background: var(--olive-subtle);
+  transform: translateY(-1px);
+}
+
+.currency-toggle-btn.active-usd {
+  border-color: var(--olive-primary);
+  background: var(--olive-subtle);
+  color: var(--olive-primary);
+}
+
+.currency-symbol-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background: var(--olive-primary);
+  color: #FFFFFF;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.currency-label {
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+}

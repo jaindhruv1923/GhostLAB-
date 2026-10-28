@@ -862,7 +862,7 @@
         </div>
         <div class="card-footer-action">
           <div class="price-unlock-box">
-            <span class="price-val">&#x20B9;${inv.price.toLocaleString('en-IN')}</span>
+            <span class="price-val">${formatCurrency(inv.price)}</span>
             <span class="price-sub">1-Click Safe-Harbor License</span>
           </div>
           <button class="btn-primary btn-sm btn-open-autopsy" data-invention="${inv.id}">
@@ -2884,6 +2884,8 @@ Accredited under BMU AI & Entrepreneurship (Dr. Nirupama M P)`;
       themeToggleBtn?.click();
     } else if (e.key === 'm' || e.key === 'M') {
       soundToggleBtn?.click();
+    } else if (e.key === 'u' || e.key === 'U') {
+      document.getElementById('currencyToggleBtn')?.click();
     } else if (['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '='].includes(e.key)) {
       const tabMap = {
         '1': 'welcome',
@@ -3234,6 +3236,7 @@ Accredited under BMU AI & Entrepreneurship (Dr. Nirupama M P)`;
      20. Initialize Platform
      ========================================================================== */
   initTheme();
+  initCurrencySwitcher();
   renderInventions('all');
   selectInvention('bmu_gimbal');
   initDeckThumbnails();
