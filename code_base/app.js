@@ -748,10 +748,28 @@
   });
 
   function handleHashChange() {
-    let hash = window.location.hash.replace('#', '') || 'welcome';
-    if (hash === 'course-material') hash = 'coursematerial';
+    let raw = (window.location.hash || '').replace('#', '') || 'welcome';
+    let parts = raw.split('/');
+    let hash = parts[0];
+    let sub = parts[1];
+
+    if (hash === 'course-material' || hash === 'coursematerial') {
+      hash = 'coursematerial';
+    } else if (['frugal', 'escrow', 'citations', 'stream', 'amplified', 'prototypes', 'canvases', 'prompts', 'lectures', 'effectuation', 'dossier'].includes(hash)) {
+      sub = hash;
+      hash = 'coursematerial';
+    }
+
     const valid = ['welcome', 'coursematerial', 'archive', 'autopsy', 'copilot', 'handover', 'valuation', 'frameworks', 'compare', 'deck', 'ethics', 'expansion'];
-    if (valid.includes(hash)) switchTab(hash);
+    if (valid.includes(hash)) {
+      switchTab(hash);
+      if (hash === 'coursematerial' && sub) {
+        setTimeout(function () {
+          const btn = document.querySelector(`.fw-filter-btn[data-cm-filter="${sub}"]`);
+          if (btn) btn.click();
+        }, 120);
+      }
+    }
   }
   window.addEventListener('hashchange', handleHashChange);
 
@@ -3145,12 +3163,19 @@ Accredited under BMU AI & Entrepreneurship (Dr. Nirupama M P)`;
      ========================================================================== */
   function initWelcomePage() {
     // Generic welcome navigation buttons
-    document.querySelectorAll('.btn-welcome-nav').forEach(btn => {
+    document.querySelectorAll('.btn-welcome-nav, [data-target-tab]').forEach(btn => {
       btn.addEventListener('click', () => {
         const target = btn.getAttribute('data-target-tab');
+        const cmFilter = btn.getAttribute('data-target-cm');
         if (target) {
           switchTab(target);
-          sounds.click();
+          if (target === 'coursematerial' && cmFilter) {
+            setTimeout(() => {
+              const filterBtn = document.querySelector(`.fw-filter-btn[data-cm-filter="${cmFilter}"]`);
+              if (filterBtn) filterBtn.click();
+            }, 100);
+          }
+          if (window.sounds && window.sounds.click) window.sounds.click();
         }
       });
     });
@@ -6557,6 +6582,14 @@ Over 95% of funded university research and PhD prototypes are abandoned when gra
               sec.style.display = 'none';
             }
           });
+
+          if (filter !== 'all') {
+            const activeSec = document.querySelector(`#view-coursematerial .cm-module-card[data-cm-section="${filter}"]`);
+            if (activeSec) {
+              activeSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+
           if (window.sounds && window.sounds.click) window.sounds.click();
         });
       });

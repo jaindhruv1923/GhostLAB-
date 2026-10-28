@@ -621,6 +621,29 @@
               </div>
             </div>
           </div>
+
+          <!-- Direct Jump Bar to Frugal Recombination & Scholar Escrow -->
+          <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px dashed var(--border-medium); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; color: var(--text-dim); letter-spacing: 0.05em;">Interactive Syllabus Modules &bull; Sections 10 &amp; 11</div>
+              <div style="font-weight: 600; font-size: 0.88rem; color: var(--text-main); margin-top: 2px;">Test Frugal Recombination (Jugaad &times; AI) &amp; Direct Scholar Fellowship Escrow Live</div>
+            </div>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <button class="btn-action-primary btn-welcome-nav highlight-sage" data-target-tab="coursematerial" data-target-cm="frugal">
+                <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                </svg>
+                Launch Frugal Substitution Engine
+              </button>
+              <button class="btn-action-primary btn-welcome-nav" data-target-tab="coursematerial" data-target-cm="escrow">
+                <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                </svg>
+                Simulate 80/10/10 Scholar Escrow
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1202,263 +1225,7 @@
       </div>
 
       <!-- ========================================================================== -->
-      <!-- SECTION 9: ACADEMIC CITATION & SCHOLARLY BIBLIOGRAPHY MANAGER -->
-      <!-- Aligned with APA 7th, IEEE, and BibTeX Standards for Course AIE-701 -->
-      <!-- ========================================================================== -->
-      <div class="cm-module-card panel-card mb-5" id="cm-citations" data-cm-section="citations">
-        <div class="cm-module-header">
-          <div class="cm-meta-pill">SCHOLARLY APPARATUS &bull; MODULE REF &bull; APA 7TH / IEEE / BIBTEX</div>
-          <h2 class="cm-title">Academic Citation &amp; Scholarly Bibliography Manager</h2>
-          <p class="cm-desc">
-            A comprehensive, peer-reviewed bibliography operationalizing fifteen foundational texts across
-            entrepreneurship theory, AI economics, systems dynamics, and statutory patent law curated for Dr. Nirupama M
-            P and BML Munjal University Course AIE-701.
-          </p>
-        </div>
-
-        <!-- Filter & Format Switcher Banner -->
-        <div class="citations-filter-strip">
-          <div>
-            <div
-              style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">
-              ACTIVE CITATION STANDARD:</div>
-            <div class="citation-format-tabs" id="citationFormatTabs">
-              <button class="btn-format-tab active" data-format="apa">APA 7th</button>
-              <button class="btn-format-tab" data-format="ieee">IEEE</button>
-              <button class="btn-format-tab" data-format="harvard">Harvard</button>
-              <button class="btn-format-tab" data-format="bibtex">BibTeX (.bib)</button>
-            </div>
-          </div>
-          <div class="citations-actions-row">
-            <button class="btn-action-primary" id="btnDownloadBibtexFile"
-              style="padding: 6px 12px; font-size: 0.78rem;">
-              <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <polyline points="7 10 12 15 17 10" />
-                <line x1="12" y1="15" x2="12" y2="3" />
-              </svg>
-              Download Full BibTeX (.bib)
-            </button>
-            <button class="btn-action-ghost" id="btnCopyAllCitations" style="padding: 6px 12px; font-size: 0.78rem;">
-              <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-              </svg>
-              Copy All Citations
-            </button>
-          </div>
-        </div>
-
-        <!-- Search Bar -->
-        <div class="citations-search-bar">
-          <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
-          <input type="text" class="citations-search-input" id="citationSearchInput"
-            placeholder="Filter references by author, keyword, framework (e.g. Schumpeter, Sarasvathy, Prediction, Pennwalt, IEEE)...">
-        </div>
-
-        <!-- Citations Cards Grid -->
-        <div class="citations-grid" id="citationsCardsGrid">
-          <!-- Dynamically populated via JavaScript -->
-        </div>
-      </div>
-
-      <!-- ========================================================================== -->
-      <!-- SECTION 10: FRUGAL COMPONENT SUBSTITUTION ENGINE (JUGAAD x AI) -->
-      <!-- Aligned with Radjou & Prabhu (2012) & Agrawal et al. (2018) Prediction Economics -->
-      <!-- ========================================================================== -->
-      <div class="cm-module-card panel-card mb-5" id="cm-frugal" data-cm-section="frugal">
-        <div class="cm-module-header">
-          <div class="cm-meta-pill">IDEA BETTERMENT 01 &bull; FRUGAL DEEPTECH &bull; RADJOU (2012) &amp; AGRAWAL (2018)</div>
-          <h2 class="cm-title">Frugal Component Substitution Engine (Jugaad &times; AI)</h2>
-          <p class="cm-desc">
-            The #1 structural reason university hardware inventions remain dormant is <strong>Academic Over-Specification</strong>: laboratory prototypes depend on ₹4.5 Lakh imported spectrometers or ₹38,000 Swiss harmonic drives that bankrupt student founders. GhostLab operationalizes <strong>Frugal Component Recombination</strong>: using zero-cost AI software predictions to replace expensive precision hardware with locally sourceable Indian components.
-          </p>
-        </div>
-
-        <!-- Frugal Case Selection Tabs -->
-        <div class="frugal-tabs-bar" id="frugalTabsBar">
-          <button class="btn-frugal-tab active" data-frugal-case="spectrometer">Case A: Optical Biosensor (Spectrometer)</button>
-          <button class="btn-frugal-tab" data-frugal-case="gimbal">Case B: Robotic Gimbal (Harmonic Drive)</button>
-          <button class="btn-frugal-tab" data-frugal-case="soil">Case C: Soil Nitrogen Probe (Spectrophotometer)</button>
-        </div>
-
-        <!-- Frugal Case Display Box (Populated via JS) -->
-        <div class="frugal-case-display" id="frugalCaseDisplay">
-          <!-- Dynamically populated via JS -->
-        </div>
-
-        <!-- Interactive Frugal Batch Prototyping Calculator -->
-        <div class="frugal-calc-card">
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
-            <div>
-              <span class="eff-pill-badge">INTERACTIVE PROCURING SIMULATOR</span>
-              <h3 style="font-family: var(--font-serif); font-size: 1.15rem; margin: 4px 0 0 0; color: var(--text-primary);">
-                Batch Hardware Procurement Cost Collapse (Indian Domestic Markets)
-              </h3>
-            </div>
-            <button class="btn-action-ghost" id="btnExportFrugalBom" style="padding: 6px 12px; font-size: 0.78rem;">
-              <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="7 10 12 15 17 10"/>
-                <line x1="12" y1="15" x2="12" y2="3"/>
-              </svg>
-              Export Frugal Procurement BOM (.CSV)
-            </button>
-          </div>
-
-          <div class="slider-group mt-3 mb-2">
-            <div class="slider-header">
-              <span>Founder Pilot Batch Quantity:</span>
-              <span class="slider-display" id="dispFrugalBatchCount">25 Units</span>
-            </div>
-            <input type="range" class="form-slider" id="sliderFrugalBatch" min="1" max="200" step="1" value="25">
-          </div>
-
-          <div class="frugal-calc-telemetry">
-            <div class="frugal-stat-box">
-              <div class="frugal-stat-val text-muted" id="dispLabBOMTotal">&#x20B9;1,12,50,000</div>
-              <div class="frugal-stat-lbl">Academic Lab Imported Spec Cost</div>
-            </div>
-            <div class="frugal-stat-box highlight">
-              <div class="frugal-stat-val text-olive" id="dispFrugalBOMTotal">&#x20B9;22,000</div>
-              <div class="frugal-stat-lbl">GhostLab Frugal Recombined BOM</div>
-            </div>
-            <div class="frugal-stat-box highlight">
-              <div class="frugal-stat-val text-olive font-mono" id="dispCapitalSavedTotal">&#x20B9;1,12,28,000</div>
-              <div class="frugal-stat-lbl">Net Student Capital Saved (99.8%)</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ========================================================================== -->
-      <!-- SECTION 11: SCHOLAR FELLOWSHIP ESCROW & INSTITUTIONAL INCENTIVE ARCHITECTURE -->
-      <!-- Aligned with Donella Meadows (2008) Leverage Points & Coase (1937) -->
-      <!-- ========================================================================== -->
-      <div class="cm-module-card panel-card mb-5" id="cm-escrow" data-cm-section="escrow">
-        <div class="cm-module-header">
-          <div class="cm-meta-pill">IDEA BETTERMENT 02 &bull; INCENTIVE ALIGNMENT &bull; DONELLA MEADOWS (2008)</div>
-          <h2 class="cm-title">Direct Scholar Fellowship Escrow &amp; Campus Flywheel (80/10/10)</h2>
-          <p class="cm-desc">
-            University Technology Transfer Offices (TTOs) suffer from an irreconcilable <strong>Principal-Agent Failure</strong>: TTO bureaucrats claim 100% of institutional royalties while the graduating PhD scholar receives ₹0. Consequently, researchers intentionally shelve their discoveries upon departure. <strong>GhostLab realigns institutional incentives</strong> via an irrevocable smart escrow distribution: 80% direct to the original scholar, 10% to campus lab maintenance, and 10% to platform infrastructure.
-          </p>
-        </div>
-
-        <!-- The 80 / 10 / 10 Architecture Cards -->
-        <div class="escrow-architecture-grid">
-          <div class="escrow-split-card scholar-primary">
-            <div class="escrow-percentage">80%</div>
-            <div class="escrow-payout-amt font-mono" id="dispEscrowScholarPerUnit">&#x20B9;1,599 / License</div>
-            <div class="escrow-stakeholder-lbl">Lead PhD Scholar Fellowship Escrow</div>
-            <div class="escrow-stakeholder-desc">
-              Transferred directly to designated researcher's research account. Monies fund ongoing postgraduate work and citation defense without government grant delays.
-            </div>
-          </div>
-
-          <div class="escrow-split-card">
-            <div class="escrow-percentage" style="color: var(--sage-primary);">10%</div>
-            <div class="escrow-payout-amt font-mono" id="dispEscrowLabPerUnit">&#x20B9;200 / License</div>
-            <div class="escrow-stakeholder-lbl">Host University Lab Maintenance Fund</div>
-            <div class="escrow-stakeholder-desc">
-              Replenishes university department consumables: 3D printing filament, CNC end-mills, oscilloscope probes, and workshop electrical overheads.
-            </div>
-          </div>
-
-          <div class="escrow-split-card">
-            <div class="escrow-percentage" style="color: var(--text-muted);">10%</div>
-            <div class="escrow-payout-amt font-mono" id="dispEscrowPlatformPerUnit">&#x20B9;200 / License</div>
-            <div class="escrow-stakeholder-lbl">GhostLab Platform Compute Reserve</div>
-            <div class="escrow-stakeholder-desc">
-              Supports cloud vector inference, cryptographic SHA-256 deed timestamping, and Section 3 statutory legal safe-harbor audits.
-            </div>
-          </div>
-        </div>
-
-        <!-- Interactive License Escrow Volume Simulator -->
-        <div class="escrow-sim-container">
-          <div style="font-weight: 700; color: var(--text-primary); font-size: 1rem; margin-bottom: 4px;">
-            Simulate Campus Rebirth License Volume &bull; Self-Sustaining Research Fellowship
-          </div>
-          <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 12px;">
-            Adjust campus license volume to project direct scholar fellowship disbursements:
-          </div>
-
-          <div class="slider-group mb-2">
-            <div class="slider-header">
-              <span>Annual Rebirth Licenses Executed:</span>
-              <span class="slider-display" id="dispEscrowLicenseCount">20 Licenses</span>
-            </div>
-            <input type="range" class="form-slider" id="sliderEscrowLicenses" min="1" max="150" step="1" value="20">
-          </div>
-
-          <div class="escrow-metrics-row">
-            <div class="frugal-stat-box">
-              <div class="frugal-stat-val text-muted" id="dispTotalPlatformVolume">&#x20B9;39,980</div>
-              <div class="frugal-stat-lbl">Gross Platform Volume</div>
-            </div>
-            <div class="frugal-stat-box highlight">
-              <div class="frugal-stat-val text-olive" id="dispTotalScholarDisbursed">&#x20B9;31,980</div>
-              <div class="frugal-stat-lbl">Direct Scholar Escrow (80%)</div>
-            </div>
-            <div class="frugal-stat-box">
-              <div class="frugal-stat-val" style="color: var(--sage-primary);" id="dispTotalLabOverhead">&#x20B9;4,000</div>
-              <div class="frugal-stat-lbl">Campus Lab Maintenance (10%)</div>
-            </div>
-            <div class="frugal-stat-box">
-              <div class="frugal-stat-val text-muted" id="dispTotalPlatformFee">&#x20B9;4,000</div>
-              <div class="frugal-stat-lbl">Platform Compute (10%)</div>
-            </div>
-          </div>
-
-          <!-- University TTO vs. GhostLab Escrow Institutional Comparison -->
-          <div style="margin-top: 1.5rem;">
-            <div style="font-weight: 700; font-size: 0.88rem; color: var(--olive-primary); margin-bottom: 8px;">
-              INSTITUTIONAL BENCHMARK: TRADITIONAL CAMPUS TTO vs. GHOSTLAB SMART ESCROW
-            </div>
-            <table class="academic-formal-table" style="margin-bottom: 0;">
-              <thead>
-                <tr>
-                  <th>Evaluation Metric</th>
-                  <th>Traditional University TTO</th>
-                  <th>GhostLab Smart Escrow Protocol</th>
-                  <th>Institutional Impact</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Lead Researcher Royalty Share</strong></td>
-                  <td>0% – 5% (Deferred through university central committee)</td>
-                  <td><strong>80% (&#x20B9;1,599 per transaction, direct deposit)</strong></td>
-                  <td>Resolves scholar alienation; incentivizes proactive CAD deposits.</td>
-                </tr>
-                <tr>
-                  <td><strong>Execution Timeline</strong></td>
-                  <td>14 – 24 Months of syndicate negotiation</td>
-                  <td><strong>3 Minutes via certified 1-Click safe-harbor deed</strong></td>
-                  <td>Eliminates 99% of institutional transaction costs (Coase 1937).</td>
-                </tr>
-                <tr>
-                  <td><strong>Upfront Cost to Student Founder</strong></td>
-                  <td>&#x20B9;5,00,000 – &#x20B9;15,00,000 licensing fee + legal retainer</td>
-                  <td><strong>&#x20B9;1,999 ($24) micro-license</strong></td>
-                  <td>Democratizes campus deep-tech commercialization.</td>
-                </tr>
-                <tr>
-                  <td><strong>Invention Abandonment Rate</strong></td>
-                  <td>95.4% of funded research permanently shelved</td>
-                  <td><strong>Continuous rebirth across student batches</strong></td>
-                  <td>Salvages &#x20B9;48.6 Cr in public sunk research capital.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-    </section>
+      </section>
 
     <!-- ========================================== -->
     <!-- VIEW 12: COURSE MATERIAL & CLASSROOM DOSSIER -->
@@ -3012,6 +2779,265 @@ Deliverables:
         </div>
       </div>
 
+    
+
+<!-- SECTION 9: ACADEMIC CITATION & SCHOLARLY BIBLIOGRAPHY MANAGER -->
+      <!-- Aligned with APA 7th, IEEE, and BibTeX Standards for Course AIE-701 -->
+      <!-- ========================================================================== -->
+      <div class="cm-module-card panel-card mb-5" id="cm-citations" data-cm-section="citations">
+        <div class="cm-module-header">
+          <div class="cm-meta-pill">SCHOLARLY APPARATUS &bull; MODULE REF &bull; APA 7TH / IEEE / BIBTEX</div>
+          <h2 class="cm-title">Academic Citation &amp; Scholarly Bibliography Manager</h2>
+          <p class="cm-desc">
+            A comprehensive, peer-reviewed bibliography operationalizing fifteen foundational texts across
+            entrepreneurship theory, AI economics, systems dynamics, and statutory patent law curated for Dr. Nirupama M
+            P and BML Munjal University Course AIE-701.
+          </p>
+        </div>
+
+        <!-- Filter & Format Switcher Banner -->
+        <div class="citations-filter-strip">
+          <div>
+            <div
+              style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">
+              ACTIVE CITATION STANDARD:</div>
+            <div class="citation-format-tabs" id="citationFormatTabs">
+              <button class="btn-format-tab active" data-format="apa">APA 7th</button>
+              <button class="btn-format-tab" data-format="ieee">IEEE</button>
+              <button class="btn-format-tab" data-format="harvard">Harvard</button>
+              <button class="btn-format-tab" data-format="bibtex">BibTeX (.bib)</button>
+            </div>
+          </div>
+          <div class="citations-actions-row">
+            <button class="btn-action-primary" id="btnDownloadBibtexFile"
+              style="padding: 6px 12px; font-size: 0.78rem;">
+              <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download Full BibTeX (.bib)
+            </button>
+            <button class="btn-action-ghost" id="btnCopyAllCitations" style="padding: 6px 12px; font-size: 0.78rem;">
+              <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+              </svg>
+              Copy All Citations
+            </button>
+          </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="citations-search-bar">
+          <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input type="text" class="citations-search-input" id="citationSearchInput"
+            placeholder="Filter references by author, keyword, framework (e.g. Schumpeter, Sarasvathy, Prediction, Pennwalt, IEEE)...">
+        </div>
+
+        <!-- Citations Cards Grid -->
+        <div class="citations-grid" id="citationsCardsGrid">
+          <!-- Dynamically populated via JavaScript -->
+        </div>
+      </div>
+
+      <!-- ========================================================================== -->
+      <!-- SECTION 10: FRUGAL COMPONENT SUBSTITUTION ENGINE (JUGAAD x AI) -->
+      <!-- Aligned with Radjou & Prabhu (2012) & Agrawal et al. (2018) Prediction Economics -->
+      <!-- ========================================================================== -->
+      <div class="cm-module-card panel-card mb-5" id="cm-frugal" data-cm-section="frugal">
+        <div class="cm-module-header">
+          <div class="cm-meta-pill">IDEA BETTERMENT 01 &bull; FRUGAL DEEPTECH &bull; RADJOU (2012) &amp; AGRAWAL (2018)</div>
+          <h2 class="cm-title">Frugal Component Substitution Engine (Jugaad &times; AI)</h2>
+          <p class="cm-desc">
+            The #1 structural reason university hardware inventions remain dormant is <strong>Academic Over-Specification</strong>: laboratory prototypes depend on ₹4.5 Lakh imported spectrometers or ₹38,000 Swiss harmonic drives that bankrupt student founders. GhostLab operationalizes <strong>Frugal Component Recombination</strong>: using zero-cost AI software predictions to replace expensive precision hardware with locally sourceable Indian components.
+          </p>
+        </div>
+
+        <!-- Frugal Case Selection Tabs -->
+        <div class="frugal-tabs-bar" id="frugalTabsBar">
+          <button class="btn-frugal-tab active" data-frugal-case="spectrometer">Case A: Optical Biosensor (Spectrometer)</button>
+          <button class="btn-frugal-tab" data-frugal-case="gimbal">Case B: Robotic Gimbal (Harmonic Drive)</button>
+          <button class="btn-frugal-tab" data-frugal-case="soil">Case C: Soil Nitrogen Probe (Spectrophotometer)</button>
+        </div>
+
+        <!-- Frugal Case Display Box (Populated via JS) -->
+        <div class="frugal-case-display" id="frugalCaseDisplay">
+          <!-- Dynamically populated via JS -->
+        </div>
+
+        <!-- Interactive Frugal Batch Prototyping Calculator -->
+        <div class="frugal-calc-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <span class="eff-pill-badge">INTERACTIVE PROCURING SIMULATOR</span>
+              <h3 style="font-family: var(--font-serif); font-size: 1.15rem; margin: 4px 0 0 0; color: var(--text-primary);">
+                Batch Hardware Procurement Cost Collapse (Indian Domestic Markets)
+              </h3>
+            </div>
+            <button class="btn-action-ghost" id="btnExportFrugalBom" style="padding: 6px 12px; font-size: 0.78rem;">
+              <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Export Frugal Procurement BOM (.CSV)
+            </button>
+          </div>
+
+          <div class="slider-group mt-3 mb-2">
+            <div class="slider-header">
+              <span>Founder Pilot Batch Quantity:</span>
+              <span class="slider-display" id="dispFrugalBatchCount">25 Units</span>
+            </div>
+            <input type="range" class="form-slider" id="sliderFrugalBatch" min="1" max="200" step="1" value="25">
+          </div>
+
+          <div class="frugal-calc-telemetry">
+            <div class="frugal-stat-box">
+              <div class="frugal-stat-val text-muted" id="dispLabBOMTotal">&#x20B9;1,12,50,000</div>
+              <div class="frugal-stat-lbl">Academic Lab Imported Spec Cost</div>
+            </div>
+            <div class="frugal-stat-box highlight">
+              <div class="frugal-stat-val text-olive" id="dispFrugalBOMTotal">&#x20B9;22,000</div>
+              <div class="frugal-stat-lbl">GhostLab Frugal Recombined BOM</div>
+            </div>
+            <div class="frugal-stat-box highlight">
+              <div class="frugal-stat-val text-olive font-mono" id="dispCapitalSavedTotal">&#x20B9;1,12,28,000</div>
+              <div class="frugal-stat-lbl">Net Student Capital Saved (99.8%)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================================================== -->
+      <!-- SECTION 11: SCHOLAR FELLOWSHIP ESCROW & INSTITUTIONAL INCENTIVE ARCHITECTURE -->
+      <!-- Aligned with Donella Meadows (2008) Leverage Points & Coase (1937) -->
+      <!-- ========================================================================== -->
+      <div class="cm-module-card panel-card mb-5" id="cm-escrow" data-cm-section="escrow">
+        <div class="cm-module-header">
+          <div class="cm-meta-pill">IDEA BETTERMENT 02 &bull; INCENTIVE ALIGNMENT &bull; DONELLA MEADOWS (2008)</div>
+          <h2 class="cm-title">Direct Scholar Fellowship Escrow &amp; Campus Flywheel (80/10/10)</h2>
+          <p class="cm-desc">
+            University Technology Transfer Offices (TTOs) suffer from an irreconcilable <strong>Principal-Agent Failure</strong>: TTO bureaucrats claim 100% of institutional royalties while the graduating PhD scholar receives ₹0. Consequently, researchers intentionally shelve their discoveries upon departure. <strong>GhostLab realigns institutional incentives</strong> via an irrevocable smart escrow distribution: 80% direct to the original scholar, 10% to campus lab maintenance, and 10% to platform infrastructure.
+          </p>
+        </div>
+
+        <!-- The 80 / 10 / 10 Architecture Cards -->
+        <div class="escrow-architecture-grid">
+          <div class="escrow-split-card scholar-primary">
+            <div class="escrow-percentage">80%</div>
+            <div class="escrow-payout-amt font-mono" id="dispEscrowScholarPerUnit">&#x20B9;1,599 / License</div>
+            <div class="escrow-stakeholder-lbl">Lead PhD Scholar Fellowship Escrow</div>
+            <div class="escrow-stakeholder-desc">
+              Transferred directly to designated researcher's research account. Monies fund ongoing postgraduate work and citation defense without government grant delays.
+            </div>
+          </div>
+
+          <div class="escrow-split-card">
+            <div class="escrow-percentage" style="color: var(--sage-primary);">10%</div>
+            <div class="escrow-payout-amt font-mono" id="dispEscrowLabPerUnit">&#x20B9;200 / License</div>
+            <div class="escrow-stakeholder-lbl">Host University Lab Maintenance Fund</div>
+            <div class="escrow-stakeholder-desc">
+              Replenishes university department consumables: 3D printing filament, CNC end-mills, oscilloscope probes, and workshop electrical overheads.
+            </div>
+          </div>
+
+          <div class="escrow-split-card">
+            <div class="escrow-percentage" style="color: var(--text-muted);">10%</div>
+            <div class="escrow-payout-amt font-mono" id="dispEscrowPlatformPerUnit">&#x20B9;200 / License</div>
+            <div class="escrow-stakeholder-lbl">GhostLab Platform Compute Reserve</div>
+            <div class="escrow-stakeholder-desc">
+              Supports cloud vector inference, cryptographic SHA-256 deed timestamping, and Section 3 statutory legal safe-harbor audits.
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive License Escrow Volume Simulator -->
+        <div class="escrow-sim-container">
+          <div style="font-weight: 700; color: var(--text-primary); font-size: 1rem; margin-bottom: 4px;">
+            Simulate Campus Rebirth License Volume &bull; Self-Sustaining Research Fellowship
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 12px;">
+            Adjust campus license volume to project direct scholar fellowship disbursements:
+          </div>
+
+          <div class="slider-group mb-2">
+            <div class="slider-header">
+              <span>Annual Rebirth Licenses Executed:</span>
+              <span class="slider-display" id="dispEscrowLicenseCount">20 Licenses</span>
+            </div>
+            <input type="range" class="form-slider" id="sliderEscrowLicenses" min="1" max="150" step="1" value="20">
+          </div>
+
+          <div class="escrow-metrics-row">
+            <div class="frugal-stat-box">
+              <div class="frugal-stat-val text-muted" id="dispTotalPlatformVolume">&#x20B9;39,980</div>
+              <div class="frugal-stat-lbl">Gross Platform Volume</div>
+            </div>
+            <div class="frugal-stat-box highlight">
+              <div class="frugal-stat-val text-olive" id="dispTotalScholarDisbursed">&#x20B9;31,980</div>
+              <div class="frugal-stat-lbl">Direct Scholar Escrow (80%)</div>
+            </div>
+            <div class="frugal-stat-box">
+              <div class="frugal-stat-val" style="color: var(--sage-primary);" id="dispTotalLabOverhead">&#x20B9;4,000</div>
+              <div class="frugal-stat-lbl">Campus Lab Maintenance (10%)</div>
+            </div>
+            <div class="frugal-stat-box">
+              <div class="frugal-stat-val text-muted" id="dispTotalPlatformFee">&#x20B9;4,000</div>
+              <div class="frugal-stat-lbl">Platform Compute (10%)</div>
+            </div>
+          </div>
+
+          <!-- University TTO vs. GhostLab Escrow Institutional Comparison -->
+          <div style="margin-top: 1.5rem;">
+            <div style="font-weight: 700; font-size: 0.88rem; color: var(--olive-primary); margin-bottom: 8px;">
+              INSTITUTIONAL BENCHMARK: TRADITIONAL CAMPUS TTO vs. GHOSTLAB SMART ESCROW
+            </div>
+            <table class="academic-formal-table" style="margin-bottom: 0;">
+              <thead>
+                <tr>
+                  <th>Evaluation Metric</th>
+                  <th>Traditional University TTO</th>
+                  <th>GhostLab Smart Escrow Protocol</th>
+                  <th>Institutional Impact</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Lead Researcher Royalty Share</strong></td>
+                  <td>0% – 5% (Deferred through university central committee)</td>
+                  <td><strong>80% (&#x20B9;1,599 per transaction, direct deposit)</strong></td>
+                  <td>Resolves scholar alienation; incentivizes proactive CAD deposits.</td>
+                </tr>
+                <tr>
+                  <td><strong>Execution Timeline</strong></td>
+                  <td>14 – 24 Months of syndicate negotiation</td>
+                  <td><strong>3 Minutes via certified 1-Click safe-harbor deed</strong></td>
+                  <td>Eliminates 99% of institutional transaction costs (Coase 1937).</td>
+                </tr>
+                <tr>
+                  <td><strong>Upfront Cost to Student Founder</strong></td>
+                  <td>&#x20B9;5,00,000 – &#x20B9;15,00,000 licensing fee + legal retainer</td>
+                  <td><strong>&#x20B9;1,999 ($24) micro-license</strong></td>
+                  <td>Democratizes campus deep-tech commercialization.</td>
+                </tr>
+                <tr>
+                  <td><strong>Invention Abandonment Rate</strong></td>
+                  <td>95.4% of funded research permanently shelved</td>
+                  <td><strong>Continuous rebirth across student batches</strong></td>
+                  <td>Salvages &#x20B9;48.6 Cr in public sunk research capital.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    
     </section>
 
 
