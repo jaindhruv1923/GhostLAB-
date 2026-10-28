@@ -2967,6 +2967,269 @@ Accredited under BMU AI & Entrepreneurship (Dr. Nirupama M P)`;
     }
   }
 
+  
+  /* ==========================================================================
+     21. Option 1: Sarasvathy Effectuation Engine & Lemonade Simulator Controller
+     ========================================================================== */
+  function initEffectuationSimulator() {
+    const btnCausal = document.getElementById('btnModeCausal');
+    const btnEffectual = document.getElementById('btnModeEffectual');
+    const compGrid = document.getElementById('effComparisonGrid');
+
+    const COMPARISON_DATA = {
+      causal: [
+        { metric: 'Starting Capital at Risk', val: '₹50,00,000', desc: 'Requires large institutional seed capital to build tooling from scratch.', highlight: false },
+        { metric: 'Time to Market', val: '18 Months', desc: 'Prolonged CAD cycles, patent waitlists, and unvalidated pilot delays.', highlight: false },
+        { metric: 'Legal & IP Exposure', val: '₹1.5L Retainer', desc: 'Extreme fear of cease-and-desist letters from patent aggregators.', highlight: false },
+        { metric: 'Strategic Orientation', val: 'Macro Forecasting', desc: 'Relies on speculative 5-year TAM predictions and market growth guesswork.', highlight: false },
+        { metric: 'Downside Consequence', val: 'Total Bankruptcy', desc: 'Personal financial ruin, unpaid debts, and complete venture dissolution.', highlight: false }
+      ],
+      effectual: [
+        { metric: 'Starting Capital at Risk', val: '₹3,499 – ₹5,999', desc: 'Strictly capped Affordable Loss: ₹1,999 micro-license + filament.', highlight: true },
+        { metric: 'Time to Market', val: '21 Days', desc: 'Pre-validated university CAD geometry 3D printed within 72 hours.', highlight: true },
+        { metric: 'Legal & IP Exposure', val: '₹1,999 Safe-Harbor', desc: 'Certified statutory non-infringement bypassing Claim 1 under All-Elements Rule.', highlight: true },
+        { metric: 'Strategic Orientation', val: 'Pre-Committed Pacts', desc: 'Crazy Quilt partnerships with original scholars & paying pilot customers.', highlight: true },
+        { metric: 'Downside Consequence', val: 'Affordable Learning', desc: 'Zero debt, zero equity given away, CAD files preserved for next iteration.', highlight: true }
+      ]
+    };
+
+    function renderEffComparison(mode) {
+      if (!compGrid) return;
+      const data = COMPARISON_DATA[mode] || COMPARISON_DATA.effectual;
+      compGrid.innerHTML = data.map(item => `
+        <div class="eff-comp-card ${item.highlight ? 'highlight' : ''}">
+          <div class="eff-comp-metric">${item.metric}</div>
+          <div class="eff-comp-val font-mono ${item.highlight ? 'text-olive' : 'text-muted'}">${item.val}</div>
+          <div class="eff-comp-desc">${item.desc}</div>
+        </div>
+      `).join('');
+    }
+
+    btnCausal?.addEventListener('click', () => {
+      btnCausal.classList.add('active');
+      btnEffectual?.classList.remove('active');
+      renderEffComparison('causal');
+      sounds.click();
+    });
+
+    btnEffectual?.addEventListener('click', () => {
+      btnEffectual.classList.add('active');
+      btnCausal?.classList.remove('active');
+      renderEffComparison('effectual');
+      sounds.click();
+    });
+
+    // Initial render
+    renderEffComparison('effectual');
+
+    // Principle 1: Bird-in-Hand (Means Matcher)
+    const selMeans = document.getElementById('selFounderMeans');
+    const outMeans = document.getElementById('effMeansMatchOutput');
+    const MEANS_MATCHES = {
+      bmu_me: {
+        patent: 'Patent 202111004921: 3-Axis Gyro-Stabilized Camera Gimbal (BMU Mechatronics Lab)',
+        sunk: '₹28,50,000 DST Grant Sunk',
+        action: 'Instant CAD match: B-Rep solid model ready for FDM 3D printing in BMU Workshop tonight.'
+      },
+      bmu_cse: {
+        patent: 'Patent 202011038192: Edge-AI Optical Ripeness Classifier (IIT Delhi CSE Lab)',
+        sunk: '₹42,00,000 MeitY Grant Sunk',
+        action: 'Instant code match: Python YOLOv8 model deployable on student Raspberry Pi 4 edge device.'
+      },
+      agro_fam: {
+        patent: 'Patent 202211048291: Smart Solar Agri-Irrigation & Soil Nitrogen Biosensor (BMU Capstone)',
+        sunk: '₹18,40,000 University Sunk R&D',
+        action: 'Instant deployment match: Direct plug-and-play validation on family farm fields in Gurugram/Rewari.'
+      },
+      bme_health: {
+        patent: 'Patent 201941038290: Non-Invasive Photonic Glucose Spectrometry Ring (IIT Madras BME)',
+        sunk: '₹64,00,000 BIRAC Grant Sunk',
+        action: 'Instant wetware match: Sensor optics bench testable with university lab spectrophotometers.'
+      }
+    };
+
+    function updateMeansMatch() {
+      if (!selMeans || !outMeans) return;
+      const m = MEANS_MATCHES[selMeans.value] || MEANS_MATCHES.bmu_me;
+      outMeans.innerHTML = `
+        <strong>Optimal Academic Match:</strong> <span class="highlight-olive">${m.patent}</span><br>
+        <span class="text-muted">${m.sunk}</span> &bull; <em>${m.action}</em>
+      `;
+    }
+    selMeans?.addEventListener('change', () => {
+      updateMeansMatch();
+      sounds.click();
+    });
+    updateMeansMatch();
+
+    // Principle 2: Affordable Loss Slider Calculator
+    const sliderProto = document.getElementById('sliderProtoLoss');
+    const sliderWorkshop = document.getElementById('sliderWorkshopLoss');
+    const dispProto = document.getElementById('dispProtoLoss');
+    const dispWorkshop = document.getElementById('dispWorkshopLoss');
+    const dispTotal = document.getElementById('dispTotalAffordableLoss');
+
+    function updateLossCalc() {
+      const p = sliderProto ? Number(sliderProto.value) : 2500;
+      const w = sliderWorkshop ? Number(sliderWorkshop.value) : 1500;
+      if (dispProto) dispProto.textContent = '₹' + p.toLocaleString('en-IN');
+      if (dispWorkshop) dispWorkshop.textContent = '₹' + w.toLocaleString('en-IN');
+      const total = 1999 + p + w;
+      if (dispTotal) dispTotal.textContent = '₹' + total.toLocaleString('en-IN');
+    }
+    sliderProto?.addEventListener('input', updateLossCalc);
+    sliderWorkshop?.addEventListener('input', updateLossCalc);
+    updateLossCalc();
+
+    // Principle 3: Crazy Quilt Checkboxes
+    const chk1 = document.getElementById('chkPact1');
+    const chk2 = document.getElementById('chkPact2');
+    const chk3 = document.getElementById('chkPact3');
+    const badgeQuilt = document.getElementById('quiltStatusBadge');
+
+    function updateQuilt() {
+      if (!badgeQuilt) return;
+      const checks = [chk1, chk2, chk3].filter(c => c && c.checked).length;
+      badgeQuilt.innerHTML = `${checks} of 3 Commitments Locked &bull; ${checks === 3 ? 'Zero Market Speculation &bull; Quilt Fully Sealed' : 'Requires Pre-Commitment to Seal Quilt'}`;
+      badgeQuilt.style.color = checks === 3 ? 'var(--olive-primary)' : 'var(--amber-primary, #b45309)';
+    }
+    [chk1, chk2, chk3].forEach(c => c?.addEventListener('change', () => {
+      updateQuilt();
+      sounds.click();
+    }));
+    updateQuilt();
+
+    // Principle 4: Lemonade Principle Case Tabs
+    const LEMONADE_CASES = {
+      gimbal: {
+        title: 'Case 1: Gimbal Thermal Throttling in Sealed Military UAVs',
+        flaw: 'The original 2021 patent was abandoned by DRDO because motor drivers overheated past 75°C inside enclosed fuselage compartments.',
+        lemonade: 'GhostLab re-designed the bracket for external open-frame agricultural crop-dusting drones. Propeller downwash provides 45 m/s continuous forced-air cooling, eliminating heavy heatsinks completely!'
+      },
+      nitrogen: {
+        title: 'Case 2: 1.8-Second Spectrometry Latency in Autonomous Tractors',
+        flaw: 'Shelved by an automotive robotics incubator because 1.8-second optical scan delay caused high-speed collision hazards at 30 km/h.',
+        lemonade: 'Repurposed for stationary greenhouse drip-irrigation tubes. Soil nitrogen absorption rates fluctuate across 6 to 12 hours, rendering a 1.8-second delay completely instantaneous and superior!'
+      },
+      chassis: {
+        title: 'Case 3: Heavy Cast Magnesium-Alloy Exoskeleton Struts',
+        flaw: 'Rejected by hospital rehabilitation clinics because the 4.8 kg metal frame was too fatiguing for elderly post-stroke patients.',
+        lemonade: 'Repurposed as an industrial warehouse logistics assist frame. The structural metal mass acts as an essential counter-weight when dockworkers haul 50 kg cement sacks in Haryana godowns!'
+      }
+    };
+
+    const lemBox = document.getElementById('lemonadeContentBox');
+    const lemBtns = document.querySelectorAll('.lemonade-tab-btn');
+
+    function renderLemonade(caseId) {
+      if (!lemBox) return;
+      const c = LEMONADE_CASES[caseId] || LEMONADE_CASES.gimbal;
+      lemBox.innerHTML = `
+        <div style="font-weight:700; color:var(--olive-primary); margin-bottom:4px;">${c.title}</div>
+        <div style="margin-bottom:6px;"><strong>Original Flaw (Fatal in Causal Mode):</strong> ${c.flaw}</div>
+        <div class="highlight-sage" style="background:var(--olive-subtle); padding:8px 10px; border-radius:var(--radius-sm); border:1px solid var(--olive-border);">
+          <strong>The Lemonade Breakthrough:</strong> ${c.lemonade}
+        </div>
+      `;
+    }
+
+    lemBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        lemBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cId = btn.getAttribute('data-lemonade');
+        if (cId) renderLemonade(cId);
+        sounds.click();
+      });
+    });
+    renderLemonade('gimbal');
+  }
+
+
+  /* ==========================================================================
+     22. Option 4: Official Institutional Academic Dossier Controller
+     ========================================================================== */
+  function initAcademicDossier() {
+    const btnOpen = document.getElementById('btnOpenDossierModal');
+    const btnQuickPrint = document.getElementById('btnQuickPrintDossier');
+    const btnDownloadHtml = document.getElementById('btnDownloadDossierHtml');
+    const btnPrintInside = document.getElementById('btnPrintDossierInside');
+    const btnSaveInside = document.getElementById('btnSaveDossierHtmlInside');
+    const btnDownloadInsideFooter = document.getElementById('btnDownloadDossierInside');
+
+    btnOpen?.addEventListener('click', () => {
+      openModal('modalAcademicDossier');
+      sounds.click();
+    });
+    document.getElementById('btnHeaderExportDossier')?.addEventListener('click', () => {
+      openModal('modalAcademicDossier');
+      sounds.click();
+    });
+
+    function triggerPrint() {
+      openModal('modalAcademicDossier');
+      setTimeout(() => {
+        window.print();
+      }, 300);
+    }
+
+    btnQuickPrint?.addEventListener('click', triggerPrint);
+    btnPrintInside?.addEventListener('click', triggerPrint);
+
+    function exportStandaloneHtml() {
+      const docContent = document.getElementById('printableDossierContent')?.innerHTML || '';
+      const fullHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AIE-701 Institutional Academic Dossier - GhostLab</title>
+  <style>
+    body { font-family: 'Times New Roman', Times, serif; color: #1a1a1a; line-height: 1.6; max-width: 900px; margin: 40px auto; padding: 0 20px; }
+    h1, h2, h3 { font-family: 'Times New Roman', Times, serif; color: #1e3a24; }
+    .bmu-formal-titlepage { text-align: center; border-bottom: 2px solid #333; padding-bottom: 24px; margin-bottom: 30px; }
+    .inst-name { font-size: 24px; font-weight: bold; letter-spacing: 1px; color: #1e3a24; }
+    .school-name { font-size: 15px; color: #555; margin-bottom: 15px; }
+    .report-title { font-size: 22px; font-weight: bold; margin: 20px 0 10px 0; }
+    .bmu-meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: left; background: #f9fbf9; padding: 15px; border: 1px solid #ccc; font-size: 13px; margin: 20px 0; }
+    .academic-formal-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+    .academic-formal-table th, .academic-formal-table td { border: 1px solid #888; padding: 8px 10px; text-align: left; }
+    .academic-formal-table th { background: #e8f0ea; color: #1e3a24; }
+    .academic-section-h2 { font-size: 18px; border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 30px; }
+    .academic-rubric-box { background: #f9fbf9; border: 1px solid #888; padding: 15px; margin-top: 30px; }
+    @media print { body { margin: 0; padding: 0; max-width: 100%; } }
+  </style>
+</head>
+<body>
+  ${docContent}
+</body>
+</html>`;
+
+      const blob = new Blob([fullHtml], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'GhostLab_AIE701_Academic_Dossier_DhruvJain.html';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Downloaded Official Academic Dossier (.HTML)! Open and press Ctrl+P to save as PDF.');
+    }
+
+    btnDownloadHtml?.addEventListener('click', exportStandaloneHtml);
+    btnSaveInside?.addEventListener('click', exportStandaloneHtml);
+    btnDownloadInsideFooter?.addEventListener('click', exportStandaloneHtml);
+  }
+
+  
+  document.getElementById('btnFwJumpEffectuation')?.addEventListener('click', () => {
+    switchTab('coursematerial');
+    setTimeout(() => {
+      const btn = document.querySelector('[data-cm-filter="effectuation"]');
+      btn?.click();
+      const el = document.getElementById('cm-effectuation');
+      el?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  });
+
   /* ==========================================================================
      20. Initialize Platform
      ========================================================================== */
@@ -2978,6 +3241,8 @@ Accredited under BMU AI & Entrepreneurship (Dr. Nirupama M P)`;
   recalculateValuation();
   loadCustomDeposits();
   initWelcomePage();
+  initEffectuationSimulator();
+  initAcademicDossier();
   handleHashChange();
   loadDocTab('blueprint');
 
