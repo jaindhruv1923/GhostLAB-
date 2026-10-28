@@ -5362,7 +5362,95 @@ Over 95% of funded university research and PhD prototypes are abandoned when gra
       });
     }
 
-    // 4. Official Classroom Prompt Copy Buttons
+    // 4. Individual Card View Tabs (Directive vs AI Results)
+    const cardTabBtns = document.querySelectorAll('.card-tab-btn');
+    cardTabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const boxId = btn.getAttribute('data-box-target');
+        const view = btn.getAttribute('data-show-view');
+        const box = document.getElementById(boxId);
+        if (!box) return;
+
+        box.querySelectorAll('.card-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const promptPane = box.querySelector('.prompt-directive-pane');
+        const outputPane = box.querySelector('.prompt-output-pane');
+        if (view === 'prompt') {
+          if (promptPane) promptPane.style.display = 'block';
+          if (outputPane) outputPane.style.display = 'none';
+        } else {
+          if (promptPane) promptPane.style.display = 'none';
+          if (outputPane) outputPane.style.display = 'block';
+        }
+
+        box.classList.remove('split-view-active');
+        if (window.sounds && window.sounds.click) window.sounds.click();
+      });
+    });
+
+    // 5. Global View Switcher (All Prompts, All Outputs, Split View)
+    const btnAllPrompts = document.getElementById('btnToggleAllPrompts');
+    const btnAllOutputs = document.getElementById('btnToggleAllOutputs');
+    const btnSplitView = document.getElementById('btnToggleSplitView');
+    const promptBoxes = document.querySelectorAll('.prompt-box');
+
+    if (btnAllPrompts && btnAllOutputs && btnSplitView) {
+      btnAllPrompts.addEventListener('click', () => {
+        btnAllPrompts.classList.add('active');
+        btnAllOutputs.classList.remove('active');
+        btnSplitView.classList.remove('active');
+
+        promptBoxes.forEach(box => {
+          box.classList.remove('split-view-active');
+          const pPane = box.querySelector('.prompt-directive-pane');
+          const oPane = box.querySelector('.prompt-output-pane');
+          if (pPane) pPane.style.display = 'block';
+          if (oPane) oPane.style.display = 'none';
+          box.querySelectorAll('.card-tab-btn').forEach(b => {
+            if (b.getAttribute('data-show-view') === 'prompt') b.classList.add('active');
+            else b.classList.remove('active');
+          });
+        });
+        if (window.sounds && window.sounds.click) window.sounds.click();
+      });
+
+      btnAllOutputs.addEventListener('click', () => {
+        btnAllOutputs.classList.add('active');
+        btnAllPrompts.classList.remove('active');
+        btnSplitView.classList.remove('active');
+
+        promptBoxes.forEach(box => {
+          box.classList.remove('split-view-active');
+          const pPane = box.querySelector('.prompt-directive-pane');
+          const oPane = box.querySelector('.prompt-output-pane');
+          if (pPane) pPane.style.display = 'none';
+          if (oPane) oPane.style.display = 'block';
+          box.querySelectorAll('.card-tab-btn').forEach(b => {
+            if (b.getAttribute('data-show-view') === 'output') b.classList.add('active');
+            else b.classList.remove('active');
+          });
+        });
+        if (window.sounds && window.sounds.click) window.sounds.click();
+      });
+
+      btnSplitView.addEventListener('click', () => {
+        btnSplitView.classList.add('active');
+        btnAllPrompts.classList.remove('active');
+        btnAllOutputs.classList.remove('active');
+
+        promptBoxes.forEach(box => {
+          box.classList.add('split-view-active');
+          const pPane = box.querySelector('.prompt-directive-pane');
+          const oPane = box.querySelector('.prompt-output-pane');
+          if (pPane) pPane.style.display = 'block';
+          if (oPane) oPane.style.display = 'block';
+        });
+        if (window.sounds && window.sounds.click) window.sounds.click();
+      });
+    }
+
+    // 6. Official Classroom Prompt Copy Buttons
     const copyBtns = document.querySelectorAll('.btn-copy-prompt');
     copyBtns.forEach(btn => {
       btn.addEventListener('click', () => {

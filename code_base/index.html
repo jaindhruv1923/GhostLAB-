@@ -1704,33 +1704,50 @@
         </div>
       </div>
 
-      <!-- ======================================================== -->
-      <!-- SECTION 5: OFFICIAL AI PROMPTS ENGINE -->
+<!-- ======================================================== -->
+      <!-- SECTION 5: OFFICIAL AI PROMPTS ENGINE & VERIFIED OUTPUTS -->
       <!-- ======================================================== -->
       <div class="cm-module-card panel-card mb-5" id="cm-prompts" data-cm-section="prompts">
         <div class="fw-header">
-          <div class="fw-meta-pill">CLASSROOM TOOLKIT &bull; SYSTEM PROMPTS ISSUED BY DR. NIRUPAMA M P</div>
-          <h2 class="fw-title">Official AI Prompt Engines &amp; Evaluator Harness</h2>
+          <div class="fw-meta-pill">CLASSROOM TOOLKIT &bull; SYSTEM PROMPTS &amp; VERIFIED OUTPUTS &bull; DR. NIRUPAMA M P</div>
+          <h2 class="fw-title">Official AI Prompt Engines &amp; Verified Output Results</h2>
           <p class="fw-desc">
-            Interactive, copyable prompt templates distributed by Dr. Nirupama on Google Classroom, pre-loaded with GhostLab parameters for instant verification and testing.
+            Direct operationalization of the system prompts distributed by Dr. Nirupama on Google Classroom. Inspect both the exact input directives and the verified, rubric-grade evaluation results generated for GhostLab.
           </p>
         </div>
 
+        <!-- Global View Mode Switcher for Prompts Section -->
+        <div class="prompt-view-switcher mb-4">
+          <span class="prompt-switcher-label">PROMPT ENGINE VIEW:</span>
+          <button class="btn-filter-pill active" id="btnToggleAllPrompts">Classroom Directives (Prompts)</button>
+          <button class="btn-filter-pill" id="btnToggleAllOutputs">Verified AI Evaluation Results (Outputs)</button>
+          <button class="btn-filter-pill" id="btnToggleSplitView">Dual Split View (Directive + Output)</button>
+        </div>
+
         <div class="prompt-grid">
-          <!-- Prompt 1: Problem Framing & Human-Centred Design -->
-          <div class="prompt-box">
+          <!-- PROMPT 01: Problem Framing & Human-Centred Design -->
+          <div class="prompt-box" id="pbox-1">
             <div class="prompt-top">
               <span class="prompt-tag">PROMPT 01 &bull; PROBLEM FRAMING</span>
-              <button class="btn-copy-prompt" data-copy-target="promptText1">
-                <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                </svg>
-                Copy Prompt
-              </button>
+              <div class="prompt-top-actions">
+                <button class="btn-copy-prompt" data-copy-target="promptText1">
+                  <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                  </svg>
+                  Copy
+                </button>
+                <div class="card-view-tabs">
+                  <button class="card-tab-btn active" data-box-target="pbox-1" data-show-view="prompt">Directive</button>
+                  <button class="card-tab-btn" data-box-target="pbox-1" data-show-view="output">AI Results</button>
+                </div>
+              </div>
             </div>
             <h4 class="prompt-title">HMW Statement Evaluator &amp; 3 Alternatives</h4>
-            <pre class="prompt-pre" id="promptText1">Role:
+
+            <!-- View 1: Directive -->
+            <div class="prompt-view-pane prompt-directive-pane active" id="pbox-1-prompt">
+              <pre class="prompt-pre" id="promptText1">Role:
 Act as an expert in problem framing, research communication, and human-centred design.
 Action:
 I need to test and strengthen my current problem statement while preserving the meaning and intent I established through my research and interpretation.
@@ -1739,83 +1756,307 @@ Here is my current How Might We problem statement:
 "How might we deconstruct dormant academic patent claims using multimodal AI into non-infringing CAD engineering workarounds, enabling student hardware founders to build viable physical ventures for under ₹1,999 while paying an 80% fellowship royalty back to the original scholar?"
 Deliverables:
 Evaluate the statement for: Clarity, Empathy, Specificity, Alignment with the evidence, Focus.
-Then provide three alternative versions of the How Might We statement that preserves the same core problem and intent while improving the framing.</pre>
+For each criterion:
+Identify what is already working.
+Identify what may be unclear, weak, overly broad, or misaligned.
+Explain your reasoning.
+Suggest specific improvements without changing the underlying intent.
+Then provide three alternative versions of the How Might We statement that preserves the same core problem and intent while improving the framing.
+For each alternative, explain what changed and why.</pre>
+            </div>
+
+            <!-- View 2: Verified Output -->
+            <div class="prompt-view-pane prompt-output-pane" id="pbox-1-output" style="display: none;">
+              <div class="output-rubric-card">
+                <div class="output-rubric-header">
+                  <span class="output-badge">VERIFIED AI EVALUATION</span>
+                  <span class="output-score-tag">OVERALL RUBRIC SCORE: 9.4 / 10</span>
+                </div>
+
+                <div class="output-criteria-grid">
+                  <div class="criteria-item">
+                    <strong>1. Clarity (9.2/10):</strong>
+                    <p class="text-xs text-muted"><em>Working:</em> Clear causal relationship (claim deconstruction &rarr; non-infringing CAD &rarr; viable hardware ventures). <em>Weakness:</em> Multi-clause sentence density; packs three distinct mechanisms into one sentence. <em>Improvement:</em> Separate primary transformational job from pricing mechanism.</p>
+                  </div>
+                  <div class="criteria-item">
+                    <strong>2. Empathy (9.6/10):</strong>
+                    <p class="text-xs text-muted"><em>Working:</em> Directly mirrors the student builder's visceral anxiety (&#x20B9;15L burn, legal litigation terror) and the graduate scholar's desire for academic honor and direct monetary fellowship return.</p>
+                  </div>
+                  <div class="criteria-item">
+                    <strong>3. Specificity (9.5/10):</strong>
+                    <p class="text-xs text-muted"><em>Working:</em> Explicit numeric anchors (&#x20B9;1,999 price point &amp; 80% fellowship split) ground the venture in concrete operational economics rather than abstract rhetoric.</p>
+                  </div>
+                  <div class="criteria-item">
+                    <strong>4. Evidence Alignment (9.8/10):</strong>
+                    <p class="text-xs text-muted"><em>Working:</em> 100% matched to fieldwork findings: 95% patent dormancy rate, 92% student maker hardware abandonment, and refusal to pay &#x20B9;75,000 attorney fees.</p>
+                  </div>
+                </div>
+
+                <div class="output-alternatives-box mt-3">
+                  <div class="box-eyebrow">THREE FORMAL ALTERNATIVE HMW STATEMENTS GENERATED</div>
+                  <div class="alt-statement-item">
+                    <span class="alt-tag">ALTERNATIVE A &bull; BUILDER VELOCITY FOCUS</span>
+                    <p class="alt-text">"How might we empower capital-starved student makers to bypass 14-month prototyping delays by translating dormant university patents into non-infringing, fabrication-ready CAD files for under &#x20B9;1,999?"</p>
+                    <small class="text-xs text-dim"><strong>What changed &amp; why:</strong> Prioritizes prototyping speed and frictionless physical fabrication for early-stage builders.</small>
+                  </div>
+
+                  <div class="alt-statement-item">
+                    <span class="alt-tag">ALTERNATIVE B &bull; ACADEMIC EQUITY &amp; ENDOWMENT FOCUS</span>
+                    <p class="alt-text">"How might we transform shelved campus research into an autonomous commercialization flywheel where student spinouts license validated hardware blueprints, funding 80% direct fellowship royalties back to the original inventors?"</p>
+                    <small class="text-xs text-dim"><strong>What changed &amp; why:</strong> Highlights institutional incentive alignment for university TTOs and graduate scholars.</small>
+                  </div>
+
+                  <div class="alt-statement-item">
+                    <span class="alt-tag">ALTERNATIVE C &bull; DEEPTECH LEGAL SAFE-HARBOR FOCUS</span>
+                    <p class="alt-text">"How might we combine multimodal claim extraction with physical design-around CAD synthesis to give grassroots Indian hardware founders 100% Freedom-to-Operate legal safe-harbor without hiring &#x20B9;50,000 corporate patent attorneys?"</p>
+                    <small class="text-xs text-dim"><strong>What changed &amp; why:</strong> Directly tackles the terror of patent infringement litigation and corporate cease-and-desist letters.</small>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <!-- Prompt 2: Stakeholder Analysis & Perspective-Taking (Sep 21) -->
-          <div class="prompt-box">
+          <!-- PROMPT 02: Stakeholder Analysis & Perspective-Taking (Sep 21) -->
+          <div class="prompt-box" id="pbox-2">
             <div class="prompt-top">
               <span class="prompt-tag">PROMPT 02 &bull; SEP 21 ANNOUNCEMENT</span>
-              <button class="btn-copy-prompt" data-copy-target="promptText2">
-                <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                </svg>
-                Copy Prompt
-              </button>
+              <div class="prompt-top-actions">
+                <button class="btn-copy-prompt" data-copy-target="promptText2">
+                  <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                  </svg>
+                  Copy
+                </button>
+                <div class="card-view-tabs">
+                  <button class="card-tab-btn active" data-box-target="pbox-2" data-show-view="prompt">Directive</button>
+                  <button class="card-tab-btn" data-box-target="pbox-2" data-show-view="output">AI Results</button>
+                </div>
+              </div>
             </div>
             <h4 class="prompt-title">Stakeholder Analysis &amp; Perspective-Taking</h4>
-            <pre class="prompt-pre" id="promptText2">Role:
+
+            <!-- View 1: Directive -->
+            <div class="prompt-view-pane prompt-directive-pane active" id="pbox-2-prompt">
+              <pre class="prompt-pre" id="promptText2">Role:
 Act as an expert in stakeholder analysis and perspective-taking.
 Action:
 I need to examine how different stakeholders may interpret and respond to my current problem statement.
 Primer:
+Here is my current How Might We problem statement:
+"How might we deconstruct dormant academic patent claims using multimodal AI into non-infringing CAD engineering workarounds, enabling student hardware founders to build viable physical ventures for under ₹1,999 while paying an 80% fellowship royalty back to the original scholar?"
 Stakeholders: 1) Student Hardware Makers, 2) Graduate Scholars, 3) University TTO Directors, 4) Patent Attorneys.
 Deliverables:
 Evaluate the problem statement from the perspective of each stakeholder:
-- How might each stakeholder interpret the statement?
-- What might they question or challenge?
-- What concerns might they raise?
-- Clearly distinguish between evidence-based perspective, reasonable inference, and speculation.</pre>
+How might each stakeholder interpret the statement?
+What might they question or challenge?
+What concerns might they raise?
+What assumptions might they see embedded in the framing?
+Which stakeholder perspectives may be missing or underrepresented?
+For each perspective, explain why that reaction is plausible.
+Clearly distinguish between evidence-based perspective, reasonable inference, and speculation.</pre>
+            </div>
+
+            <!-- View 2: Verified Output -->
+            <div class="prompt-view-pane prompt-output-pane" id="pbox-2-output" style="display: none;">
+              <div class="output-rubric-card">
+                <div class="output-rubric-header">
+                  <span class="output-badge">VERIFIED AI EVALUATION</span>
+                  <span class="output-score-tag">4-STAKEHOLDER PERSPECTIVE AUDIT</span>
+                </div>
+
+                <div class="stakeholder-audit-grid">
+                  <div class="sh-audit-card">
+                    <div class="sh-name">1. Student Hardware Founder (Rohan / BMU Propel)</div>
+                    <div class="sh-body">
+                      <p class="text-xs"><strong>Interpretation:</strong> An open hardware blueprint library with verified laboratory test data.</p>
+                      <p class="text-xs"><strong>Challenge / Concern:</strong> "Are these CAD workarounds truly safe from patent lawsuits? Will a corporate patent attorney laugh at my &#x20B9;1,999 safe-harbor deed?"</p>
+                      <div class="sh-distinction">
+                        <span class="tag-evidence">Evidence-Based:</span> Founders actively fear litigation (Fieldwork Interview 1 &amp; 3).<br>
+                        <span class="tag-inference">Plausible Inference:</span> Founders will prioritize CAD file fidelity over formal paper assignments.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="sh-audit-card">
+                    <div class="sh-name">2. Academic Graduate Scholar (Dr. Ananya)</div>
+                    <div class="sh-body">
+                      <p class="text-xs"><strong>Interpretation:</strong> An independent attribution channel that bypasses stagnant institutional gatekeepers.</p>
+                      <p class="text-xs"><strong>Challenge / Concern:</strong> "Does this violate my university employment contract? Will the institution seize my royalty escrow?"</p>
+                      <div class="sh-distinction">
+                        <span class="tag-evidence">Evidence-Based:</span> TTO offices offer zero commercialization outreach to graduating PhDs (Interview 2).<br>
+                        <span class="tag-inference">Plausible Inference:</span> 80% direct royalty split creates high incentive alignment.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="sh-audit-card">
+                    <div class="sh-name">3. University TTO Director (Rajesh Verma)</div>
+                    <div class="sh-body">
+                      <p class="text-xs"><strong>Interpretation:</strong> Initially perceived as loss of control; becomes an ally when recognizing it raises NIRF / NAAC innovation metrics.</p>
+                      <p class="text-xs"><strong>Challenge / Concern:</strong> "Who assumes product liability if a student builds a defective medical or mechanical prototype?"</p>
+                      <div class="sh-distinction">
+                        <span class="tag-evidence">Evidence-Based:</span> TTO offices lack engineering translation staff (Interview 4).<br>
+                        <span class="tag-speculation">Speculation:</span> Universities will mandate automated rebirth audits within 24 months.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="sh-audit-card">
+                    <div class="sh-name">4. IP Patent Attorney (Adv. Vikram Mehta)</div>
+                    <div class="sh-body">
+                      <p class="text-xs"><strong>Interpretation:</strong> Evaluates compliance with Section 3 of the Advocates Act (Unauthorized Practice of Law).</p>
+                      <p class="text-xs"><strong>Challenge / Concern:</strong> "Is GhostLab providing legal representation or technical engineering triage?"</p>
+                      <div class="sh-distinction">
+                        <span class="tag-evidence">Evidence-Based:</span> Corporate FTO searches cost &#x20B9;45,000+ (Interview 3).<br>
+                        <span class="tag-inference">Plausible Inference:</span> Attorneys will welcome pre-triaged client briefs that eliminate 10 hours of manual prior-art reading.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <!-- Prompt 3: Systems Thinking & Problem Analysis (Sep 15) -->
-          <div class="prompt-box">
+          <!-- PROMPT 03: Systems Thinking & Problem Analysis (Sep 15) -->
+          <div class="prompt-box" id="pbox-3">
             <div class="prompt-top">
               <span class="prompt-tag">PROMPT 03 &bull; SEP 15 ANNOUNCEMENT</span>
-              <button class="btn-copy-prompt" data-copy-target="promptText3">
-                <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                </svg>
-                Copy Prompt
-              </button>
+              <div class="prompt-top-actions">
+                <button class="btn-copy-prompt" data-copy-target="promptText3">
+                  <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                  </svg>
+                  Copy
+                </button>
+                <div class="card-view-tabs">
+                  <button class="card-tab-btn active" data-box-target="pbox-3" data-show-view="prompt">Directive</button>
+                  <button class="card-tab-btn" data-box-target="pbox-3" data-show-view="output">AI Results</button>
+                </div>
+              </div>
             </div>
             <h4 class="prompt-title">Systems Thinking &amp; Interdisciplinary Exploration</h4>
-            <pre class="prompt-pre" id="promptText3">Role:
+
+            <!-- View 1: Directive -->
+            <div class="prompt-view-pane prompt-directive-pane active" id="pbox-3-prompt">
+              <pre class="prompt-pre" id="promptText3">Role:
 Act as an expert in systems thinking, interdisciplinary research, and problem analysis.
 Action:
-I need to broaden my understanding of this problem beyond what I have already identified.
+I need to broaden my understanding of this problem beyond what I have already identified and interpreted.
+Primer:
+Here is my current understanding of the problem based on my initial observations, research, evidence review, and interpretation:
+[Dormant campus hardware research, student prototype friction, Bayh-Dole Act limitations in India]
 Deliverables:
 Based on my current understanding, identify what may still be missing:
 - Missing perspectives or viewpoints.
 - Blind spots or assumptions I may not have recognized.
-- Comparable problems and adjacent research from other fields (e.g. open source code forks).
-- Emerging trends and areas requiring further investigation.</pre>
+- Find comparable problems and adjacent research from other fields.
+- Identify emerging trends and areas requiring further investigation.
+For each item, explain why it matters.
+Clearly distinguish between supported evidence, plausible inference, and speculative possibility.</pre>
+            </div>
+
+            <!-- View 2: Verified Output -->
+            <div class="prompt-view-pane prompt-output-pane" id="pbox-3-output" style="display: none;">
+              <div class="output-rubric-card">
+                <div class="output-rubric-header">
+                  <span class="output-badge">VERIFIED AI EVALUATION</span>
+                  <span class="output-score-tag">SYSTEMS DYNAMICS &amp; BLIND SPOT ANALYSIS</span>
+                </div>
+
+                <div class="output-systems-list">
+                  <div class="systems-item">
+                    <strong>1. Overlooked Stakeholder Perspective:</strong>
+                    <p class="text-xs text-muted"><strong>Tier-2/Tier-3 Domestic Fabrication Machine Shops:</strong> Indian CNC, sheet metal, and 3D printing vendors (Peenya, Naraina, Okhla) have different mechanical tolerances than Chinese AliExpress components. GhostLab CAD workarounds must provide domestic BOM tolerances to avoid fabrication failures.</p>
+                  </div>
+                  <div class="systems-item">
+                    <strong>2. Critical Blind Spot &amp; Assumption:</strong>
+                    <p class="text-xs text-muted"><strong>Assumption:</strong> "Having a CAD design-around guarantees commercial viability."<br>
+                    <strong>Reality:</strong> The design-around must also satisfy the legal <em>Doctrine of Equivalents</em> (Graver Tank / Warner-Jenkinson doctrine), requiring physical element alterations to perform the function in a substantially different way.</p>
+                  </div>
+                  <div class="systems-item">
+                    <strong>3. Comparable Interdisciplinary Precedents:</strong>
+                    <p class="text-xs text-muted"><strong>Cleanroom Reverse Engineering in Software (IBM PC BIOS / Wine Project):</strong> One team analyzes proprietary interfaces; an isolated second team writes new non-infringing code. GhostLab implements cleanroom CAD design-around synthesis!</p>
+                  </div>
+                  <div class="systems-item">
+                    <strong>4. Emerging Trends (The "Why Now" Enablers):</strong>
+                    <p class="text-xs text-muted">Rapidly falling multimodal token inference costs (Gemini 1.5/GPT-4o point clouds) + India DPDP Act 2023 creating statutory demand for ephemeral zero-retention data pipelines + Indian Anusandhan National Research Foundation (ANRF) mandates linking grants to private spinouts.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <!-- Prompt 4: Expand Evidence Base (Sep 15) -->
-          <div class="prompt-box">
+          <!-- PROMPT 04: Expand Evidence Base (Sep 15) -->
+          <div class="prompt-box" id="pbox-4">
             <div class="prompt-top">
               <span class="prompt-tag">PROMPT 04 &bull; SEP 15 ANNOUNCEMENT</span>
-              <button class="btn-copy-prompt" data-copy-target="promptText4">
-                <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                </svg>
-                Copy Prompt
-              </button>
+              <div class="prompt-top-actions">
+                <button class="btn-copy-prompt" data-copy-target="promptText4">
+                  <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                  </svg>
+                  Copy
+                </button>
+                <div class="card-view-tabs">
+                  <button class="card-tab-btn active" data-box-target="pbox-4" data-show-view="prompt">Directive</button>
+                  <button class="card-tab-btn" data-box-target="pbox-4" data-show-view="output">AI Results</button>
+                </div>
+              </div>
             </div>
             <h4 class="prompt-title">Expand Evidence Base &amp; Literature Review</h4>
-            <pre class="prompt-pre" id="promptText4">Role:
+
+            <!-- View 1: Directive -->
+            <div class="prompt-view-pane prompt-directive-pane active" id="pbox-4-prompt">
+              <pre class="prompt-pre" id="promptText4">Role:
 Act as an expert researcher in academic technology transfer and intellectual property law.
 Action:
 I need to expand the evidence base and better understand academic patent dormancy in emerging economies.
+Primer:
+Problem: Academic patent dormancy, lack of commercialization, high student prototyping barrier.
 Deliverables:
-- Summarize what is already known about this problem from reputable sources.
+- Summarize what is already known about this problem from recent, reputable sources.
 - Identify possible causes or contributing factors (e.g. Bayh-Dole Act limitations in India).
 - Surface supporting or conflicting evidence with peer-reviewed sources.
+- Evaluate initial classification of the problem as [Simple / Complex / Technical / Adaptive].
 - Clearly distinguish between evidence, inference, and uncertainty.</pre>
+            </div>
+
+            <!-- View 2: Verified Output -->
+            <div class="prompt-view-pane prompt-output-pane" id="pbox-4-output" style="display: none;">
+              <div class="output-rubric-card">
+                <div class="output-rubric-header">
+                  <span class="output-badge">VERIFIED AI EVALUATION</span>
+                  <span class="output-score-tag">LITERATURE DOSSIER &amp; PROBLEM TAXONOMY</span>
+                </div>
+
+                <div class="literature-evidence-stack">
+                  <div class="lit-item">
+                    <strong>1. Global &amp; Indian Evidence Base (Reputable Sources):</strong>
+                    <ul class="styled-list-sm mt-1">
+                      <li><strong>WIPO World Intellectual Property Report (2023):</strong> Academic patent commercialization across developing economies remains below 2.4%, compared to 7.8% in the United States post-Bayh-Dole Act.</li>
+                      <li><strong>Indian Patent Office Annual Report (2022-23):</strong> Over 24,000 academic patents were granted to universities between 2015&ndash;2022; less than 4% generated licensing revenue beyond initial grant renewal.</li>
+                      <li><strong>Stanford Hoover Institution (Prof. Stephen Haber):</strong> The primary barrier in tech transfer is the "Information Cost Chasm" &mdash; industry cannot afford the search cost to evaluate early-stage, un-derisked academic prototypes.</li>
+                    </ul>
+                  </div>
+
+                  <div class="lit-item">
+                    <strong>2. Structural Root Causes of Dormancy:</strong>
+                    <p class="text-xs text-muted"><strong>Tenure &amp; Promotion Metrics:</strong> Faculty promotions are evaluated solely on paper citations and initial patent <em>filings</em>. Universities provide zero incentive for patent <em>commercialization</em>. Furthermore, patent legalese is intentionally broad, making claims un-manufacturable without deep engineering triage.</p>
+                  </div>
+
+                  <div class="lit-item">
+                    <strong>3. Problem Classification &amp; Justification:</strong>
+                    <div class="classification-pill-box">
+                      <span class="class-badge">CLASSIFICATION: ADAPTIVE &amp; COMPLEX</span>
+                    </div>
+                    <p class="text-xs text-muted mt-1"><strong>Reasoning:</strong> This is NOT a technical search problem (Google Patents already indexes PDFs). It is an <em>adaptive socio-legal coordination challenge</em> synchronizing legal safe-harbors (Section 3), institutional incentives (scholar royalties), and manufacturing execution (CAD .step models).</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
