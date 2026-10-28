@@ -2659,18 +2659,20 @@ Accredited under BMU AI & Entrepreneurship (Dr. Nirupama M P)`;
       themeToggleBtn?.click();
     } else if (e.key === 'm' || e.key === 'M') {
       soundToggleBtn?.click();
-    } else if (['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'].includes(e.key)) {
+    } else if (['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '='].includes(e.key)) {
       const tabMap = {
         '1': 'welcome',
-        '2': 'archive',
-        '3': 'autopsy',
-        '4': 'copilot',
-        '5': 'handover',
-        '6': 'valuation',
-        '7': 'frameworks',
-        '8': 'compare',
-        '9': 'deck',
-        '0': 'ethics'
+        '2': 'coursematerial',
+        '3': 'archive',
+        '4': 'autopsy',
+        '5': 'copilot',
+        '6': 'handover',
+        '7': 'valuation',
+        '8': 'frameworks',
+        '9': 'compare',
+        '0': 'deck',
+        '-': 'ethics',
+        '=': 'expansion'
       };
       const target = tabMap[e.key];
       if (target) {
@@ -2679,6 +2681,18 @@ Accredited under BMU AI & Entrepreneurship (Dr. Nirupama M P)`;
       }
     } else if (e.key === 'e' || e.key === 'E') {
       switchTab('expansion');
+      sounds.click();
+    } else if (e.key === 'c' || e.key === 'C') {
+      switchTab('coursematerial');
+      sounds.click();
+    } else if (e.key === 'g' || e.key === 'G') {
+      switchTab('ethics');
+      sounds.click();
+    } else if (e.key === 'v' || e.key === 'V') {
+      switchTab('archive');
+      sounds.click();
+    } else if (e.key === 'd' || e.key === 'D') {
+      switchTab('deck');
       sounds.click();
     }
   });
