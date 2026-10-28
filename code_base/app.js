@@ -730,6 +730,12 @@
       }
     });
 
+    try {
+      if (window.location.hash !== '#' + tabId) {
+        history.replaceState(null, '', '#' + tabId);
+      }
+    } catch (e) {}
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
     sounds.click();
   }
@@ -2343,6 +2349,18 @@ Accredited under BMU AI & Entrepreneurship (Dr. Nirupama M P)`;
 
   document.getElementById('btnOpenDepositModal')?.addEventListener('click', () => {
     openModal('modalScholarDeposit');
+  });
+
+  document.getElementById('btnVaultDepositHero')?.addEventListener('click', () => {
+    openModal('modalScholarDeposit');
+  });
+
+  document.getElementById('btnVaultGoCourseMaterial')?.addEventListener('click', () => {
+    switchTab('coursematerial');
+  });
+
+  document.getElementById('btnVaultGoPitchDeck')?.addEventListener('click', () => {
+    switchTab('deck');
   });
 
 
