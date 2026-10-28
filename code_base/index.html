@@ -4310,6 +4310,38 @@ Deliverables:
           </div>
         </div>
         <div class="deck-controls">
+          <!-- Live Classroom Presentation Timer HUD -->
+          <div class="deck-timer-hud" id="deckTimerHud" title="Classroom Presentation Countdown Timer">
+            <span class="timer-label">TIMER</span>
+            <div class="deck-timer-display font-mono" id="deckTimerDisplay">05:00</div>
+            <button class="btn-timer-action" id="btnTimerStartPause" title="Start / Pause Timer">
+              <svg class="svg-icon svg-icon-xs" id="iconTimerPlayPause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+            </button>
+            <button class="btn-timer-action" id="btnTimerReset" title="Reset Timer to 5:00">
+              <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                <polyline points="3 3 3 8 8 8"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Quick Slide Jump Selector -->
+          <select class="deck-slide-select font-mono" id="deckSlideSelect" title="Jump directly to any slide">
+            <option value="0">Slide 1: Overview</option>
+            <option value="1">Slide 2: Double Tragedy</option>
+            <option value="2">Slide 3: Sunk Grant Reality</option>
+            <option value="3">Slide 4: 4-Element Rebirth</option>
+            <option value="4">Slide 5: Live CAD Autopsy</option>
+            <option value="5">Slide 6: Dual Business Model</option>
+            <option value="6">Slide 7: Strategic Benchmark</option>
+            <option value="7">Slide 8: Scholar Fellowship</option>
+            <option value="8">Slide 9: Go-to-Market Scale</option>
+            <option value="9">Slide 10: Tech Architecture</option>
+            <option value="10">Slide 11: AI Governance</option>
+            <option value="11">Slide 12: Viva Defense Ask</option>
+          </select>
           <button class="btn-action-ghost" id="btnDeckPrev">
             <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <line x1="19" y1="12" x2="5" y2="12" />
@@ -5794,6 +5826,14 @@ Deliverables:
       </div>
       <div class="modal-body">
         <form id="scholarDepositForm">
+          <div class="preset-deposit-strip">
+            <button type="button" class="btn-preset-deposit" id="btnLoadBmuPreset">
+              <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+              Quick-Fill BMU Capstone Sample (Smart Solar Agri-Irrigation &amp; Nitrogen Biosensor)
+            </button>
+          </div>
           <div class="deposit-form-grid">
             <div class="deposit-input-group form-field-full">
               <label for="depTitle">Invention / Thesis Title *</label>

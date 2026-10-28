@@ -1991,6 +1991,96 @@ Accredited under BMU AI & Entrepreneurship (Dr. Nirupama M P)`;
     showToast(showSpeakerNotes ? 'Faculty Rubric & Notes enabled' : 'Faculty Rubric & Notes hidden');
   });
 
+  // Live Classroom Presentation Countdown Timer HUD
+  const deckTimerDisplay = document.getElementById('deckTimerDisplay');
+  const btnTimerStartPause = document.getElementById('btnTimerStartPause');
+  const btnTimerReset = document.getElementById('btnTimerReset');
+  const iconTimerPlayPause = document.getElementById('iconTimerPlayPause');
+  const deckTimerHud = document.getElementById('deckTimerHud');
+  const deckSlideSelect = document.getElementById('deckSlideSelect');
+
+  let timerSecondsRemaining = 300; // 5 minutes countdown
+  let presentationTimerInterval = null;
+  let isTimerRunning = false;
+
+  function updateTimerDisplay() {
+    if (!deckTimerDisplay) return;
+    const mins = Math.floor(timerSecondsRemaining / 60);
+    const secs = timerSecondsRemaining % 60;
+    deckTimerDisplay.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+
+    if (deckTimerHud) {
+      if (timerSecondsRemaining <= 30) {
+        deckTimerHud.classList.add('timer-alert');
+        deckTimerHud.classList.remove('timer-warning');
+      } else if (timerSecondsRemaining <= 60) {
+        deckTimerHud.classList.add('timer-warning');
+        deckTimerHud.classList.remove('timer-alert');
+      } else {
+        deckTimerHud.classList.remove('timer-warning', 'timer-alert');
+      }
+    }
+  }
+
+  function startPresentationTimer() {
+    if (isTimerRunning) return;
+    isTimerRunning = true;
+    if (iconTimerPlayPause) {
+      iconTimerPlayPause.innerHTML = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+    }
+    presentationTimerInterval = setInterval(() => {
+      if (timerSecondsRemaining > 0) {
+        timerSecondsRemaining--;
+        updateTimerDisplay();
+        if (timerSecondsRemaining === 0) {
+          pausePresentationTimer();
+          if (sounds.rebirthChime) sounds.rebirthChime();
+          showToast('Presentation time complete (5:00)! Commencing Faculty Viva Q&A.');
+        }
+      }
+    }, 1000);
+  }
+
+  function pausePresentationTimer() {
+    isTimerRunning = false;
+    clearInterval(presentationTimerInterval);
+    presentationTimerInterval = null;
+    if (iconTimerPlayPause) {
+      iconTimerPlayPause.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"/>';
+    }
+  }
+
+  function resetPresentationTimer() {
+    pausePresentationTimer();
+    timerSecondsRemaining = 300;
+    updateTimerDisplay();
+  }
+
+  btnTimerStartPause?.addEventListener('click', () => {
+    if (isTimerRunning) {
+      pausePresentationTimer();
+      sounds.click();
+    } else {
+      startPresentationTimer();
+      sounds.click();
+    }
+  });
+
+  btnTimerReset?.addEventListener('click', () => {
+    resetPresentationTimer();
+    sounds.click();
+    showToast('Presentation timer reset to 05:00');
+  });
+
+  // Slide Jump Selector Handler
+  deckSlideSelect?.addEventListener('change', (e) => {
+    const idx = parseInt(e.target.value);
+    if (!isNaN(idx)) {
+      renderDeckSlide(idx);
+      sounds.click();
+    }
+  });
+
   // Keyboard navigation for deck
   window.addEventListener('keydown', (e) => {
     const viewDeck = document.getElementById('view-deck');
@@ -2216,6 +2306,17 @@ Accredited under BMU AI & Entrepreneurship (Dr. Nirupama M P)`;
       }
     };
 
+    // Persist custom deposits to localStorage
+    try {
+      let customList = [];
+      const raw = localStorage.getItem('ghostlab_custom_inventions');
+      if (raw) customList = JSON.parse(raw);
+      customList.unshift(newInvention);
+      localStorage.setItem('ghostlab_custom_inventions', JSON.stringify(customList));
+    } catch (err) {
+      console.warn('Could not persist custom invention to localStorage', err);
+    }
+
     INVENTIONS_CATALOG.unshift(newInvention);
     renderInventions('all');
     selectInvention(newId);
@@ -2244,6 +2345,49 @@ Accredited under BMU AI & Entrepreneurship (Dr. Nirupama M P)`;
     openModal('modalScholarDeposit');
   });
 
+
+  // Preset Button for BMU Capstone Sample
+  document.getElementById('btnLoadBmuPreset')?.addEventListener('click', () => {
+    const t = document.getElementById('depTitle');
+    const u = document.getElementById('depUniversity');
+    const r = document.getElementById('depResearcher');
+    const g = document.getElementById('depGrant');
+    const y = document.getElementById('depYear');
+    const c = document.getElementById('depCategory');
+    const re = document.getElementById('depReason');
+    const d = document.getElementById('depDesc');
+
+    if (t) t.value = 'Smart Solar Agri-Irrigation & Nitrogen Biosensor';
+    if (u) u.value = 'BML Munjal University • Propel Incubator & Siemens CoE';
+    if (r) r.value = 'Dhruv Jain • Dr. Nirupama M P';
+    if (g) g.value = '1800000';
+    if (y) y.value = '2023';
+    if (c) c.value = 'agri';
+    if (re) re.value = 'Seed Grant Exhausted Before Regulatory Clearance';
+    if (d) d.value = 'Solar-powered IoT soil nitrate sensor array with LoRaWAN telemetry. Validated on BMU campus testbeds; shelved due to lack of local enclosure tooling and Freedom-to-Operate clearance.';
+
+    sounds.click();
+    showToast('BMU Capstone sample loaded! Click "Submit & Sign Deposit Deed".');
+  });
+
+  // Load custom inventions from localStorage
+  function loadCustomDeposits() {
+    try {
+      const saved = localStorage.getItem('ghostlab_custom_inventions');
+      if (saved) {
+        const items = JSON.parse(saved);
+        if (Array.isArray(items) && items.length > 0) {
+          items.forEach(inv => {
+            if (!INVENTIONS_CATALOG.some(existing => existing.id === inv.id)) {
+              INVENTIONS_CATALOG.unshift(inv);
+            }
+          });
+        }
+      }
+    } catch (e) {
+      console.warn('Failed to load custom inventions from localStorage', e);
+    }
+  }
   /* ==========================================================================
      14. Faculty Viva Defense Simulator Logic (#modalVivaDefense)
      ========================================================================== */
@@ -2649,11 +2793,74 @@ Accredited under BMU AI & Entrepreneurship (Dr. Nirupama M P)`;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
+  /* Global Module Navigation Order */
+  const NAV_TAB_ORDER = [
+    'welcome',
+    'coursematerial',
+    'archive',
+    'autopsy',
+    'copilot',
+    'handover',
+    'valuation',
+    'frameworks',
+    'compare',
+    'deck',
+    'ethics',
+    'expansion'
+  ];
+
+  function navigateModule(dir) {
+    let cur = NAV_TAB_ORDER.indexOf(activeTab);
+    if (cur === -1) cur = 0;
+    const nextIdx = dir === 'next'
+      ? (cur + 1) % NAV_TAB_ORDER.length
+      : (cur - 1 + NAV_TAB_ORDER.length) % NAV_TAB_ORDER.length;
+    switchTab(NAV_TAB_ORDER[nextIdx]);
+
+    setTimeout(() => {
+      const el = document.querySelector(`.nav-item[data-tab="${NAV_TAB_ORDER[nextIdx]}"]`);
+      if (el && el.scrollIntoView) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }, 40);
+  }
+
   /* Global Keyboard Shortcuts (Sequential Tab Order) */
   window.addEventListener('keydown', (e) => {
     // Avoid interfering with inputs/textareas or modals
     if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) return;
     if (document.querySelector('.modal-overlay.active')) return;
+
+    // Global Left/Right Arrow Navigation across Navbar Modules
+    if (e.key === 'ArrowRight') {
+      if (activeTab === 'deck') {
+        if (currentDeckSlide < PITCH_SLIDES.length - 1 && !e.shiftKey) {
+          renderDeckSlide(currentDeckSlide + 1);
+          sounds.click();
+        } else {
+          navigateModule('next');
+        }
+      } else {
+        navigateModule('next');
+      }
+      return;
+    } else if (e.key === 'ArrowLeft') {
+      if (activeTab === 'deck') {
+        if (currentDeckSlide > 0 && !e.shiftKey) {
+          renderDeckSlide(currentDeckSlide - 1);
+          sounds.click();
+        } else {
+          navigateModule('prev');
+        }
+      } else {
+        navigateModule('prev');
+      }
+      return;
+    } else if (e.key === 'f' || e.key === 'F') {
+      if (activeTab === 'deck') {
+        btnDeckFullscreen?.click();
+      }
+    }
 
     if (e.key === 't' || e.key === 'T') {
       themeToggleBtn?.click();
@@ -2751,6 +2958,7 @@ Accredited under BMU AI & Entrepreneurship (Dr. Nirupama M P)`;
   initDeckThumbnails();
   renderDeckSlide(0);
   recalculateValuation();
+  loadCustomDeposits();
   initWelcomePage();
   handleHashChange();
   loadDocTab('blueprint');

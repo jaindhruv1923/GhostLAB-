@@ -7403,3 +7403,117 @@ h2, h3, h4, .font-display, .card-title, .workaround-title {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ==========================================================================
+   CLASSROOM PITCH TIMER, SLIDE SELECTOR & DEPOSIT PRESET STYLES
+   ========================================================================== */
+
+/* Pitch Deck Timer HUD */
+.deck-timer-hud {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 3px 8px;
+}
+
+.timer-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+}
+
+.deck-timer-display {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--olive-primary);
+  min-width: 42px;
+  text-align: center;
+}
+
+.deck-timer-hud.timer-warning .deck-timer-display {
+  color: var(--amber-primary);
+}
+
+.deck-timer-hud.timer-alert .deck-timer-display {
+  color: var(--crimson-primary);
+  animation: pulseAlert 1s infinite alternate;
+}
+
+@keyframes pulseAlert {
+  from { opacity: 0.7; }
+  to { opacity: 1; }
+}
+
+.btn-timer-action {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+  padding: 0;
+}
+
+.btn-timer-action:hover {
+  background: var(--olive-primary);
+  color: #FFFFFF;
+  border-color: var(--olive-primary);
+}
+
+/* Quick Slide Select */
+.deck-slide-select {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 6px 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-main);
+  outline: none;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+  max-width: 170px;
+}
+
+.deck-slide-select:focus {
+  border-color: var(--olive-primary);
+}
+
+/* Deposit Preset Button */
+.preset-deposit-strip {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.btn-preset-deposit {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--olive-subtle);
+  color: var(--olive-primary);
+  border: 1px solid var(--olive-border);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  width: 100%;
+  justify-content: center;
+}
+
+.btn-preset-deposit:hover {
+  background: var(--olive-primary);
+  color: #FFFFFF;
+}
