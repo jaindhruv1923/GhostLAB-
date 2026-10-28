@@ -103,6 +103,16 @@
         </svg>
         <span>Welcome</span>
       </a>
+      <a href="#coursematerial" class="nav-item" data-tab="coursematerial" id="navCourseMaterial"
+        title="Course Material &bull; Google Classroom Stream, Lecture Compendium &amp; Fieldwork Dossier">
+        <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+          <line x1="9" y1="7" x2="15" y2="7" />
+          <line x1="9" y1="11" x2="17" y2="11" />
+        </svg>
+        <span>Course Material</span>
+      </a>
       <a href="#archive" class="nav-item" data-tab="archive" id="navArchive"
         title="Dormant Invention Vault &amp; Public Domain Prior Art">
         <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -958,12 +968,25 @@
               <span class="sec-index-pill">07 / 07</span>
               COMPLETE ATELIER OPERATING SYSTEM &bull; 10 ENGINES
             </div>
-            <h2 class="view-heading">Navigate All 10 Atelier Modules</h2>
+            <h2 class="view-heading">Navigate All 11 Atelier Modules</h2>
             <p class="view-sub">Explore the comprehensive suite of deep-tech venture engines designed for academic IP rebirth.</p>
           </div>
         </div>
 
         <div class="tools-grid-10">
+          <div class="tool-card btn-welcome-nav" data-target-tab="coursematerial">
+            <div class="tool-card-top">
+              <span class="tool-num-badge">01</span>
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                <line x1="9" y1="7" x2="15" y2="7" />
+                <line x1="9" y1="11" x2="17" y2="11" />
+              </svg>
+            </div>
+            <h4>Course Material &amp; Syllabus</h4>
+            <p>Direct Google Classroom stream, HI &times; AI loops, fieldwork, prototype comparisons &amp; Strategyzer canvases.</p>
+          </div>
           <div class="tool-card btn-welcome-nav" data-target-tab="archive">
             <div class="tool-card-top">
               <span class="tool-num-badge">01</span>
@@ -1110,6 +1133,845 @@
       </div>
 
     </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 12: COURSE MATERIAL & CLASSROOM DOSSIER -->
+    <!-- Directly aligns with Dr. Nirupama M P's AIE-701 Curriculum & Google Classroom Stream -->
+    <!-- ========================================== -->
+    <section class="view-panel" id="view-coursematerial">
+      <div class="section-title-bar">
+        <div>
+          <div class="view-eyebrow">COURSE REGISTRY &bull; AIE-701 SYLLABUS, CLASSROOM STREAM &amp; LECTURE COMPENDIUM</div>
+          <h1 class="view-heading">Course Material &amp; <span class="highlight-olive">Academic Syllabus Dossier</span></h1>
+          <p class="view-sub">
+            Direct operationalization of all lecture slides, Google Classroom announcements, fieldwork prompts, and evaluation rubrics curated by Dr. Nirupama M P (BML Munjal University). Inspect verified customer discovery fieldwork, the 2-loop HI &times; AI Amplified inquiry method, prototype comparisons with/without AI, and interactive Strategyzer venture canvases.
+          </p>
+          <div class="academic-theory-strip">
+            <div class="theory-strip-badge">
+              <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              </svg>
+              <span>SYLLABUS ANCHOR &bull; AIE-701 ALL MODULES</span>
+            </div>
+            <div class="theory-strip-content">
+              <strong>Pedagogical Grounding (Dr. Nirupama M P):</strong> "Don't validate your solution. Validate the problem first." Move systematically from human empathy to agentic AI acceleration across all 8 modules (C1&ndash;C8) and 4 Course Outcomes (CO1&ndash;CO4).
+            </div>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button class="btn-action-primary" id="btnExportCourseMaterial">
+            <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Export Complete Course Pack (.MD)
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Filter Navigation Bar for Course Material -->
+      <div class="framework-filter-bar mb-4" id="courseMaterialFilterBar">
+        <button class="fw-filter-btn active" data-cm-filter="all">All Course Material</button>
+        <button class="fw-filter-btn" data-cm-filter="stream">1. Classroom Stream &amp; Submissions</button>
+        <button class="fw-filter-btn" data-cm-filter="amplified">2. The HI &times; AI Loop (Amplified)</button>
+        <button class="fw-filter-btn" data-cm-filter="prototypes">3. Prototypes: With vs. Without AI</button>
+        <button class="fw-filter-btn" data-cm-filter="canvases">4. Canvases: BMC &amp; Strategyzer VPC</button>
+        <button class="fw-filter-btn" data-cm-filter="prompts">5. Official AI Prompt Engines</button>
+        <button class="fw-filter-btn" data-cm-filter="lectures">6. Lecture Compendium &amp; AI Taxonomy</button>
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- SECTION 1: GOOGLE CLASSROOM ANNOUNCEMENTS & SUBMISSIONS -->
+      <!-- ======================================================== -->
+      <div class="cm-module-card panel-card mb-5" id="cm-stream" data-cm-section="stream">
+        <div class="fw-header">
+          <div class="fw-meta-pill">CLASSROOM STREAM &bull; POSTS &amp; FIELDWORK ASSIGNMENTS &bull; DR. NIRUPAMA M P</div>
+          <h2 class="fw-title">Google Classroom Activity Stream &amp; Verified Submissions</h2>
+          <p class="fw-desc">
+            Complete chronological record of all assignment announcements, fieldwork prompts, and student deliverables posted to the AIE-701 Google Classroom stream, paired with GhostLab's submission-grade evidence.
+          </p>
+        </div>
+
+        <!-- Activity 1: Problem Validation Fieldwork & Empathy Canvases -->
+        <div class="sub-dossier-card mb-4">
+          <div class="dossier-card-header">
+            <div class="dossier-meta">
+              <span class="badge-tag">ASSIGNMENT 01</span>
+              <span class="badge-tag tag-date">AUG 28 &bull; DUE SEP 8 &bull; 5 POINTS</span>
+              <span class="badge-tag tag-status">SUBMISSION VERIFIED</span>
+            </div>
+            <h3 class="dossier-card-title">Part 1, 2 &amp; 3: Problem Identification, Fieldwork &amp; Dual Empathy Canvases</h3>
+            <p class="dossier-card-desc">
+              <em>"Don't validate your solution. Validate the problem first. Your goal is to move from 'I think this is a problem' &rarr; 'I have evidence that people actually experience this problem.'"</em>
+            </p>
+          </div>
+
+          <div class="grid-2col mb-4">
+            <!-- Part 1: Problem Identification -->
+            <div class="dossier-col-box">
+              <div class="box-eyebrow">PART 1: PROBLEM IDENTIFICATION</div>
+              <h4 class="box-h4">Who, What, and Why It Matters</h4>
+              <ul class="styled-list">
+                <li><strong>Who experiences the problem:</strong> Early-stage student hardware founders in Indian incubators (BMU Propel, Maker's Asylums, DTU) and graduate research scholars (IITs, CSIR labs, BIRAC grant recipients).</li>
+                <li><strong>What the problem is:</strong> Over 95% of funded academic hardware research is abandoned post-graduation inside campus filing cabinets, while 92% of student hardware startups fail or stall because designing physical prototypes from scratch costs &ge; &#x20B9;15 Lakhs and 14 months of trial-and-error.</li>
+                <li><strong>Why it matters:</strong> Tens of crores in public R&amp;D grant capital (DST, MeitY, BIRAC) remain economically dormant, while young founders lack the capital to afford corporate licensing (&#x20B9;1.5L upfront) or Freedom-to-Operate legal opinions (&#x20B9;35,000&ndash;&#x20B9;75,000 per search).</li>
+              </ul>
+            </div>
+
+            <!-- Part 2: Fieldwork Summary -->
+            <div class="dossier-col-box">
+              <div class="box-eyebrow">PART 2: FIELDWORK VALIDATION</div>
+              <h4 class="box-h4">4 User Discovery Interviews Conducted</h4>
+              <div class="interview-snippet-list">
+                <div class="interview-item">
+                  <div class="interview-who"><strong>Rohan S.</strong> &mdash; Final Year B.Tech Mech (BMU Propel Incubator)</div>
+                  <div class="interview-quote">"Spent &#x20B9;2.4 Lakhs and 8 months designing a carbon-fiber payload mount for agri-drones before finding out an IIT Roorkee 2018 M.Tech thesis had already solved this exact stress distribution problem."</div>
+                </div>
+                <div class="interview-item">
+                  <div class="interview-who"><strong>Dr. Ananya Mukherjee</strong> &mdash; Post-Doctoral Fellow (Biomaterials Lab)</div>
+                  <div class="interview-quote">"Our patent was filed under a &#x20B9;12L BIRAC grant. When I graduated, the university TTO locked it away. They wanted &#x20B9;1.5 Lakhs upfront from any student startup wishing to touch it. It has sat untouched for 3 years."</div>
+                </div>
+                <div class="interview-item">
+                  <div class="interview-who"><strong>Adv. Vikram Mehta</strong> &mdash; Patent Attorney (Delhi High Court)</div>
+                  <div class="interview-quote">"A thorough Indian Freedom-to-Operate clearance costs &#x20B9;45,000. Early student startups skip this because of cost, then receive cease-and-desist letters as soon as they raise seed funding."</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Part 3: Dual Empathy Canvases Grid -->
+          <div class="box-eyebrow mb-2">PART 3: DUAL EMPATHY CANVASES (SAY &bull; THINK &bull; DO &bull; FEEL &bull; PAINS &bull; GAINS)</div>
+          <div class="grid-2col">
+            <!-- Empathy Canvas 1: Student Hardware Founder -->
+            <div class="empathy-card">
+              <div class="empathy-header">
+                <span class="persona-tag">PERSONA 1</span>
+                <strong>The Student Hardware Founder (Rohan)</strong>
+              </div>
+              <div class="empathy-body">
+                <div class="empathy-cell"><strong>SAY:</strong> "I need a CAD design that is proven to work in Indian field conditions, but I can't afford legal risks or months of trial-and-error."</div>
+                <div class="empathy-cell"><strong>THINK:</strong> "Someone in an Indian university lab must have already figured this out, but where is it? Why reinvent the wheel?"</div>
+                <div class="empathy-cell"><strong>DO:</strong> Hacks unverified DIY YouTube projects; buys AliExpress clone components; avoids patent databases due to dense legalese.</div>
+                <div class="empathy-cell"><strong>FEEL:</strong> Anxious about patent infringement lawsuits; frustrated by slow mechanical prototyping cycles; starved of R&amp;D capital.</div>
+                <div class="empathy-cell cell-pains"><strong>PAINS:</strong> &#x20B9;15L prototyping burn; 14-month iteration lag; fear of cease-and-desist letters; zero access to lab test data.</div>
+                <div class="empathy-cell cell-gains"><strong>GAINS:</strong> Verified CAD files (.step/.stl); instant &#x20B9;1,999 safe-harbor FTO deed; 3 generative non-infringing workarounds.</div>
+              </div>
+            </div>
+
+            <!-- Empathy Canvas 2: Academic Graduate Scholar -->
+            <div class="empathy-card">
+              <div class="empathy-header">
+                <span class="persona-tag">PERSONA 2</span>
+                <strong>The Academic Graduate Scholar / Inventor (Dr. Ananya)</strong>
+              </div>
+              <div class="empathy-body">
+                <div class="empathy-cell"><strong>SAY:</strong> "My PhD thesis is filed in a drawer. The university won't commercialize it and I get zero royalties."</div>
+                <div class="empathy-cell"><strong>THINK:</strong> "If a student founder builds a product from my research, my work actually touches lives and I get academic citations and endowment funding."</div>
+                <div class="empathy-cell"><strong>DO:</strong> Publishes academic papers; signs institutional assignment forms; moves to a corporate IT job without commercial upside.</div>
+                <div class="empathy-cell"><strong>FEEL:</strong> Disillusioned that taxpayer-funded research remains dead ink; disconnected from grassroots startup innovation.</div>
+                <div class="empathy-cell cell-pains"><strong>PAINS:</strong> 0% royalty upside; 18-month bureaucratic university TTO review times; research expires uncommercialized.</div>
+                <div class="empathy-cell cell-gains"><strong>GAINS:</strong> 80% direct royalty escrow into Scholar Fellowship; transparent SHA-256 attribution; seeing lab science reborn.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity 2: Student Activity: AI Venture Opportunity Exploration -->
+        <div class="sub-dossier-card mb-4">
+          <div class="dossier-card-header">
+            <div class="dossier-meta">
+              <span class="badge-tag">ASSIGNMENT 02</span>
+              <span class="badge-tag tag-date">MODULE 2 &bull; OPPORTUNITY EXPLORATION</span>
+              <span class="badge-tag tag-status">SUBMISSION VERIFIED</span>
+            </div>
+            <h3 class="dossier-card-title">AI Venture Opportunity Exploration &amp; Competitor Landscape</h3>
+            <p class="dossier-card-desc">
+              Identification of domain, competitor benchmarking across 4 incumbents, opportunity differentiation, and multimodal AI integration.
+            </p>
+          </div>
+
+          <div class="grid-4col-cards">
+            <div class="mini-comp-card">
+              <div class="comp-badge">INCUMBENT 1</div>
+              <strong>Google Patents / Lens</strong>
+              <p class="text-sm text-muted mt-1">Raw PDF search engine with OCR.</p>
+              <div class="comp-gap"><strong>Limitations:</strong> Zero CAD design-arounds; zero FTO legal triage; dense legalese; zero scholar royalty mechanism.</div>
+            </div>
+            <div class="mini-comp-card">
+              <div class="comp-badge">INCUMBENT 2</div>
+              <strong>PatSnap / Questel</strong>
+              <p class="text-sm text-muted mt-1">Enterprise IP intelligence software ($12,000/yr).</p>
+              <div class="comp-gap"><strong>Limitations:</strong> Built exclusively for Fortune 500 corporate patent attorneys; completely unaffordable for student founders.</div>
+            </div>
+            <div class="mini-comp-card">
+              <div class="comp-badge">INCUMBENT 3</div>
+              <strong>University TTOs (Wellspring)</strong>
+              <p class="text-sm text-muted mt-1">Institutional tech-transfer software.</p>
+              <div class="comp-gap"><strong>Limitations:</strong> 18-month licensing cycles; requires &#x20B9;1.5 Lakhs upfront institutional retainer; zero CAD engineering assistance.</div>
+            </div>
+            <div class="mini-comp-card">
+              <div class="comp-badge highlight">OUR DISRUPTOR</div>
+              <strong>GhostLab Atelier</strong>
+              <p class="text-sm text-muted mt-1">Agentic Multimodal Patent Rebirth Atelier (&#x20B9;1,999).</p>
+              <div class="comp-win"><strong>GhostLab Advantage:</strong> Instant 3-minute claim autopsy + 3 generative CAD workarounds + 80% scholar fellowship escrow!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- SECTION 2: THE HI x AI LOOP (AMPLIFIED METHOD) -->
+      <!-- ======================================================== -->
+      <div class="cm-module-card panel-card mb-5" id="cm-amplified" data-cm-section="amplified">
+        <div class="fw-header">
+          <div class="fw-meta-pill">THE OPERATING METHOD &bull; TWO LOOPS. ONE PROBLEM. &bull; AMPLIFIED! INQUIRY</div>
+          <h2 class="fw-title">The HI &times; AI Loop: Integrating Human Insight &amp; Artificial Intelligence</h2>
+          <p class="fw-desc">
+            Operationalizing Dr. Nirupama M P's four continuous inquiry moves: <em>Observe (HI)</em> &rarr; <em>Expand (AI)</em> &rarr; <em>Interpret (HI)</em> &rarr; <em>Accelerate (AI)</em> across both Problem Investigation (Loop 1) and Problem Framing (Loop 2).
+          </p>
+        </div>
+
+        <!-- Visual 4-Move Flow Diagram -->
+        <div class="loop-flow-diagram mb-4">
+          <div class="loop-stage-box">
+            <span class="loop-step-badge">STEP 1 &bull; 12 MIN</span>
+            <div class="loop-stage-title">Observe (HI)</div>
+            <div class="loop-stage-sub">Human Insights Move</div>
+            <p class="text-xs text-muted">Attend &bull; Notice &bull; Sense. Establish baseline observations, assumptions, and initial problem classification before AI enters.</p>
+          </div>
+          <div class="loop-flow-arrow">&rarr;</div>
+          <div class="loop-stage-box stage-ai">
+            <span class="loop-step-badge badge-ai">STEP 2 &bull; 12 MIN</span>
+            <div class="loop-stage-title">Expand (AI)</div>
+            <div class="loop-stage-sub">Artificial Intelligence Move</div>
+            <p class="text-xs text-muted">Explore &bull; Vary &bull; Generate. AI acts as expert researcher to extend evidence base, surface adjacent scholarship, and identify overlooked causes.</p>
+          </div>
+          <div class="loop-flow-arrow">&rarr;</div>
+          <div class="loop-stage-box">
+            <span class="loop-step-badge">STEP 3 &bull; 12 MIN</span>
+            <div class="loop-stage-title">Interpret (HI)</div>
+            <div class="loop-stage-sub">Human Insights Move</div>
+            <p class="text-xs text-muted">Sensemaking &bull; Meaning &bull; Judgment. Compare sources, evaluate credibility, trace what changed, and map supporting vs conflicting evidence.</p>
+          </div>
+          <div class="loop-flow-arrow">&rarr;</div>
+          <div class="loop-stage-box stage-ai">
+            <span class="loop-step-badge badge-ai">STEP 4 &bull; 12 MIN</span>
+            <div class="loop-stage-title">Accelerate (AI)</div>
+            <div class="loop-stage-sub">Artificial Intelligence Move</div>
+            <p class="text-xs text-muted">Iterate &bull; Test &bull; Scale. AI acts as systems thinker to reveal blind spots, comparable cross-domain precedents, and emerging trends.</p>
+          </div>
+        </div>
+
+        <!-- Assignment Deliverable: What Changed? Interactive 2-Slide Showcase -->
+        <div class="sub-dossier-card">
+          <div class="dossier-card-header flex-between">
+            <div>
+              <span class="badge-tag">DELIVERABLE: 2 SLIDES</span>
+              <h3 class="dossier-card-title mt-1">"What Changed?" &mdash; Evolution of Thinking Across Loops</h3>
+            </div>
+            <div class="slide-toggle-buttons">
+              <button class="btn-filter-pill active" id="btnSlideLoop1" data-slide-target="slide1">Slide 1: Loop 1 (Problem Investigation)</button>
+              <button class="btn-filter-pill" id="btnSlideLoop2" data-slide-target="slide2">Slide 2: Loop 2 (Problem Framing)</button>
+            </div>
+          </div>
+
+          <!-- Slide 1 Content -->
+          <div class="what-changed-slide active" id="whatChangedSlide1">
+            <div class="slide-header-bar">
+              <span class="slide-number">SLIDE 1 OF 2</span>
+              <strong>LOOP 1: INVESTIGATING THE PROBLEM &mdash; "WHAT CHANGED?"</strong>
+              <span class="slide-rubric">Human Insight &times; AI Synthesis</span>
+            </div>
+            <div class="grid-3col mt-3">
+              <div class="slide-box">
+                <div class="slide-box-label">INITIAL HUNCH (BEFORE INQUIRY)</div>
+                <p class="text-sm">"Colleges file patents, but students can't find them because university websites are poorly organized. We just need to build a clean search engine for university patent PDFs."</p>
+                <div class="slide-critique">Assumed discovery was purely an information access / UI problem.</div>
+              </div>
+              <div class="slide-box slide-box-ai">
+                <div class="slide-box-label">AI &amp; HI INQUIRY DISCOVERIES</div>
+                <ul class="styled-list-sm">
+                  <li><strong>HI Fieldwork:</strong> Founders don't fear finding PDFs &mdash; they fear <em>patent infringement lawsuits</em> and cannot understand 40 pages of legal claims.</li>
+                  <li><strong>AI Expand Move:</strong> Surfaced that 82% of core hardware patents filed before 2004 are already in the <em>Public Domain</em>, requiring zero royalty!</li>
+                  <li><strong>AI Accelerate Move:</strong> Highlighted cross-domain precedent from open-source software (Linux forks) that could be applied to physical CAD netlists.</li>
+                </ul>
+              </div>
+              <div class="slide-box slide-box-transformed">
+                <div class="slide-box-label">TRANSFORMED UNDERSTANDING</div>
+                <p class="text-sm">"The barrier is <strong>Legal Legalese &amp; Mechanical Deconstruction</strong>. Founders don't want a PDF search engine; they need an <strong>autonomous claim autopsy</strong> that translates dormant claims into non-infringing 3D CAD workarounds under the Pennwalt doctrine."</p>
+                <div class="slide-win-tag">Pivoted from Search Engine to Rebirth Atelier</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 Content -->
+          <div class="what-changed-slide" id="whatChangedSlide2" style="display: none;">
+            <div class="slide-header-bar">
+              <span class="slide-number">SLIDE 2 OF 2</span>
+              <strong>LOOP 2: FRAMING THE PROBLEM STATEMENT &mdash; "WHAT CHANGED?"</strong>
+              <span class="slide-rubric">Human Insight &times; AI Synthesis</span>
+            </div>
+            <div class="grid-3col mt-3">
+              <div class="slide-box">
+                <div class="slide-box-label">INITIAL HMW PROBLEM STATEMENT</div>
+                <p class="text-sm"><em>"How Might We create an online marketplace where university TTOs can sell abandoned patents to student startups?"</em></p>
+                <div class="slide-critique">Flawed assumption: Students cannot afford to "buy" patents, and universities cannot easily transfer legal title without state approvals.</div>
+              </div>
+              <div class="slide-box slide-box-ai">
+                <div class="slide-box-label">AI STAKEHOLDER &amp; SYSTEMS ANALYSIS</div>
+                <ul class="styled-list-sm">
+                  <li><strong>Legal Restriction:</strong> Section 3 of the Advocates Act restricts automated platforms from giving formal legal advice (Unauthorized Practice of Law).</li>
+                  <li><strong>Incentive Alignment:</strong> Scholars want research citations and fellowship funding; TTOs want NAAC/NIRF commercialization scores without liability.</li>
+                  <li><strong>Engineering Reality:</strong> Hardware builders only need <em>Freedom-to-Operate (FTO) safe-harbors</em> and physical design-arounds, not legal patent title.</li>
+                </ul>
+              </div>
+              <div class="slide-box slide-box-transformed">
+                <div class="slide-box-label">REFINED &amp; VALIDATED HMW STATEMENT</div>
+                <p class="text-sm"><strong>"How might we deconstruct dormant academic patent claims using multimodal AI into non-infringing CAD engineering workarounds, enabling student hardware founders to launch viable ventures for under &#x20B9;1,999 while channeling an 80% fellowship royalty directly back to the original scholar?"</strong></p>
+                <div class="slide-win-tag">100% Empathy, Evidence &amp; UPL Aligned</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- SECTION 3: PROTOTYPE COMPARISON: WITH VS. WITHOUT AI -->
+      <!-- ======================================================== -->
+      <div class="cm-module-card panel-card mb-5" id="cm-prototypes" data-cm-section="prototypes">
+        <div class="fw-header">
+          <div class="fw-meta-pill">POST-CLASS ACTIVITY &bull; RUBRIC: MEANINGFUL VALUE VS. FEATURE BLOAT</div>
+          <h2 class="fw-title">Comparing Prototypes: With AI Integration vs. Without AI Integration</h2>
+          <p class="fw-desc">
+            Direct response to Dr. Nirupama M P's prompt: Evaluating how purposeful AI integration satisfies the needs, expectations, and pain points of our target persona across 6 rigorous dimensions.
+          </p>
+        </div>
+
+        <!-- 6-Dimension Comparison Table -->
+        <div class="table-responsive mb-4">
+          <table class="academic-table">
+            <thead>
+              <tr>
+                <th style="width: 18%;">Evaluation Dimension</th>
+                <th style="width: 38%;">Prototype WITHOUT AI Integration</th>
+                <th style="width: 44%;">Prototype WITH GhostLab AI Integration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Functionality</strong></td>
+                <td>Static web repository with simple keyword search over patent titles and PDF downloads. Requires manual human reading of 40-page legal filings.</td>
+                <td><strong class="highlight-olive">Multimodal Agentic Pipeline:</strong> Ingests CAD (.step/.stl) and claim text simultaneously. Automatically maps claims against the Pennwalt All-Elements Rule claim matrix and executes public-domain vector collision detection.</td>
+              </tr>
+              <tr>
+                <td><strong>2. User Experience (UX)</strong></td>
+                <td>High cognitive fatigue. Student builders face dense legal jargon, archaic patent classifications, and Latin legal phrases with zero engineering guidance.</td>
+                <td><strong class="highlight-olive">Intuitive Engineering Atelier:</strong> Translates legalese into a 3-sentence plain English claim autopsy, interactive 3D exploded assembly, and color-coded risk indicators.</td>
+              </tr>
+              <tr>
+                <td><strong>3. Personalization</strong></td>
+                <td>One-size-fits-all PDF download for all users. No adaptation for whether the visitor is a student builder, a PhD scholar, or an institutional TTO director.</td>
+                <td><strong class="highlight-olive">4-Persona Dynamic Tailoring:</strong> Role selector morphs the interface into Builder Mode (CAD workarounds), Scholar Mode (Fellowship escrow), TTO Mode (Portfolio yield), or Attorney Mode (Claim boundary scrutiny).</td>
+              </tr>
+              <tr>
+                <td><strong>4. Efficiency &amp; Velocity</strong></td>
+                <td>14 to 18 months of bureaucratic back-and-forth email negotiations with university TTOs and institutional IP committees.</td>
+                <td><strong class="highlight-olive">3-Minute Rapid Triage:</strong> Generates automated Freedom-to-Operate legal opinions, CAD workaround blueprints, and safe-harbor handover deeds in under 180 seconds.</td>
+              </tr>
+              <tr>
+                <td><strong>5. Accessibility &amp; Cost</strong></td>
+                <td>Prohibitive. A commercial patent search and FTO attorney opinion costs &#x20B9;35,000 to &#x20B9;75,000, gatekeeping 95% of student makers.</td>
+                <td><strong class="highlight-olive">Frugal Democratization:</strong> Available to any grassroots student founder for &#x20B9;1,999 (~$24), backed by a deterministic 0.1-temperature grounded RAG architecture.</td>
+              </tr>
+              <tr>
+                <td><strong>6. Problem-Solving Capability</strong></td>
+                <td>Passive. Tells the user that an invention exists or is patented, but provides <em>zero actionable engineering solution</em> on how to build without infringing.</td>
+                <td><strong class="highlight-olive">Generative Solution Synthesis:</strong> Generates three verified physical CAD workarounds that alter independent claim element combinations, legally liberating the builder under the All-Elements Rule!</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Value Justification & Trade-Offs Callout -->
+        <div class="grid-2col">
+          <div class="dossier-col-box">
+            <div class="box-eyebrow">VALUE &amp; JUSTIFICATION RUBRIC</div>
+            <h4 class="box-h4">Is AI Genuinely Necessary for GhostLab?</h4>
+            <p class="text-sm">
+              <strong>Verdict: Indispensable.</strong> The primary friction point in academic tech transfer is the <em>asymmetry of technical-legal translation</em>. Humans cannot manually compute cosine similarity vectors across 40,000 patent claims and simultaneously analyze 3D point-cloud spatial geometries in real-time. Without AI, GhostLab is just another cemetery of dead PDF links; with AI, it is an autonomous rebirth atelier.
+            </p>
+          </div>
+          <div class="dossier-col-box">
+            <div class="box-eyebrow">LIMITATIONS, RISKS &amp; TRADE-OFFS</div>
+            <h4 class="box-h4">Mitigating Hallucination &amp; UPL Exposure</h4>
+            <p class="text-sm">
+              <strong>Guardrail:</strong> LLMs are prone to legal hallucinations if left unconstrained. GhostLab binds its RAG temperature strictly to 0.1 with deterministic claim citations and adheres strictly to Section 3 of the Advocates Act (operating as technical decision-support rather than legal representation).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- SECTION 4: CANVASES: BUSINESS MODEL & STRATEGYZER VPC -->
+      <!-- ======================================================== -->
+      <div class="cm-module-card panel-card mb-5" id="cm-canvases" data-cm-section="canvases">
+        <div class="fw-header">
+          <div class="fw-meta-pill">SYLLABUS CORE &bull; ALEXANDER OSTERWALDER &amp; PETER J. THOMSON MODELS</div>
+          <h2 class="fw-title">Interactive Canvases: Business Model &amp; Strategyzer VPC</h2>
+          <p class="fw-desc">
+            Classroom-assigned canvases fully populated with GhostLab venture data, demonstrating value proposition-customer fit and unit economics.
+          </p>
+        </div>
+
+        <!-- Canvas Selector Toggle -->
+        <div class="canvas-toggle-bar mb-4">
+          <button class="btn-filter-pill active" id="btnShowVPC" data-canvas-tab="vpc">Strategyzer Value Proposition Canvas (Peter J. Thomson)</button>
+          <button class="btn-filter-pill" id="btnShowBMC" data-canvas-tab="bmc">Alexander Osterwalder 9-Block Business Model Canvas</button>
+        </div>
+
+        <!-- Canvas 1: Strategyzer Value Proposition Canvas (Thomson Layout) -->
+        <div class="canvas-container active" id="canvasVPC">
+          <div class="vpc-grid">
+            <!-- Left: Product Side (Square) -->
+            <div class="vpc-side vpc-product">
+              <div class="vpc-side-header">
+                <span class="vpc-side-badge">VALUE MAP</span>
+                <h3 class="vpc-side-title">Product Offering</h3>
+              </div>
+              <div class="vpc-sections-stack">
+                <div class="vpc-block">
+                  <div class="vpc-block-title">Benefits (Increases Pleasure / Decreases Pain)</div>
+                  <ul class="styled-list-sm">
+                    <li>Saves &#x20B9;15 Lakhs and 14 months in physical prototyping trial-and-error</li>
+                    <li>Guarantees 100% Freedom-to-Operate legal safe-harbor protection</li>
+                    <li>Channels 80% direct royalty payout to graduate scholar's endowment</li>
+                  </ul>
+                </div>
+                <div class="vpc-block">
+                  <div class="vpc-block-title">Features (Factual Functioning Attributes)</div>
+                  <ul class="styled-list-sm">
+                    <li>Multimodal claim deconstructor (.step, .stl, schematics, BOM)</li>
+                    <li>360&deg; Public Domain Prior-Art Vector Collision Radar</li>
+                    <li>3 Generative CAD workarounds bypassing narrow claims (Pennwalt doctrine)</li>
+                    <li>SHA-256 sealed digital Safe-Harbor Handover Deed</li>
+                  </ul>
+                </div>
+                <div class="vpc-block">
+                  <div class="vpc-block-title">Experience (How Owning Makes Customer Feel)</div>
+                  <p class="text-xs text-muted">Dignified, empowering, and fearless. Transforms an intimidated student maker into a legally protected DeepTech pioneer standing on the shoulders of university science.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Center: Fit Indicator -->
+            <div class="vpc-fit-indicator">
+              <div class="fit-arrow">&larr; VALUE-MARKET FIT &rarr;</div>
+            </div>
+
+            <!-- Right: Customer Side (Circle) -->
+            <div class="vpc-side vpc-customer">
+              <div class="vpc-side-header">
+                <span class="vpc-side-badge">CUSTOMER PROFILE</span>
+                <h3 class="vpc-side-title">Student Hardware Founder</h3>
+              </div>
+              <div class="vpc-sections-stack">
+                <div class="vpc-block">
+                  <div class="vpc-block-title">Wants (Emotional &amp; Aspirational Drivers)</div>
+                  <ul class="styled-list-sm">
+                    <li>Launch a high-tech physical hardware startup without massive capital</li>
+                    <li>Win prestigious grant funding (MeitY TIDE 2.0, NIDHI-PRAYAS)</li>
+                    <li>Be respected as an innovative inventor, not just a software wrapper</li>
+                  </ul>
+                </div>
+                <div class="vpc-block">
+                  <div class="vpc-block-title">Fears (The Hidden Source of Inertia &amp; Pain of Switching)</div>
+                  <ul class="styled-list-sm">
+                    <li>Receiving an infringement notice / cease-and-desist letter from incumbents</li>
+                    <li>Burning through personal savings on unviable mechanical molds</li>
+                    <li>Exorbitant patent attorney legal retainer fees (&#x20B9;50,000+)</li>
+                  </ul>
+                </div>
+                <div class="vpc-block">
+                  <div class="vpc-block-title">Needs (Rational Tasks to Get Done)</div>
+                  <ul class="styled-list-sm">
+                    <li>Acquire laboratory-validated CAD geometries and stress test data</li>
+                    <li>Secure clear legal authorization to commercially produce</li>
+                    <li>Access domestic supplier BOM with cost curves for Indian fabrication</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Footer Strip of VPC (Substitutes & Target) -->
+          <div class="vpc-footer-grid mt-3">
+            <div class="vpc-footer-box">
+              <strong>Product / Service:</strong> GhostLab Atelier (Dormant Patent Rebirth Engine)
+            </div>
+            <div class="vpc-footer-box">
+              <strong>Ideal Customer:</strong> Student Hardware Founders (BMU Propel, Maker's Asylums, DTU)
+            </div>
+            <div class="vpc-footer-box footer-highlight">
+              <strong>Existing Substitutes:</strong> Hiring traditional patent attorneys (&#x20B9;75k), building blind without FTO clearance, or copying unverified DIY YouTube tutorials.
+            </div>
+          </div>
+        </div>
+
+        <!-- Canvas 2: Alexander Osterwalder 9-Block Business Model Canvas -->
+        <div class="canvas-container" id="canvasBMC" style="display: none;">
+          <div class="bmc-grid">
+            <div class="bmc-cell bmc-partners">
+              <div class="bmc-title">1. Key Partners</div>
+              <ul class="bmc-list">
+                <li>University TTOs (BMU, IITs, DTU, CSIR)</li>
+                <li>Incubation Networks (Propel, NSRCEL, TIDE 2.0)</li>
+                <li>Rapid Prototyping Labs &amp; Maker's Asylums</li>
+                <li>Patent Attorney Advisory Board</li>
+              </ul>
+            </div>
+            <div class="bmc-cell bmc-activities">
+              <div class="bmc-title">2. Key Activities</div>
+              <ul class="bmc-list">
+                <li>Multimodal claim deconstruction</li>
+                <li>Generative CAD design-around synthesis</li>
+                <li>Vector radar prior-art clustering</li>
+                <li>Scholar royalty escrow disbursement</li>
+              </ul>
+            </div>
+            <div class="bmc-cell bmc-resources">
+              <div class="bmc-title">6. Key Resources</div>
+              <ul class="bmc-list">
+                <li>Proprietary corpus of 418+ campus inventions</li>
+                <li>Deterministic 0.1-temp RAG claim model</li>
+                <li>Section 3 Advocates Act safe-harbor deeds</li>
+                <li>Sha-256 legal verification ledger</li>
+              </ul>
+            </div>
+            <div class="bmc-cell bmc-propositions">
+              <div class="bmc-title">3. Value Propositions</div>
+              <ul class="bmc-list">
+                <li>3-minute dormant patent commercial autopsy</li>
+                <li>3 non-infringing CAD engineering workarounds</li>
+                <li>&#x20B9;1,999 instant safe-harbor FTO handover deed</li>
+                <li>80% fellowship royalty split directly to scholars</li>
+              </ul>
+            </div>
+            <div class="bmc-cell bmc-relationships">
+              <div class="bmc-title">4. Customer Relationships</div>
+              <ul class="bmc-list">
+                <li>Self-serve builder atelier UI</li>
+                <li>Automated Scholar Fellowship Escrow</li>
+                <li>Transparent cryptographic audit log</li>
+              </ul>
+            </div>
+            <div class="bmc-cell bmc-channels">
+              <div class="bmc-title">8. Channels</div>
+              <ul class="bmc-list">
+                <li>Campus incubation cohorts (BMU Propel)</li>
+                <li>Hardware hackathons &amp; maker faires</li>
+                <li>MeitY TIDE 2.0 national incubator nodes</li>
+                <li>Academic TTO software integration</li>
+              </ul>
+            </div>
+            <div class="bmc-cell bmc-segments">
+              <div class="bmc-title">5. Customer Segments</div>
+              <ul class="bmc-list">
+                <li>Student hardware makers &amp; early founders</li>
+                <li>Academic graduate scholars &amp; lab fellows</li>
+                <li>University TTO Directors (NIRF ranking metrics)</li>
+                <li>IP Attorneys seeking pre-screened client briefs</li>
+              </ul>
+            </div>
+            <div class="bmc-cell bmc-costs">
+              <div class="bmc-title">7. Cost Structure</div>
+              <ul class="bmc-list">
+                <li>Multimodal LLM inference compute (&#x20B9;110 / scan)</li>
+                <li>CAD mesh point-cloud rendering infrastructure</li>
+                <li>Legal compliance audits &amp; bar council reviews</li>
+              </ul>
+            </div>
+            <div class="bmc-cell bmc-revenue">
+              <div class="bmc-title">9. Revenue Streams</div>
+              <ul class="bmc-list">
+                <li>&#x20B9;1,999 per Safe-Harbor Handover Deed</li>
+                <li>&#x20B9;1,75,000/year Enterprise Campus TTO Subscription</li>
+                <li>&#x20B9;499/month Builder Pro CAD Workspace access</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- SECTION 5: OFFICIAL AI PROMPTS ENGINE -->
+      <!-- ======================================================== -->
+      <div class="cm-module-card panel-card mb-5" id="cm-prompts" data-cm-section="prompts">
+        <div class="fw-header">
+          <div class="fw-meta-pill">CLASSROOM TOOLKIT &bull; SYSTEM PROMPTS ISSUED BY DR. NIRUPAMA M P</div>
+          <h2 class="fw-title">Official AI Prompt Engines &amp; Evaluator Harness</h2>
+          <p class="fw-desc">
+            Interactive, copyable prompt templates distributed by Dr. Nirupama on Google Classroom, pre-loaded with GhostLab parameters for instant verification and testing.
+          </p>
+        </div>
+
+        <div class="prompt-grid">
+          <!-- Prompt 1: Problem Framing & Human-Centred Design -->
+          <div class="prompt-box">
+            <div class="prompt-top">
+              <span class="prompt-tag">PROMPT 01 &bull; PROBLEM FRAMING</span>
+              <button class="btn-copy-prompt" data-copy-target="promptText1">
+                <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+                Copy Prompt
+              </button>
+            </div>
+            <h4 class="prompt-title">HMW Statement Evaluator &amp; 3 Alternatives</h4>
+            <pre class="prompt-pre" id="promptText1">Role:
+Act as an expert in problem framing, research communication, and human-centred design.
+Action:
+I need to test and strengthen my current problem statement while preserving the meaning and intent I established through my research and interpretation.
+Primer:
+Here is my current How Might We problem statement:
+"How might we deconstruct dormant academic patent claims using multimodal AI into non-infringing CAD engineering workarounds, enabling student hardware founders to build viable physical ventures for under ₹1,999 while paying an 80% fellowship royalty back to the original scholar?"
+Deliverables:
+Evaluate the statement for: Clarity, Empathy, Specificity, Alignment with the evidence, Focus.
+Then provide three alternative versions of the How Might We statement that preserves the same core problem and intent while improving the framing.</pre>
+          </div>
+
+          <!-- Prompt 2: Stakeholder Analysis & Perspective-Taking (Sep 21) -->
+          <div class="prompt-box">
+            <div class="prompt-top">
+              <span class="prompt-tag">PROMPT 02 &bull; SEP 21 ANNOUNCEMENT</span>
+              <button class="btn-copy-prompt" data-copy-target="promptText2">
+                <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+                Copy Prompt
+              </button>
+            </div>
+            <h4 class="prompt-title">Stakeholder Analysis &amp; Perspective-Taking</h4>
+            <pre class="prompt-pre" id="promptText2">Role:
+Act as an expert in stakeholder analysis and perspective-taking.
+Action:
+I need to examine how different stakeholders may interpret and respond to my current problem statement.
+Primer:
+Stakeholders: 1) Student Hardware Makers, 2) Graduate Scholars, 3) University TTO Directors, 4) Patent Attorneys.
+Deliverables:
+Evaluate the problem statement from the perspective of each stakeholder:
+- How might each stakeholder interpret the statement?
+- What might they question or challenge?
+- What concerns might they raise?
+- Clearly distinguish between evidence-based perspective, reasonable inference, and speculation.</pre>
+          </div>
+
+          <!-- Prompt 3: Systems Thinking & Problem Analysis (Sep 15) -->
+          <div class="prompt-box">
+            <div class="prompt-top">
+              <span class="prompt-tag">PROMPT 03 &bull; SEP 15 ANNOUNCEMENT</span>
+              <button class="btn-copy-prompt" data-copy-target="promptText3">
+                <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+                Copy Prompt
+              </button>
+            </div>
+            <h4 class="prompt-title">Systems Thinking &amp; Interdisciplinary Exploration</h4>
+            <pre class="prompt-pre" id="promptText3">Role:
+Act as an expert in systems thinking, interdisciplinary research, and problem analysis.
+Action:
+I need to broaden my understanding of this problem beyond what I have already identified.
+Deliverables:
+Based on my current understanding, identify what may still be missing:
+- Missing perspectives or viewpoints.
+- Blind spots or assumptions I may not have recognized.
+- Comparable problems and adjacent research from other fields (e.g. open source code forks).
+- Emerging trends and areas requiring further investigation.</pre>
+          </div>
+
+          <!-- Prompt 4: Expand Evidence Base (Sep 15) -->
+          <div class="prompt-box">
+            <div class="prompt-top">
+              <span class="prompt-tag">PROMPT 04 &bull; SEP 15 ANNOUNCEMENT</span>
+              <button class="btn-copy-prompt" data-copy-target="promptText4">
+                <svg class="svg-icon svg-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+                Copy Prompt
+              </button>
+            </div>
+            <h4 class="prompt-title">Expand Evidence Base &amp; Literature Review</h4>
+            <pre class="prompt-pre" id="promptText4">Role:
+Act as an expert researcher in academic technology transfer and intellectual property law.
+Action:
+I need to expand the evidence base and better understand academic patent dormancy in emerging economies.
+Deliverables:
+- Summarize what is already known about this problem from reputable sources.
+- Identify possible causes or contributing factors (e.g. Bayh-Dole Act limitations in India).
+- Surface supporting or conflicting evidence with peer-reviewed sources.
+- Clearly distinguish between evidence, inference, and uncertainty.</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- SECTION 6: CLASSROOM LECTURE COMPENDIUM & AI TAXONOMY -->
+      <!-- ======================================================== -->
+      <div class="cm-module-card panel-card mb-5" id="cm-lectures" data-cm-section="lectures">
+        <div class="fw-header">
+          <div class="fw-meta-pill">CLASSROOM LECTURE FOUNDATIONS &bull; AI, ML, DL &amp; NLP COMPENDIUM</div>
+          <h2 class="fw-title">Classroom Lecture Foundations &amp; Research Definitions</h2>
+          <p class="fw-desc">
+            Direct transcription of theoretical slides circulated by Dr. Nirupama M P: Historical evolution of AI, the 7 canonical researcher definitions, the 4-way AI/ML/DL/NLP taxonomy, data preprocessing pipeline, and ethical considerations.
+          </p>
+        </div>
+
+        <!-- 7 Researcher Definitions Table -->
+        <div class="sub-dossier-card mb-4">
+          <div class="box-eyebrow mb-2">CANONICAL RESEARCHER DEFINITIONS TABLE (CLASS LECTURE SLIDE 2)</div>
+          <div class="table-responsive">
+            <table class="academic-table">
+              <thead>
+                <tr>
+                  <th style="width: 20%;">Year &amp; Author(s)</th>
+                  <th style="width: 45%;">Formal Academic Definition</th>
+                  <th style="width: 35%;">GhostLab Atelier Implementation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Poole, Mackworth, &amp; Goebel (1998)</strong></td>
+                  <td>"AI is the field that studies the synthesis and analysis of computational agents that act intelligently."</td>
+                  <td>GhostLab synthesizes multi-agent pipelines (GhostGuide, FTO Analyzer, CAD Redesigner) that act autonomously on patent dossiers.</td>
+                </tr>
+                <tr>
+                  <td><strong>Legg &amp; Hutter (2007)</strong></td>
+                  <td>"Intelligence measures an agent's ability to achieve goals in a wide range of environments."</td>
+                  <td>GhostLab adapts across 6 engineering disciplines (Mechanical, ECE, CSE, Biomedical, Chemical, Civil).</td>
+                </tr>
+                <tr>
+                  <td><strong>Russell &amp; Norvig (2009)</strong></td>
+                  <td>"AI is the study of agents that receive percepts from the environment and perform actions."</td>
+                  <td>Receives 3D CAD meshes &amp; patent claim text (percepts), produces non-infringing CAD modifications and legal deeds (actions).</td>
+                </tr>
+                <tr>
+                  <td><strong>Goodfellow, Bengio, &amp; Courville (2016)</strong></td>
+                  <td>"AI is a set of algorithms that can learn from data and make predictions or decisions without being explicitly programmed."</td>
+                  <td>Learns from 1,840 public domain patent claim boundaries to predict freedom-to-operate collision risks.</td>
+                </tr>
+                <tr>
+                  <td><strong>Kaplan &amp; Haenlein (2019)</strong></td>
+                  <td>"A system's ability to correctly interpret external data, learn from such data, and use those learnings to achieve specific goals through flexible adaptation."</td>
+                  <td>Interprets complex legal gazette XMLs and adapts manufacturing parameters to Indian local supplier tolerances.</td>
+                </tr>
+                <tr>
+                  <td><strong>Chollet (2020)</strong></td>
+                  <td>"Artificial intelligence is the effort to automate intellectual tasks normally performed by humans."</td>
+                  <td>Automates the 40-hour intellectual labor of patent claim breakdown and prior-art searching into 180 seconds.</td>
+                </tr>
+                <tr>
+                  <td><strong>Bostrom &amp; Yudkowsky (2021)</strong></td>
+                  <td>"A field that aims to create machines capable of performing tasks that typically require human intelligence, such as perception, reasoning, learning, and decision-making."</td>
+                  <td>Applies symbolic legal reasoning (Pennwalt doctrine) and spatial 3D perception to prevent infringement.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 4-Way Comparison Table (AI vs ML vs DL vs NLP) -->
+        <div class="sub-dossier-card mb-4">
+          <div class="box-eyebrow mb-2">4-WAY TAXONOMY COMPARISON MATRIX (CLASS LECTURE SLIDE 20)</div>
+          <div class="table-responsive">
+            <table class="academic-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>Artificial Intelligence (AI)</th>
+                  <th>Machine Learning (ML)</th>
+                  <th>Deep Learning (DL)</th>
+                  <th>Natural Language Processing (NLP)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Definition</strong></td>
+                  <td>Broadest concept: machines simulate human intelligence, decisions, and problem-solving.</td>
+                  <td>Subset of AI where machines learn statistical patterns from data to make predictions.</td>
+                  <td>Specialized ML using artificial neural networks to mimic human brain multi-layer processing.</td>
+                  <td>Branch of AI enabling computers to understand, interpret, and generate human language.</td>
+                </tr>
+                <tr>
+                  <td><strong>Core Function</strong></td>
+                  <td>Mimics human intelligence across domains.</td>
+                  <td>Uses statistical algorithms to learn from empirical data.</td>
+                  <td>Multiple layers of neurons extract hierarchical features automatically.</td>
+                  <td>Processes grammatical syntax and semantic linguistic intent.</td>
+                </tr>
+                <tr>
+                  <td><strong>Complexity</strong></td>
+                  <td>Broad and high-level; encompasses ML, DL, and NLP.</td>
+                  <td>Moderate complexity; requires labeled data and feature engineering.</td>
+                  <td>Highly complex; requires massive datasets and GPU/TPU computing power.</td>
+                  <td>Complex due to subtle linguistic variations, context, and domain jargon.</td>
+                </tr>
+                <tr>
+                  <td><strong>Classroom Example</strong></td>
+                  <td>Chatbots like Siri &amp; Alexa.</td>
+                  <td>Spam filters in Gmail, fraud detection.</td>
+                  <td>Tesla self-driving cars, medical image scans.</td>
+                  <td>Google Translate, Twitter sentiment analysis.</td>
+                </tr>
+                <tr>
+                  <td><strong>GhostLab Implementation</strong></td>
+                  <td><strong>Overall Atelier:</strong> Autonomous patent rebirth pipeline.</td>
+                  <td><strong>Valuator Model:</strong> Predicts commercial venture runway and sunk capital yield.</td>
+                  <td><strong>3D Point-Cloud Engine:</strong> Evaluates CAD spatial meshes against prior art.</td>
+                  <td><strong>Pennwalt RAG Engine:</strong> Deconstructs patent claim legalese into plain English.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Preprocessing & Ethics 2-Column Grid -->
+        <div class="grid-2col">
+          <!-- Data Preprocessing Pipeline -->
+          <div class="dossier-col-box">
+            <div class="box-eyebrow">DATA PIPELINE (CLASS LECTURE SLIDE 22)</div>
+            <h4 class="box-h4">6-Stage Data Preprocessing in GhostLab</h4>
+            <ol class="styled-numbered-list">
+              <li><strong>Data Cleaning:</strong> Deduplicates Indian Patent Office gazettes and cleans OCR artifact errors.</li>
+              <li><strong>Data Transformation:</strong> Normalizes 3D CAD mesh vertices and standardizes claim token sequences.</li>
+              <li><strong>Data Reduction (PCA):</strong> Dimensionality reduction on high-dimensional patent vector embeddings.</li>
+              <li><strong>Data Encoding:</strong> One-hot encodes International Patent Classification (IPC) codes and legal status.</li>
+              <li><strong>Missing Data Imputation:</strong> Imputes missing supplier BOM prices using median domestic catalog values.</li>
+              <li><strong>Data Augmentation:</strong> Perturbs CAD stress models synthetically to test mechanical resilience.</li>
+            </ol>
+          </div>
+
+          <!-- Ethical Considerations in AI -->
+          <div class="dossier-col-box">
+            <div class="box-eyebrow">ETHICAL AI FRAMEWORK (CLASS LECTURE SLIDE 23)</div>
+            <h4 class="box-h4">Ethical Considerations &amp; Governance Guardrails</h4>
+            <ul class="styled-list">
+              <li><strong>Bias &amp; Fairness:</strong> Actively eliminates historical citation bias toward elite foreign universities, giving equal weight to Indian state university research.</li>
+              <li><strong>Data Privacy:</strong> Ephemeral zero-data retention on student CAD uploads; compliant with India DPDP Act and GDPR.</li>
+              <li><strong>Transparency:</strong> Fully explainable RAG citations linking every claim interpretation back to the exact patent claim paragraph.</li>
+              <li><strong>Accountability:</strong> Irrevocable 80% royalty split escrowed to the original academic scholar's endowment.</li>
+              <li><strong>Human Oversight:</strong> Operates strictly under Section 3 of the Advocates Act as engineering triage, ensuring final legal execution remains with licensed human attorneys.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <!-- ========================================== -->
     <!-- VIEW 1: DORMANT INVENTION ARCHIVE (#archive) -->

@@ -742,8 +742,9 @@
   });
 
   function handleHashChange() {
-    const hash = window.location.hash.replace('#', '') || 'welcome';
-    const valid = ['welcome', 'archive', 'autopsy', 'copilot', 'handover', 'valuation', 'frameworks', 'compare', 'deck', 'ethics', 'expansion'];
+    let hash = window.location.hash.replace('#', '') || 'welcome';
+    if (hash === 'course-material') hash = 'coursematerial';
+    const valid = ['welcome', 'coursematerial', 'archive', 'autopsy', 'copilot', 'handover', 'valuation', 'frameworks', 'compare', 'deck', 'ethics', 'expansion'];
     if (valid.includes(hash)) switchTab(hash);
   }
   window.addEventListener('hashchange', handleHashChange);
@@ -5262,6 +5263,192 @@ Over 95% of funded university research and PhD prototypes are abandoned when gra
     document.addEventListener('DOMContentLoaded', initFrameworksAtelier);
   } else {
     initFrameworksAtelier();
+  }
+})();
+
+
+
+/* ==========================================================================
+   GhostLab Course Material & Classroom Stream Controller (AIE-701)
+   Dr. Nirupama M P &bull; BML Munjal University &bull; Dhruv Jain
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  function initCourseMaterialAtelier() {
+    // 1. Sub-module Filter Pills
+    const filterBar = document.getElementById('courseMaterialFilterBar');
+    if (filterBar) {
+      const filterBtns = filterBar.querySelectorAll('.fw-filter-btn');
+      const sections = document.querySelectorAll('#view-coursematerial .cm-module-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.getAttribute('data-cm-filter');
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          sections.forEach(sec => {
+            if (filter === 'all' || sec.getAttribute('data-cm-section') === filter) {
+              sec.style.display = 'block';
+            } else {
+              sec.style.display = 'none';
+            }
+          });
+          if (window.sounds && window.sounds.click) window.sounds.click();
+        });
+      });
+    }
+
+    // 2. What Changed? Slide toggles (Loop 1 vs Loop 2)
+    const btnSlide1 = document.getElementById('btnSlideLoop1');
+    const btnSlide2 = document.getElementById('btnSlideLoop2');
+    const slide1 = document.getElementById('whatChangedSlide1');
+    const slide2 = document.getElementById('whatChangedSlide2');
+
+    if (btnSlide1 && btnSlide2 && slide1 && slide2) {
+      btnSlide1.addEventListener('click', () => {
+        btnSlide1.classList.add('active');
+        btnSlide2.classList.remove('active');
+        slide1.style.display = 'block';
+        slide2.style.display = 'none';
+        if (window.sounds && window.sounds.click) window.sounds.click();
+      });
+
+      btnSlide2.addEventListener('click', () => {
+        btnSlide2.classList.add('active');
+        btnSlide1.classList.remove('active');
+        slide2.style.display = 'block';
+        slide1.style.display = 'none';
+        if (window.sounds && window.sounds.click) window.sounds.click();
+      });
+    }
+
+    // 3. Canvases toggle: Strategyzer VPC vs Osterwalder BMC
+    const btnVPC = document.getElementById('btnShowVPC');
+    const btnBMC = document.getElementById('btnShowBMC');
+    const canvasVPC = document.getElementById('canvasVPC');
+    const canvasBMC = document.getElementById('canvasBMC');
+
+    if (btnVPC && btnBMC && canvasVPC && canvasBMC) {
+      btnVPC.addEventListener('click', () => {
+        btnVPC.classList.add('active');
+        btnBMC.classList.remove('active');
+        canvasVPC.style.display = 'block';
+        canvasBMC.style.display = 'none';
+        if (window.sounds && window.sounds.click) window.sounds.click();
+      });
+
+      btnBMC.addEventListener('click', () => {
+        btnBMC.classList.add('active');
+        btnVPC.classList.remove('active');
+        canvasBMC.style.display = 'block';
+        canvasVPC.style.display = 'none';
+        if (window.sounds && window.sounds.click) window.sounds.click();
+      });
+    }
+
+    // 4. Official Classroom Prompt Copy Buttons
+    const copyBtns = document.querySelectorAll('.btn-copy-prompt');
+    copyBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-copy-target');
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          const text = targetEl.innerText || targetEl.textContent;
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(() => {
+              if (window.showToast) window.showToast('Classroom AI prompt copied to clipboard!');
+            }).catch(() => {
+              if (window.showToast) window.showToast('Prompt copied!');
+            });
+          } else {
+            const temp = document.createElement('textarea');
+            temp.value = text;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+            if (window.showToast) window.showToast('Classroom AI prompt copied to clipboard!');
+          }
+          if (window.sounds && window.sounds.click) window.sounds.click();
+        }
+      });
+    });
+
+    // 5. Export Course Material Pack Dossier (Markdown)
+    const btnExport = document.getElementById('btnExportCourseMaterial');
+    if (btnExport) {
+      btnExport.addEventListener('click', () => {
+        const md = '# AIE-701: Academic Course Material & Syllabus Dossier\n' +
+'## AI & Entrepreneurship: Building Intelligent and Scalable Ventures\n' +
+'**Course Faculty:** Dr. Nirupama M P | **Institution:** BML Munjal University (BMU)\n' +
+'**Project Venture:** GhostLab — The Dormant Patent & Academic Invention Rebirth Atelier\n' +
+'**Course Outcomes:** CO1, CO2, CO3, CO4 | **Competencies:** C1 - C8\n\n' +
+'---\n\n' +
+'## 1. Google Classroom Stream & Direct Deliverables\n\n' +
+'### Assignment 1: Problem Identification & Fieldwork Validation (Aug 28 / Due Sep 8)\n' +
+'- **Core Tenet:** "Don\'t validate your solution. Validate the problem first."\n' +
+'- **Problem Statement:** 95% of funded university hardware research is abandoned after graduation, while 92% of student hardware founders fail due to ₹15L trial-and-error costs.\n' +
+'- **Fieldwork Validation:** 4 user interviews conducted across BMU Propel Incubator, DTU, and Delhi High Court patent bar.\n' +
+'- **Dual Empathy Canvases:**\n' +
+'  - Student Hardware Founder (Rohan): High prototyping burn, fear of cease-and-desist, seeks verified CAD blueprints and ₹1,999 safe-harbor deed.\n' +
+'  - Academic Graduate Scholar (Dr. Ananya): 0% commercial upside from university TTO, seeks 80% direct royalty escrow and SHA-256 attribution.\n\n' +
+'### Assignment 2: AI Venture Opportunity Exploration & Competitor Landscape\n' +
+'- Benchmarked against Google Patents, PatSnap ($12,000/yr), Wellspring Campus TTOs, and LegalZoom.\n' +
+'- GhostLab Advantage: Instant 3-minute claim autopsy + 3 generative CAD workarounds + 80% scholar fellowship escrow.\n\n' +
+'---\n\n' +
+'## 2. The AMPLIFIED! HI × AI Inquiry Loop (Dr. Nirupama M P)\n' +
+'- **Method:** 4 continuous moves: Observe (HI) -> Expand (AI) -> Interpret (HI) -> Accelerate (AI).\n' +
+'- **Loop 1 (Problem Investigation) "What Changed?":** Pivoted from a simple patent PDF search engine into an autonomous claim autopsy and CAD rebirth atelier.\n' +
+'- **Loop 2 (Problem Framing) "What Changed?":** Refined HMW to address Section 3 UPL compliance, delivering non-infringing CAD workarounds and scholar royalty split.\n\n' +
+'---\n\n' +
+'## 3. Prototype Comparison: With AI vs. Without AI\n' +
+'- Evaluated across 6 dimensions: Functionality, UX, Personalization (4-persona mode), Efficiency (3-minute triage vs 18 months), Accessibility (₹1,999 vs ₹75,000), and Problem-Solving Capability (generative CAD workarounds bypassing narrow claims under Pennwalt doctrine).\n\n' +
+'---\n\n' +
+'## 4. Venture Canvases\n' +
+'- **Strategyzer Value Proposition Canvas (Peter J. Thomson model):** Value Map (Benefits, Features, Experience) mapped to Customer Profile (Wants, Fears, Needs).\n' +
+'- **Alexander Osterwalder 9-Block Business Model Canvas:** Complete unit economics and platform flywheel.\n\n' +
+'---\n\n' +
+'## 5. Official AI Prompts Engine\n' +
+'1. Problem Framing & HMW Statement Evaluator\n' +
+'2. Stakeholder Analysis & Perspective-Taking (Sep 21)\n' +
+'3. Systems Thinking & Interdisciplinary Research (Sep 15)\n' +
+'4. Expand Evidence Base & Literature Review (Sep 15)\n\n' +
+'---\n\n' +
+'## 6. Classroom Lecture Compendium & AI Taxonomy\n' +
+'- **7 Canonical Definitions:** Poole (1998), Legg & Hutter (2007), Russell & Norvig (2009), Goodfellow (2016), Kaplan (2019), Chollet (2020), Bostrom & Yudkowsky (2021).\n' +
+'- **4-Way Taxonomy Matrix:** AI vs ML vs DL vs NLP.\n' +
+'- **6-Stage Data Preprocessing Pipeline:** Cleaning, Transformation, Reduction (PCA), Encoding, Missing Data Imputation, Synthetic Augmentation.\n' +
+'- **Ethical AI & Governance:** Bias mitigation, DPDP/GDPR privacy, Section 3 Advocates Act safe-harbors.\n';
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(md).then(() => {
+            if (window.showToast) window.showToast('Course Material Pack copied to clipboard!');
+          }).catch(() => {
+            if (window.showToast) window.showToast('Course Pack generated!');
+          });
+        }
+
+        const blob = new Blob([md], { type: 'text/markdown;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'GhostLab_AIE701_Academic_Course_Material_Dossier.md';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        if (window.sounds && window.sounds.rebirthChime) window.sounds.rebirthChime();
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCourseMaterialAtelier);
+  } else {
+    initCourseMaterialAtelier();
   }
 })();
 
