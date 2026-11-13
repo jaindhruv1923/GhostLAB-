@@ -1,0 +1,12 @@
+{
+  "name": "ghostlab-academic-invention-atelier",
+  "version": "1.0.0",
+  "description": "GhostLab — The Dormant Patent & Academic Invention Rebirth Atelier. An eye-soothing platform bridging abandoned university science, public domain patent archaeology, and young student builders.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "author": "BMU AI & Entrepreneurship (Dr. Nirupama M P)",
+  "license": "MIT"
+}

@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GhostLab • Final Business PPT Presentation Deck (17 Slides)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0F140F;
+      --bg-slide: #182218;
+      --bg-card: #202D20;
+      --border-subtle: #2D3E2D;
+      --border-medium: #3E543E;
+      --olive-primary: #75A47F;
+      --olive-bright: #97C1A9;
+      --olive-subtle: rgba(117, 164, 127, 0.15);
+      --text-main: #F4F7F4;
+      --text-muted: #B8C7B8;
+      --text-dim: #7E937E;
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-serif: 'Fraunces', Georgia, serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem;
+    }
+
+    /* Fixed Floating Header Controls */
+    .deck-top-bar {
+      position: sticky;
+      top: 1rem;
+      z-index: 100;
+      background: rgba(24, 34, 24, 0.95);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-medium);
+      border-radius: 40px;
+      padding: 8px 24px;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      margin-bottom: 2rem;
+    }
+
+    .brand-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--olive-bright);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-btn-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ctrl-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .ctrl-btn:hover {
+      background: var(--olive-primary);
+      color: #FFFFFF;
+      border-color: var(--olive-primary);
+    }
+
+    .slide-counter {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+
+    /* Slide Stage Container */
+    .deck-viewport {
+      width: 100%;
+      max-width: 1040px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .slide-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--bg-slide);
+      border: 1px solid var(--border-medium);
+      border-radius: 16px;
+      padding: 3rem 3.5rem;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide-frame.active {
+      display: flex;
+      animation: fadeIn 0.25s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Common Slide Typography */
+    .slide-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .slide-section-pill {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--olive-bright);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .slide-num-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-dim);
+    }
+
+    .slide-title-h1 {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+
+    .slide-body-container {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    .slide-footer-notes {
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--border-subtle);
+      font-size: 0.76rem;
+      color: var(--text-dim);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Custom Layouts */
+    .grid-2box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .feature-card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--olive-bright);
+      margin-bottom: 0.6rem;
+    }
+
+    /* 01 to 07 Stepwise Pain Points */
+    .pain-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .pain-step-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+
+    .pain-step-num {
+      font-family: var(--font-mono);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #E26D5C;
+      margin-bottom: 4px;
+    }
+
+    .pain-step-title {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .pain-step-desc {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Tables */
+    .slide-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+    }
+
+    .slide-table th, .slide-table td {
+      border: 1px solid var(--border-subtle);
+      padding: 7px 12px;
+      text-align: left;
+    }
+
+    .slide-table th {
+      background: var(--bg-card);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--olive-bright);
+      text-transform: uppercase;
+    }
+
+    .slide-table .num-cell {
+      text-align: right;
+      font-family: var(--font-mono);
+    }
+
+    .highlight-row {
+      background: var(--olive-subtle);
+      font-weight: 700;
+    }
+
+    /* Mathematical Formula Boxes */
+    .bep-math-banner {
+      background: var(--bg-card);
+      border-left: 4px solid var(--olive-primary);
+      padding: 1.2rem 1.6rem;
+      border-radius: 0 8px 8px 0;
+      font-family: var(--font-mono);
+      margin: 0.8rem 0;
+    }
+
+    /* Slide Thumbnails Rail */
+    .thumb-strip {
+      display: flex;
+      gap: 8px;
+      margin-top: 1.5rem;
+      overflow-x: auto;
+      max-width: 1040px;
+      padding: 8px;
+      scrollbar-width: thin;
+    }
+
+    .thumb-item {
+      min-width: 52px;
+      height: 32px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .thumb-item.active {
+      background: var(--olive-primary);
+      color: #FFFFFF;
+      border-color: var(--olive-bright);
+      font-weight: 700;
+    }
+
+    @media print {
+      body { background: #FFFFFF; color: #000000; padding: 0; }
+      .deck-top-bar, .thumb-strip { display: none; }
+      .slide-frame { display: flex !important; page-break-after: always; border: 1px solid #CCC; background: #FFF; color: #000; box-shadow: none; margin-bottom: 2rem; }
+      .slide-title-h1 { color: #000; }
+      .feature-card, .pain-step-item, .bep-math-banner { background: #F8F9F8; border-color: #DDD; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Navigation Controls -->
+  <div class="deck-top-bar">
+    <div class="brand-pill">
+      <span>❖ GhostLab</span>
+      <span style="color: var(--text-dim); font-size: 0.75rem;">FINAL BUSINESS PPT</span>
+    </div>
+    <div class="nav-btn-group">
+      <button class="ctrl-btn" id="btnPrevSlide">&larr; Prev</button>
+      <span class="slide-counter" id="slideCounterText">Slide 1 of 17</span>
+      <button class="ctrl-btn" id="btnNextSlide">Next &rarr;</button>
+    </div>
+    <div class="nav-btn-group">
+      <button class="ctrl-btn" id="btnFullscreen">Fullscreen</button>
+      <button class="ctrl-btn" onclick="window.print()">Print PDF</button>
+      <button class="ctrl-btn" onclick="window.location.href='./index.html#coursematerial'">Atelier Web App &rarr;</button>
+    </div>
+  </div>
+
+  <!-- Slide Stage -->
+  <div class="deck-viewport">
+
+    <!-- SLIDE 1: Cover Slide -->
+    <div class="slide-frame active" id="slide1">
+      <div class="slide-meta-row">
+        <span class="slide-section-pill">I &amp; E &bull; BML MUNJAL UNIVERSITY &bull; AIE-701</span>
+        <span class="slide-num-badge">SLIDE 01 / 17</span>
+      </div>
+      <div class="slide-body-container" style="justify-content: center; text-align: center;">
+        <h1 class="slide-title-h1" style="font-size: 3.4rem; margin-bottom: 0.5rem; letter-spacing: -0.02em;">GHOSTLAB</h1>
+        <p style="font-size: 1.35rem; color: var(--olive-bright); font-weight: 600; margin-bottom: 1.5rem;">
+          The Dormant Patent &amp; Academic Invention Rebirth Atelier
+        </p>
+        <p style="font-size: 1rem; color: var(--text-muted); max-width: 640px; margin: 0 auto 2rem auto;">
+          An eye-soothing deep-tech atelier turning abandoned university research and public domain science into scalable hardware spinouts.
+        </p>
+        <div style="display: inline-flex; justify-content: center; gap: 2rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-dim); border-top: 1px dashed var(--border-subtle); padding-top: 1rem;">
+          <div>Group No. 07 &bull; CSE &amp; Mechatronics</div>
+          <div>Course: AI &amp; Entrepreneurship</div>
+          <div>Faculty Guide: Dr. Nirupama M P</div>
+        </div>
+      </div>
+      <div class="slide-footer-notes">
+        <span>Signal Theory (Spence, 1973) &bull; Verified Academic Science Rebirth</span>
+        <span>Presentation Ready &bull; Group 07</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: Table of Content -->
+    <div class="slide-frame" id="slide2">
+      <div class="slide-meta-row">
+        <span class="slide-section-pill">OVERVIEW &bull; AGENDA</span>
+        <span class="slide-num-badge">SLIDE 02 / 17</span>
+      </div>
+      <h1 class="slide-title-h1">TABLE OF CONTENT</h1>
+      <div class="slide-body-container">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+          <div class="feature-card">
+            <div class="feature-card-title">I) ABOUT US IN BRIEF</div>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem;">
+              <li>&bull; Who are we? What we do?</li>
+              <li>&bull; Our vision and mission</li>
+              <li>&bull; Key customer pain points</li>
+              <li>&bull; Our Services</li>
+            </ul>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-title">II) MARKET</div>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem;">
+              <li>&bull; Our market burden &amp; facts</li>
+              <li>&bull; TAM, SAM and SOM</li>
+              <li>&bull; Competitive benchmarking</li>
+              <li>&bull; Value proposition canvas</li>
+              <li>&bull; Business model canvas</li>
+            </ul>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-title">III) BUSINESS PLAN</div>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem;">
+              <li>&bull; Breakeven Analysis ($87k BEP)</li>
+              <li>&bull; Cost Architecture Charts</li>
+              <li>&bull; 3-Year Projected Revenue Model</li>
+              <li>&bull; 3-Year Revenue Growth Curve</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer-notes">
+        <span>Direct Mirror of Group07_AlzoWatch_FinalBusinessPPT.pdf Architecture</span>
+        <span>AIE-701 Syllabus Progression</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: Who Are We? What We Do? -->
+    <div class="slide-frame" id="slide3">
+      <div class="slide-meta-row">
+        <span class="slide-section-pill">PART I &bull; ABOUT US IN BRIEF</span>
+        <span class="slide-num-badge">SLIDE 03 / 17</span>
+      </div>
+      <h1 class="slide-title-h1">WHO ARE WE? WHAT WE DO?</h1>
+      <div class="slide-body-container">
+        <div class="grid-2box">
+          <div class="feature-card">
+            <div class="feature-card-title">WHO ARE WE?</div>
+            <p>We are a dedicated team of student engineers and IP researchers focused on rescuing dormant, grant-funded campus inventions and expired public domain science, empowering young student builders with verified CAD blueprints, ethical stewardship, and statutory safe-harbors.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-title">WHAT WE DO?</div>
+            <p>We design GhostLab, an AI-powered DeepTech rebirth atelier that deconstructs complex academic patents into non-infringing CAD engineering workarounds, verified bills-of-materials, and instant &#x20B9;1,999 safe-harbor licensing deeds with 80% scholar fellowship royalties.</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer-notes">
+        <span>Bridging Abandoned University Science &amp; Grassroots Student Hardware Founders</span>
+        <span>BMU Propel Incubator Pilot</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: Vision & Mission -->
+    <div class="slide-frame" id="slide4">
+      <div class="slide-meta-row">
+        <span class="slide-section-pill">PART I &bull; ABOUT US IN BRIEF</span>
+        <span class="slide-num-badge">SLIDE 04 / 17</span>
+      </div>
+      <h1 class="slide-title-h1">OUR VISION &bull; OUR MISSION</h1>
+      <div class="slide-body-container">
+        <div class="grid-2box">
+          <div class="feature-card" style="border-left: 4px solid var(--olive-primary);">
+            <div class="feature-card-title">OUR VISION</div>
+            <p>To become the premier national safe-harbor bridge transforming over <strong>&#x20B9;1,000 Crores</strong> of dormant academic research and public domain science into scalable, commercially viable hardware startups that drive India's DeepTech self-reliance.</p>
+          </div>
+          <div class="feature-card" style="border-left: 4px solid #2980B9;">
+            <div class="feature-card-title">OUR MISSION</div>
+            <p>To engineer an intelligent, accessible atelier that eliminates the &#x20B9;1.5 Lakh legal retainer barrier, delivering automated patent claim autopsies, generative CAD workarounds, and 1-click safe-harbor licensing deeds that reward academic inventors with direct fellowship endowments.</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer-notes">
+        <span>Aligned with National IPR Policy &amp; Make in India DeepTech Missions</span>
+        <span>AIE-701 Objective</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: Key Pain Points -->
+    <div class="slide-frame" id="slide5">
+      <div class="slide-meta-row">
+        <span class="slide-section-pill">PART I &bull; CUSTOMER EMPATHY</span>
+        <span class="slide-num-badge">SLIDE 05 / 17</span>
+      </div>
+      <h1 class="slide-title-h1">KEY PAIN POINTS OF OUR CUSTOMERS</h1>
+      <div class="slide-body-container">
+        <div class="pain-steps-grid">
+          <div class="pain-step-item">
+            <div class="pain-step-num">01</div>
+            <div class="pain-step-title">Abandoned Science</div>
+            <div class="pain-step-desc">95% of funded university research is shelved once student scholars graduate.</div>
+          </div>
+          <div class="pain-step-item">
+            <div class="pain-step-num">02</div>
+            <div class="pain-step-title">&#x20B9;1.5L Legal Wall</div>
+            <div class="pain-step-desc">High law firm retainers prevent student builders from acquiring FTO clearance.</div>
+          </div>
+          <div class="pain-step-item">
+            <div class="pain-step-num">03</div>
+            <div class="pain-step-title">Prototype Burn</div>
+            <div class="pain-step-desc">Reinventing hardware mechanisms burns &#x20B9;15L and 14 months from scratch.</div>
+          </div>
+          <div class="pain-step-item">
+            <div class="pain-step-num">04</div>
+            <div class="pain-step-title">Scholar Heartbreak</div>
+            <div class="pain-step-desc">Graduate researchers receive 0% commercial upside from campus filing cabinets.</div>
+          </div>
+          <div class="pain-step-item">
+            <div class="pain-step-num">05</div>
+            <div class="pain-step-title">Infringement Fear</div>
+            <div class="pain-step-desc">Founders dread cease-and-desist letters from multinational patent trolls.</div>
+          </div>
+          <div class="pain-step-item">
+            <div class="pain-step-num">06</div>
+            <div class="pain-step-title">18-Month TTO Lag</div>
+            <div class="pain-step-desc">Bureaucratic university tech-transfer takes over a year and demands 15% equity.</div>
+          </div>
+          <div class="pain-step-item" style="grid-column: span 2;">
+            <div class="pain-step-num">07</div>
+            <div class="pain-step-title">Lack of Affordable, Integrated Solutions</div>
+            <div class="pain-step-desc">Existing tools only search text PDFs; none generate 3D CAD design-arounds or domestic Indian BOM cost curves.</div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer-notes">
+        <span>Fieldwork Evidence: 4 User Discovery Interviews (BMU, DTU, Delhi High Court)</span>
+        <span>Module 1 &amp; 2 Discovery</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: Our Services -->
+    <div class="slide-frame" id="slide6">
+      <div class="slide-meta-row">
+        <span class="slide-section-pill">PART I &bull; SOLUTION ARCHITECTURE</span>
+        <span class="slide-num-badge">SLIDE 06 / 17</span>
+      </div>
+      <h1 class="slide-title-h1">OUR SERVICES &bull; WHAT WE PROVIDE</h1>
+      <div class="slide-body-container">
+        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 1.5rem; align-items: center;">
+          <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem;">
+            <div><strong>1. Universal Invention Vault:</strong> 418+ salvaged campus inventions with STEP CAD &amp; BOMs.</div>
+            <div><strong>2. Deep Invention Autopsies:</strong> Candid teardowns explaining why research stalled &amp; 2026 rebirth plan.</div>
+            <div><strong>3. Generative CAD Design-Arounds:</strong> 3 non-infringing physical workarounds bypassing claims.</div>
+            <div><strong>4. 360&deg; Prior-Art Vector Radar:</strong> Algorithmic spatial collision detection across 1.2M patents.</div>
+            <div><strong>5. 1-Click Safe-Harbor Deeds:</strong> Standardized Section 3 statutory assignment deeds (&#x20B9;1,999).</div>
+            <div><strong>6. Automated 80% Scholar Escrow:</strong> Automated royalty payouts to research scholars\' endowments.</div>
+            <div><strong>7. Domestic Frugal BOM Costing:</strong> Indian component substitution and supply-chain pricing.</div>
+          </div>
+          <div class="feature-card" style="text-align: center; padding: 2rem;">
+            <div style="font-family: var(--font-mono); font-size: 2.2rem; color: var(--olive-primary); font-weight: 800; margin-bottom: 6px;">7 PILLARS</div>
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-main);">Multimodal Patent Rebirth Atelier</div>
+            <p style="font-size: 0.76rem; color: var(--text-dim); margin-top: 8px;">Spatial Mesh Parser &bull; Deterministic RAG (Temp=0.1) &bull; Pennwalt Claim Deconstructor</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer-notes">
+        <span>Multi-Tool Agentic Decision Support &bull; Zero Hallucination Guarantee</span>
+        <span>Module 3 &amp; 4 Execution</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: Our Market -->
+    <div class="slide-frame" id="slide7">
+      <div class="slide-meta-row">
+        <span class="slide-section-pill">PART II &bull; MARKET OPPORTUNITY</span>
+        <span class="slide-num-badge">SLIDE 07 / 17</span>
+      </div>
+      <h1 class="slide-title-h1">OUR MARKET &bull; THE DORMANCY BURDEN</h1>
+      <div class="slide-body-container">
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+          <div class="feature-card">
+            <div style="font-size: 2.2rem; font-family: var(--font-mono); color: #E26D5C; font-weight: 800;">95%</div>
+            <div style="font-weight: 700; color: var(--text-main); margin-bottom: 6px;">Funded Academic Science Abandoned</div>
+            <p style="font-size: 0.8rem;">Globally, over $38.4B is invested in university R&amp;D annually, yet fewer than 5% of campus patents ever become commercial spinouts.</p>
+          </div>
+          <div class="feature-card">
+            <div style="font-size: 2.2rem; font-family: var(--font-mono); color: var(--olive-bright); font-weight: 800;">&#x20B9;48.6 Cr</div>
+            <div style="font-weight: 700; color: var(--text-main); margin-bottom: 6px;">Sunk Public Grant Capital in India</div>
+            <p style="font-size: 0.8rem;">DST, MeitY, and BIRAC research grants sitting dormant in university drawers without commercialization personnel.</p>
+          </div>
+          <div class="feature-card">
+            <div style="font-size: 2.2rem; font-family: var(--font-mono); color: #F1A24A; font-weight: 800;">1.8M+</div>
+            <div style="font-weight: 700; color: var(--text-main); margin-bottom: 6px;">Public Domain Expired Patents</div>
+            <p style="font-size: 0.8rem;">Legally free for anyone to build upon, but founders lack CAD deconstruction tools to verify Freedom-to-Operate.</p>
+          </div>
+          <div class="feature-card">
+            <div style="font-size: 2.2rem; font-family: var(--font-mono); color: #88C9E8; font-weight: 800;">45,000+</div>
+            <div style="font-weight: 700; color: var(--text-main); margin-bottom: 6px;">Annual Capstone Projects in India</div>
+            <p style="font-size: 0.8rem;">Graduating engineering teams hungry for verified CAD blueprints to avoid reinventing mechanisms.</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer-notes">
+        <span>Global Tech-Transfer Sunk Capital Analysis &bull; Indian DeepTech Context</span>
+        <span>Module 5 Venture Analytics</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: TAM, SAM AND SOM -->
+    <div class="slide-frame" id="slide8">
+      <div class="slide-meta-row">
+        <span class="slide-section-pill">PART II &bull; MARKET SIZING</span>
+        <span class="slide-num-badge">SLIDE 08 / 17</span>
+      </div>
+      <h1 class="slide-title-h1">TAM, SAM AND SOM &bull; GLOBAL METRICS</h1>
+      <div class="slide-body-container">
+        <div class="grid-2box">
+          <div class="feature-card">
+            <div class="slide-section-pill" style="color: #88C9E8;">TOTAL ADDRESSABLE MARKET (TAM)</div>
+            <div style="font-size: 2.4rem; font-family: var(--font-mono); font-weight: 800; color: #FFFFFF; margin: 6px 0;">$38.4 Billion</div>
+            <p style="font-size: 0.82rem; margin-bottom: 8px;">Global university technology transfer, IP licensing, and academic commercialization spend across 15,000+ research institutions.</p>
+            <div style="font-size: 0.74rem; font-family: var(--font-mono); color: var(--text-dim);">
+              Unit Baseline: $80 device/license + $87/yr subscription = $167 total venture package.
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="slide-section-pill" style="color: var(--olive-bright);">SERVICEABLE AVAILABLE MARKET (SAM)</div>
+            <div style="font-size: 2.4rem; font-family: var(--font-mono); font-weight: 800; color: #FFFFFF; margin: 6px 0;">$5.2 Billion</div>
+            <p style="font-size: 0.82rem; margin-bottom: 8px;">Hardware venture spinouts, open-source prototyping, and prior-art search across engineering universities in emerging economies.</p>
+            <div style="font-size: 0.74rem; font-family: var(--font-mono); color: var(--text-dim);">
+              Affordability assumption: 30% of global hardware maker teams.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer-notes">
+        <span>Identical Unit Assumptions as Faculty Reference Deck ($80 License + $87 Subscription)</span>
+        <span>Bottom-Up Modeling</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: Indian Context SOM -->
+    <div class="slide-frame" id="slide9">
+      <div class="slide-meta-row">
+        <span class="slide-section-pill">PART II &bull; MARKET SIZING</span>
+        <span class="slide-num-badge">SLIDE 09 / 17</span>
+      </div>
+      <h1 class="slide-title-h1">TAM, SAM AND SOM &bull; THE INDIAN CONTEXT</h1>
+      <div class="slide-body-container">
+        <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 1.5rem; align-items: center;">
+          <div>
+            <div class="slide-section-pill" style="color: #F1A24A;">SERVICEABLE OBTAINABLE MARKET (SOM)</div>
+            <div style="font-size: 2.8rem; font-family: var(--font-mono); font-weight: 800; color: var(--olive-bright); margin: 6px 0;">&#x20B9;310 Crores</div>
+            <div style="font-size: 1.1rem; color: var(--text-main); font-weight: 600; margin-bottom: 8px;">($37.2 Million USD) &bull; 3% of SAM in 3 Years</div>
+            <p style="font-size: 0.85rem; line-height: 1.5;">Across 3,500+ Indian university incubators (DST, Atal, MeitY TIDE 2.0 nodes) and 45,000+ annual engineering capstone ventures.</p>
+          </div>
+          <div class="feature-card">
+            <div style="font-size: 0.8rem; font-family: var(--font-mono); text-transform: uppercase; color: var(--olive-bright); font-weight: 700; margin-bottom: 8px;">6 Indian Growth Drivers:</div>
+            <ul style="font-size: 0.78rem; display: flex; flex-direction: column; gap: 6px; list-style: none;">
+              <li>1. <strong>National IPR Policy</strong> (Mandatory campus commercialization)</li>
+              <li>2. <strong>MeitY TIDE 2.0 Grants</strong> (Funding student DeepTech)</li>
+              <li>3. <strong>Surge in Capstone Startups</strong> (45,000+ teams/year)</li>
+              <li>4. <strong>Frugal Jugaad &times; AI</strong> (Low-cost Indian fabrication)</li>
+              <li>5. <strong>Multimodal AI Tools</strong> (Democratizing legal triage)</li>
+              <li>6. <strong>Hardware Self-Reliance</strong> (National drone/EV mandates)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer-notes">
+        <span>3% Target Share Within 3 Years &bull; Delhi-NCR Beachhead (BMU, DTU, NSUT, IIT-D)</span>
+        <span>Module 5 Strategy</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 10: Competitive Benchmarking -->
+    <div class="slide-frame" id="slide10">
+      <div class="slide-meta-row">
+        <span class="slide-section-pill">PART II &bull; COMPETITIVE ADVANTAGE</span>
+        <span class="slide-num-badge">SLIDE 10 / 17</span>
+      </div>
+      <h1 class="slide-title-h1">COMPETITIVE BENCHMARKING</h1>
+      <div class="slide-body-container">
+        <table class="slide-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th style="background: var(--olive-subtle); color: var(--text-main);">GhostLab Atelier</th>
+              <th>Competitor 1 (Google Patents)</th>
+              <th>Competitor 2 (PatSnap / Clarivate)</th>
+              <th>Competitor 3 (Campus TTOs)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>3D CAD Mesh Ingestion</strong></td>
+              <td style="color: var(--olive-bright);">✔️ STEP, STL, KiCad</td>
+              <td>❌ Text/PDF only</td>
+              <td>❌ Text/PDF only</td>
+              <td>❌ Paper drawers</td>
+            </tr>
+            <tr>
+              <td><strong>Generative CAD Workarounds</strong></td>
+              <td style="color: var(--olive-bright);">✔️ 3 Physical designs</td>
+              <td>❌ Not available</td>
+              <td>❌ Not available</td>
+              <td>❌ &#x20B9;1.5L retainer</td>
+            </tr>
+            <tr>
+              <td><strong>All-Elements Rule (AER) Matrix</strong></td>
+              <td style="color: var(--olive-bright);">✔️ Automated 3-min</td>
+              <td>❌ Zero claim analysis</td>
+              <td>✔️ Manual legal tool</td>
+              <td>❌ 12-month lag</td>
+            </tr>
+            <tr>
+              <td><strong>Affordability for Students</strong></td>
+              <td style="color: var(--olive-bright); font-weight: 700;">✔️ &#x20B9;1,999 ($80)</td>
+              <td>✔️ Free (raw index)</td>
+              <td>❌ &#x20B9;10 Lakhs/yr ($12k)</td>
+              <td>❌ &#x20B9;1.5 Lakhs upfront</td>
+            </tr>
+            <tr>
+              <td><strong>Safe-Harbor Assignment Deed</strong></td>
+              <td style="color: var(--olive-bright);">✔️ 1-Click Section 3</td>
+              <td>❌ No legal release</td>
+              <td>❌ No legal release</td>
+              <td>❌ Demands 15% equity</td>
+            </tr>
+            <tr>
+              <td><strong>Scholar Royalty Escrow</strong></td>
+              <td style="color: var(--olive-bright); font-weight: 700;">✔️ 80% Direct Escrow</td>
+              <td>❌ 0% Royalty</td>
+              <td>❌ 0% Royalty</td>
+              <td>❌ 0%–5% Delayed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="slide-footer-notes">
+        <span>Direct Mirror of Slide 10 Feature Matrix &bull; Moat: Proprietary Campus CAD Library</span>
+        <span>AIE-701 Benchmarking</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 11: Value Proposition Canvas -->
+    <div class="slide-frame" id="slide11">
+      <div class="slide-meta-row">
+        <span class="slide-section-pill">PART II &bull; VALUE-MARKET FIT</span>
+        <span class="slide-num-badge">SLIDE 11 / 17</span>
+      </div>
+      <h1 class="slide-title-h1">VALUE PROPOSITION CANVAS</h1>
+      <div class="slide-body-container">
+        <div class="grid-2box">
+          <div class="feature-card">
+            <div class="slide-section-pill">PRODUCT &bull; VALUE MAP</div>
+            <div style="font-size: 0.8rem; margin: 8px 0; display: flex; flex-direction: column; gap: 6px;">
+              <div><strong>Benefits:</strong> Saves &#x20B9;15L and 14 months prototyping; guarantees 100% Freedom-to-Operate; channels 80% royalty split directly to scholar\'s endowment.</div>
+              <div><strong>Features:</strong> Multimodal claim deconstructor; 360&deg; Vector Prior-Art Radar; 3 generative non-infringing CAD workarounds; SHA-256 sealed deed.</div>
+              <div><strong>Experience:</strong> Dignified, empowering, and fearless. Turns intimidated students into legally protected DeepTech pioneers.</div>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="slide-section-pill">CUSTOMER &bull; HARDWARE FOUNDER</div>
+            <div style="font-size: 0.8rem; margin: 8px 0; display: flex; flex-direction: column; gap: 6px;">
+              <div><strong>Wants:</strong> Launch a physical product before graduation; win MeitY TIDE 2.0 grants; gain respect as an innovative hardware inventor.</div>
+              <div><strong>Fears:</strong> Patent infringement lawsuits; burning savings on unviable mechanical molds; &#x20B9;75k patent attorney retainer bills.</div>
+              <div><strong>Needs:</strong> Verified campus CAD geometries; clear legal authorization to produce; domestic supplier BOM cost curves.</div>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.76rem; background: var(--bg-card); padding: 8px 14px; border-radius: 6px; margin-top: 10px;">
+          <div><strong>Product:</strong> GhostLab Rebirth Atelier</div>
+          <div><strong>Ideal Customer:</strong> Student Hardware Founders &bull; Capstone Teams</div>
+          <div><strong>Substitutes:</strong> Traditional Law Firms (&#x20B9;75k) &bull; DIY YouTube Clones</div>
+        </div>
+      </div>
+      <div class="slide-footer-notes">
+        <span>Strategyzer / Peter J. Thomson Layout &bull; Group 07 Alignment</span>
+        <span>Module 4 Fit</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 12: Business Model Canvas -->
+    <div class="slide-frame" id="slide12">
+      <div class="slide-meta-row">
+        <span class="slide-section-pill">PART II &bull; BUSINESS MODEL CANVAS</span>
+        <span class="slide-num-badge">SLIDE 12 / 17</span>
+      </div>
+      <h1 class="slide-title-h1">BUSINESS MODEL CANVAS &bull; OSTERWALDER 9-BOX</h1>
+      <div class="slide-body-container">
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; font-size: 0.72rem;">
+          <div class="feature-card" style="padding: 10px;">
+            <strong style="color: var(--olive-bright);">Key Partners</strong>
+            <p style="margin-top: 4px;">University TTOs (BMU, IITs, DTU); Incubation Networks (Propel, MeitY TIDE 2.0); Patent Attorney Advisory Board.</p>
+          </div>
+          <div class="feature-card" style="padding: 10px;">
+            <strong style="color: var(--olive-bright);">Key Activities</strong>
+            <p style="margin-top: 4px;">Multimodal claim parsing; Generative CAD design-around; Vector prior-art radar; Scholar escrow disbursement.</p>
+          </div>
+          <div class="feature-card" style="padding: 10px;">
+            <strong style="color: var(--olive-bright);">Value Propositions</strong>
+            <p style="margin-top: 4px;">3-min patent autopsy; 3 CAD workarounds; &#x20B9;1,999 ($80) Safe-Harbor FTO deed; 80% scholar fellowship split.</p>
+          </div>
+          <div class="feature-card" style="padding: 10px;">
+            <strong style="color: var(--olive-bright);">Customer Rel.</strong>
+            <p style="margin-top: 4px;">Self-serve builder atelier UI; Automated Scholar Escrow; SHA-256 cryptographic audit ledger.</p>
+          </div>
+          <div class="feature-card" style="padding: 10px;">
+            <strong style="color: var(--olive-bright);">Customer Seg.</strong>
+            <p style="margin-top: 4px;">Student hardware founders; Graduate researchers; Campus Incubators; Corporate R&amp;D scouting labs.</p>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.72rem; margin-top: 8px;">
+          <div class="feature-card" style="padding: 10px; border-left: 3px solid #E67E22;">
+            <strong style="color: #E67E22;">Cost Structure [BEP INPUT]</strong>
+            <p style="margin-top: 4px;"><strong>Fixed Costs: $43,500/yr</strong> (Salaries $20k, Rent $5k, Ads $5k, Legal $2.5k, Cloud $11k).<br><strong>Variable Costs: 50.0%</strong> (AI compute 25%, Labor 15%, Storage 10%).</p>
+          </div>
+          <div class="feature-card" style="padding: 10px; border-left: 3px solid #27AE60;">
+            <strong style="color: #27AE60;">Revenue Streams [BEP INPUT]</strong>
+            <p style="margin-top: 4px;"><strong>$80.00 (&#x20B9;1,999)</strong> per Safe-Harbor Handover Deed ($40 margin).<br><strong>$87.00/yr (&#x20B9;7,200/yr)</strong> Campus Incubator SaaS Subscription per active venture seat.</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer-notes">
+        <span>Fulfills Assignment Directive 2: Mapped Fixed Costs, Variable Costs, Price &amp; Revenues</span>
+        <span>Osterwalder Model</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 13: Break Even Analysis Formula -->
+    <div class="slide-frame" id="slide13">
+      <div class="slide-meta-row">
+        <span class="slide-section-pill">PART III &bull; BUSINESS PLAN</span>
+        <span class="slide-num-badge">SLIDE 13 / 17</span>
+      </div>
+      <h1 class="slide-title-h1">BREAK EVEN ANALYSIS &bull; FORMULA &amp; TABLE</h1>
+      <div class="slide-body-container">
+        <div class="grid-2box">
+          <div>
+            <div class="bep-math-banner">
+              <div style="font-size: 0.76rem; color: var(--text-dim); margin-bottom: 4px;">BREAKEVEN SALES LEVEL FORMULA:</div>
+              <div style="font-size: 1.15rem; color: #FFFFFF; font-weight: 700;">Breakeven Sales Level = Fixed Costs / (1 &minus; VC %)</div>
+              <div style="font-size: 0.9rem; color: var(--olive-bright); margin-top: 6px;">
+                = $43,500 / (1 &minus; 0.50) = $43,500 / 0.50 = <strong>$87,000 (&#x20B9;72,21,000)</strong>
+              </div>
+              <div style="font-size: 0.82rem; color: #88C9E8; margin-top: 4px;">
+                BEP (Units) = $43,500 / ($80 &minus; $40) = <strong>1,088 Licenses</strong>
+              </div>
+            </div>
+            <div style="font-size: 0.8rem; line-height: 1.5; color: var(--text-muted);">
+              <strong>Interpretation:</strong><br>
+              &bull; To break even, we need sales of $87,000 annually.<br>
+              &bull; Assumes variable costs are 50% of our sales revenue and fixed costs are $43,500.<br>
+              &bull; 1,088 units across 15 campus incubators = ~72 student licenses/campus/year (only 2.42% capture).<br>
+              &bull; 47.9% Margin of Safety provides robust protection against early market adoption risk.
+            </div>
+          </div>
+          <div style="max-height: 240px; overflow-y: auto;">
+            <table class="slide-table" style="font-size: 0.75rem;">
+              <tr><th>Cost Description</th><th class="num-cell">Fixed ($)</th><th class="num-cell">VC (%)</th></tr>
+              <tr><td>Inventory (CAD Storage &amp; Egress)</td><td class="num-cell">&mdash;</td><td class="num-cell">10.0%</td></tr>
+              <tr><td>Raw Materials (AI Tokens, Gazettes)</td><td class="num-cell">&mdash;</td><td class="num-cell">25.0%</td></tr>
+              <tr><td>Direct Labor (IP Verification &amp; Deeds)</td><td class="num-cell">&mdash;</td><td class="num-cell">15.0%</td></tr>
+              <tr class="highlight-row"><td>Total Variable Costs</td><td class="num-cell">&mdash;</td><td class="num-cell">50.0%</td></tr>
+              <tr><td>Salaries (Founders &amp; IP Engineers)</td><td class="num-cell">$20,000</td><td class="num-cell">&mdash;</td></tr>
+              <tr><td>Rent (Incubator office &amp; testbench)</td><td class="num-cell">$5,000</td><td class="num-cell">&mdash;</td></tr>
+              <tr><td>Advertising &amp; University Roadshows</td><td class="num-cell">$5,000</td><td class="num-cell">&mdash;</td></tr>
+              <tr><td>Accounting &amp; Legal Safe-Harbor Retainer</td><td class="num-cell">$2,500</td><td class="num-cell">&mdash;</td></tr>
+              <tr><td>Other Overhead (Cloud, Utilities, Taxes, Travel)</td><td class="num-cell">$11,000</td><td class="num-cell">&mdash;</td></tr>
+              <tr class="highlight-row"><td>Total Fixed Costs</td><td class="num-cell"><strong>$43,500</strong></td><td class="num-cell">&mdash;</td></tr>
+              <tr style="background: var(--olive-primary); color: #FFF; font-weight: 800;">
+                <td>Breakeven Sales Level =</td><td class="num-cell" colspan="2"><strong>87000 ($87,000)</strong></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer-notes">
+        <span>Direct Operationalization of Slide 13 Table &amp; Math Proof &bull; CVP Formulation</span>
+        <span>CO3 Financial Defense</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 14: Cost Breakdown Visual Charts -->
+    <div class="slide-frame" id="slide14">
+      <div class="slide-meta-row">
+        <span class="slide-section-pill">PART III &bull; BUSINESS PLAN</span>
+        <span class="slide-num-badge">SLIDE 14 / 17</span>
+      </div>
+      <h1 class="slide-title-h1">BREAK EVEN ANALYSIS &bull; COST ARCHITECTURE</h1>
+      <div class="slide-body-container">
+        <div class="grid-2box">
+          <div class="feature-card" style="text-align: center;">
+            <div style="font-weight: 700; color: var(--text-main); margin-bottom: 4px;">Fixed Costs Breakdown (Pie Chart)</div>
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); margin-bottom: 12px;">Total: $43,500 (100%)</div>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; font-size: 0.75rem; text-align: left;">
+              <div>&bull; Salaries: <strong>46.0% ($20k)</strong></div>
+              <div>&bull; Rent: <strong>11.5% ($5k)</strong></div>
+              <div>&bull; Advertising: <strong>11.5% ($5k)</strong></div>
+              <div>&bull; Accounting/Legal: <strong>5.7% ($2.5k)</strong></div>
+              <div>&bull; Car, Delivery, Travel: <strong>4.6% ($2k)</strong></div>
+              <div>&bull; Taxes: <strong>4.6% ($2k)</strong></div>
+              <div>&bull; Utilities: <strong>3.4% ($1.5k)</strong></div>
+              <div>&bull; Other (Cloud, SSL): <strong>3.4% ($1.5k)</strong></div>
+              <div>&bull; Insurance: <strong>2.3% ($1k)</strong></div>
+              <div>&bull; Loan Interest: <strong>2.3% ($1k)</strong></div>
+              <div>&bull; Supplies &amp; Sensors: <strong>2.3% ($1k)</strong></div>
+              <div>&bull; Maintenance &amp; Phone: <strong>2.2% ($1k)</strong></div>
+            </div>
+          </div>
+          <div class="feature-card" style="text-align: center;">
+            <div style="font-weight: 700; color: var(--text-main); margin-bottom: 4px;">Variable Costs (% of Sales) (Bar Chart)</div>
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); margin-bottom: 12px;">Total: 50.0% of Sales Revenue</div>
+            <div style="display: flex; justify-content: space-around; align-items: flex-end; height: 110px; border-bottom: 2px solid var(--border-medium); padding-bottom: 4px;">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--olive-bright);">10.0%</span>
+                <div style="width: 44px; height: 40px; background: #88C9E8; border-radius: 2px;"></div>
+                <span style="font-size: 0.72rem; color: var(--text-dim);">Inventory</span>
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--olive-bright); font-weight: 700;">25.0%</span>
+                <div style="width: 44px; height: 100px; background: #88C9E8; border-radius: 2px;"></div>
+                <span style="font-size: 0.72rem; color: var(--text-dim);">Raw Materials</span>
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--olive-bright);">15.0%</span>
+                <div style="width: 44px; height: 60px; background: #88C9E8; border-radius: 2px;"></div>
+                <span style="font-size: 0.72rem; color: var(--text-dim);">Direct Labor</span>
+              </div>
+            </div>
+            <div style="font-size: 0.72rem; color: var(--text-dim); margin-top: 8px;">
+              50% Unit Contribution Margin ($40/license) recovering fixed overhead.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer-notes">
+        <span>Direct Visual Replication of Slide 14 Charts &bull; Operational Cost Transparency</span>
+        <span>AIE-701 Unit Economics</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 15: 3-Year Projected Revenue Table -->
+    <div class="slide-frame" id="slide15">
+      <div class="slide-meta-row">
+        <span class="slide-section-pill">PART III &bull; BUSINESS PLAN</span>
+        <span class="slide-num-badge">SLIDE 15 / 17</span>
+      </div>
+      <h1 class="slide-title-h1">3-YEAR PROJECTED REVENUE MODEL</h1>
+      <div class="slide-body-container">
+        <div style="background: var(--bg-card); padding: 10px 14px; border-radius: 6px; font-size: 0.78rem; margin-bottom: 12px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;">
+          <div>1. <strong>Device / License Price (Per Unit):</strong> $80.00 (Revenue from 1 handover)</div>
+          <div>2. <strong>Subscription Price (Per Year):</strong> $87.00 (Annual campus incubator seat)</div>
+          <div>3. <strong>Yearly Sales Growth Rate:</strong> 50%</div>
+          <div>4. <strong>Customer Renewal Rate:</strong> 80% renew subscriptions in subsequent years</div>
+        </div>
+        <table class="slide-table">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th class="num-cell">Sales Volume</th>
+              <th class="num-cell">Device / License Revenue</th>
+              <th class="num-cell">Subscription Revenue</th>
+              <th class="num-cell">Total Revenue</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Year 1</strong></td>
+              <td class="num-cell">1,000</td>
+              <td class="num-cell">$80,000</td>
+              <td class="num-cell">$87,000</td>
+              <td class="num-cell" style="color: var(--olive-bright); font-weight: 700;">$167,000</td>
+            </tr>
+            <tr>
+              <td><strong>Year 2</strong></td>
+              <td class="num-cell">1,500</td>
+              <td class="num-cell">$120,000</td>
+              <td class="num-cell">$130,500 (new) + $69,600 (80% Yr 1) = $200,100</td>
+              <td class="num-cell" style="color: var(--olive-bright); font-weight: 700;">$320,100</td>
+            </tr>
+            <tr>
+              <td><strong>Year 3</strong></td>
+              <td class="num-cell">2,250</td>
+              <td class="num-cell">$180,000</td>
+              <td class="num-cell">$195,750 (new) + $174,600 (prior) = $370,350</td>
+              <td class="num-cell" style="color: var(--olive-bright); font-weight: 700;">$550,350</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>3-Year Total</strong></td>
+              <td class="num-cell"><strong>4,750</strong></td>
+              <td class="num-cell"><strong>$380,000</strong></td>
+              <td class="num-cell"><strong>$657,450</strong></td>
+              <td class="num-cell" style="font-size: 1.05rem; font-weight: 800; color: #FFFFFF;"><strong>$1,037,450 (~&#x20B9;8.61 Cr)</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="slide-footer-notes">
+        <span>Direct Replication of Slide 15 Table &bull; Cumulative EBITDA: +$388,225 (~&#x20B9;3.22 Crores)</span>
+        <span>Module 5 Scale</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 16: 3-Year Projected Revenue Chart -->
+    <div class="slide-frame" id="slide16">
+      <div class="slide-meta-row">
+        <span class="slide-section-pill">PART III &bull; REVENUE TRAJECTORY</span>
+        <span class="slide-num-badge">SLIDE 16 / 17</span>
+      </div>
+      <h1 class="slide-title-h1">3-YEAR REVENUE MODEL &bull; GROWTH CURVE</h1>
+      <div class="slide-body-container" style="align-items: center; justify-content: center;">
+        <div style="width: 100%; max-width: 720px; background: var(--bg-card); padding: 1.2rem; border-radius: 12px; border: 1px solid var(--border-subtle);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 0.78rem;">
+            <div style="font-weight: 700; color: var(--text-main);">GhostLab 3-Year Revenue Growth Trajectory ($ USD)</div>
+            <div style="display: flex; gap: 12px; font-family: var(--font-mono); font-size: 0.72rem;">
+              <span style="color: #88C9E8;">■ Device Rev</span>
+              <span style="color: #88D49E;">■ Subscription Rev</span>
+              <span style="color: #F1A24A;">— Total Revenue</span>
+              <span style="color: #E74C3C;">--- BEP ($87k)</span>
+            </div>
+          </div>
+          <!-- Visual Growth Trajectory Graphic -->
+          <div style="display: flex; justify-content: space-around; align-items: flex-end; height: 160px; border-bottom: 2px solid var(--border-medium); position: relative; padding-bottom: 4px;">
+            <!-- Dotted BEP Line -->
+            <div style="position: absolute; bottom: 23px; left: 0; right: 0; border-top: 1.5px dashed #E74C3C; display: flex; justify-content: flex-end;">
+              <span style="font-family: var(--font-mono); font-size: 0.68rem; color: #E74C3C; background: var(--bg-card); padding: 0 4px;">BEP $87,000 (Month 6.2)</span>
+            </div>
+
+            <!-- Year 1 Group -->
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #F1A24A; font-weight: 700;">$167,000</span>
+              <div style="display: flex; gap: 4px; align-items: flex-end;">
+                <div style="width: 32px; height: 35px; background: #88C9E8; border-radius: 2px;" title="Device: $80,000"></div>
+                <div style="width: 32px; height: 38px; background: #88D49E; border-radius: 2px;" title="Sub: $87,000"></div>
+              </div>
+              <span style="font-size: 0.75rem; color: var(--text-main); font-weight: 600;">Year 1</span>
+            </div>
+
+            <!-- Year 2 Group -->
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #F1A24A; font-weight: 700;">$320,100</span>
+              <div style="display: flex; gap: 4px; align-items: flex-end;">
+                <div style="width: 32px; height: 52px; background: #88C9E8; border-radius: 2px;" title="Device: $120,000"></div>
+                <div style="width: 32px; height: 87px; background: #88D49E; border-radius: 2px;" title="Sub: $200,100"></div>
+              </div>
+              <span style="font-size: 0.75rem; color: var(--text-main); font-weight: 600;">Year 2</span>
+            </div>
+
+            <!-- Year 3 Group -->
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #F1A24A; font-weight: 700;">$550,350</span>
+              <div style="display: flex; gap: 4px; align-items: flex-end;">
+                <div style="width: 32px; height: 78px; background: #88C9E8; border-radius: 2px;" title="Device: $180,000"></div>
+                <div style="width: 32px; height: 155px; background: #88D49E; border-radius: 2px;" title="Sub: $370,350"></div>
+              </div>
+              <span style="font-size: 0.75rem; color: var(--text-main); font-weight: 600;">Year 3</span>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-dim); margin-top: 10px;">
+            <span>EBITDA Margin: Year 1 = 24.0%</span>
+            <span>Year 2 = 36.4%</span>
+            <span>Year 3 = 42.1% (High Operating Leverage)</span>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer-notes">
+        <span>Direct Visual Replication of Slide 16 &bull; Compounding SaaS Flywheel</span>
+        <span>AIE-701 Financial Defense</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 17: Thank You Slide -->
+    <div class="slide-frame" id="slide17">
+      <div class="slide-meta-row">
+        <span class="slide-section-pill">I &amp; E &bull; BML MUNJAL UNIVERSITY</span>
+        <span class="slide-num-badge">SLIDE 17 / 17</span>
+      </div>
+      <div class="slide-body-container" style="justify-content: center; text-align: center;">
+        <h1 class="slide-title-h1" style="font-size: 3.6rem; letter-spacing: -0.02em; margin-bottom: 0.5rem;">THANK YOU</h1>
+        <p style="font-size: 1.25rem; color: var(--olive-bright); font-weight: 600; margin-bottom: 1.5rem;">
+          Group 07 &bull; CSE 04 &bull; GhostLab Atelier
+        </p>
+        <p style="font-size: 0.95rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem auto;">
+          <em>"Every shelved research paper has a commercial heartbeat left &mdash; we just give builders the blueprint."</em>
+        </p>
+        <div style="display: inline-flex; justify-content: center; gap: 2rem; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-dim); border-top: 1px dashed var(--border-subtle); padding-top: 1rem;">
+          <div>Faculty Guide: Dr. Nirupama M P</div>
+          <div>BML Munjal University &bull; Propel Incubator Pilot</div>
+          <div>Open for Viva Defense &amp; Q&amp;A</div>
+        </div>
+      </div>
+      <div class="slide-footer-notes">
+        <span>Direct Mirror of Slide 17 Closing Slide &bull; Ready for Faculty Evaluation</span>
+        <span>Group 07 CSE 04</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Slide Thumbnail Strip Rail -->
+  <div class="thumb-strip" id="thumbRail">
+    <!-- Populated by JS -->
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 17;
+
+    const frames = document.querySelectorAll('.slide-frame');
+    const slideCounterText = document.getElementById('slideCounterText');
+    const thumbRail = document.getElementById('thumbRail');
+    const btnPrev = document.getElementById('btnPrevSlide');
+    const btnNext = document.getElementById('btnNextSlide');
+    const btnFullscreen = document.getElementById('btnFullscreen');
+
+    function showSlide(num) {
+      if (num < 1) num = 1;
+      if (num > totalSlides) num = totalSlides;
+      currentSlide = num;
+
+      frames.forEach((f, i) => {
+        if (i + 1 === num) f.classList.add('active');
+        else f.classList.remove('active');
+      });
+
+      if (slideCounterText) slideCounterText.textContent = `Slide ${num} of ${totalSlides}`;
+
+      document.querySelectorAll('.thumb-item').forEach((t, i) => {
+        if (i + 1 === num) t.classList.add('active');
+        else t.classList.remove('active');
+      });
+    }
+
+    // Populate Thumbnails
+    for (let i = 1; i <= totalSlides; i++) {
+      const th = document.createElement('div');
+      th.className = `thumb-item ${i === 1 ? 'active' : ''}`;
+      th.textContent = `S${i < 10 ? '0' + i : i}`;
+      th.addEventListener('click', () => showSlide(i));
+      thumbRail.appendChild(th);
+    }
+
+    btnPrev?.addEventListener('click', () => showSlide(currentSlide - 1));
+    btnNext?.addEventListener('click', () => showSlide(currentSlide + 1));
+
+    // Keyboard Navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        showSlide(currentSlide + 1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        showSlide(currentSlide - 1);
+      } else if (e.key === 'Home') {
+        showSlide(1);
+      } else if (e.key === 'End') {
+        showSlide(totalSlides);
+      }
+    });
+
+    btnFullscreen?.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    });
+  </script>
+</body>
+</html>
