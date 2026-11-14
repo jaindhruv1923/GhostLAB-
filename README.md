@@ -12,10 +12,10 @@ A dignified, eye-soothing academic technology transfer and patent rebirth atelie
 ```
 GhostLAB-/
 ├── code_base/                     # Full Interactive Web Application & DeepTech Engine
-│   ├── index.html                 # Complete UI Architecture, 10 Modules, Break-Even Studio & 17-Slide Deck
-│   ├── app.js                     # 12-Item Universal Polyglot Catalog, AER Matrix, Vector Radar & BEP Studio
-│   ├── styles.css                 # Botanical Editorial Theme, Layouts, Chart Containers & Modal Styling
-│   ├── GhostLab_FinalBusinessPPT.html # Standalone Widescreen 16:9 Presentation Deck (17 Slides)
+│   ├── index.html                 # Complete UI Architecture, 10 Modules, Break-Even Studio & 18-Slide Final Deck
+│   ├── app.js                     # 12-Item Universal Polyglot Catalog, AER Matrix, Vector Radar, BEP & 18-Slide Controller
+│   ├── styles.css                 # Botanical Editorial Theme, Layouts, Chart Containers & 16:9 Slide Stage Styling
+│   ├── GhostLab_FinalBusinessPPT.html # Standalone Widescreen 16:9 Presentation Deck (18 Slides)
 │   ├── server.js                  # Lightweight Native Node.js Static Server (Port 5175)
 │   ├── package.json               # Project Metadata & NPM Start Scripts
 │   ├── launch.bat                 # 1-Click Server Launcher
@@ -26,6 +26,7 @@ GhostLAB-/
 │   ├── LEAN_CANVAS_AND_BUSINESS_MODEL.md # Unit Economics, CAC/LTV, Sunk R&D Model & Osterwalder BMC
 │   └── PITCH_DECK_SCRIPT.md       # Presentation Script & Slide-by-Slide Defense Notes
 ├── documentation/                 # Dedicated Project Documentation Repository
+│   ├── GhostLab_FinalPresentation.pptx # Editable PowerPoint Pitch Deck (18 Slides)
 │   └── .gitkeep                   # Reserved for Project Reports, Viva Transcripts & Briefs
 ├── launch.bat                     # Convenience Root Launcher (executes code_base/server.js)
 ├── README.md                      # Primary Repository Overview & Architecture Guide
@@ -115,7 +116,14 @@ In modern higher education and national research centers (IITs, BMU, DTU, CSIR, 
   6. Dynamic SVG Charts: Fixed Costs Pie Chart, Variable Costs Bar Chart, and 3-Year Revenue Growth Trajectory curve.
   7. Full Academic Dossier: Documented in [`BREAK_EVEN_ANALYSIS_AND_FEASIBILITY.md`](code_base/BREAK_EVEN_ANALYSIS_AND_FEASIBILITY.md).
 
-### View 8: Responsible AI, Open Science & Governance (`#ethics`)
+### View 10: Final Business Presentation Deck & 18-Slide Master Deck (`#finalppt` • Key: P)
+- Full 18-slide interactive widescreen presentation deck strictly mirrored upon the faculty reference template (`Group07_AlzoWatch_FinalBusinessPPT.pdf`) across **Part I: About Us in Brief (S1–S6)**, **Part II: Market & Strategy (S7–S12)**, **Part III: Financial Feasibility & Break-Even Analysis (S13–S17)**, and **Slide 18: Course Outcome (CO1–CO4) Alignment Matrix**.
+- Built-in live presentation HUD: 18-slide jump selector, previous/next controls, keyboard hotkeys (`←`/`→`/`Space`/`P`/`F`), auto-play timer (5s cadence), collapsible speaker script cues & faculty viva defense notes, 18-slide thumbnail rail, and offline HTML deck export.
+- Integrated **Assignment 03 Break-Even & Financial Feasibility Summary Dossier** with direct compliance cards for Dr. Nirupama M P's 4 assignment directives.
+- Standalone 16:9 widescreen presentation app available at [`code_base/GhostLab_FinalBusinessPPT.html`](code_base/GhostLab_FinalBusinessPPT.html).
+- Complete behind-the-scenes concept, calculations, and oral viva defense scripts in [`GHOSTLAB_FINAL_BUSINESS_PPT_EXPLAINED.md`](code_base/GHOSTLAB_FINAL_BUSINESS_PPT_EXPLAINED.md).
+
+### View 11: Responsible AI, Open Science & Governance (`#ethics`)
 - **UPL Compliance:** Operates as engineering decision-support under Section 3 of the Advocates Act.
 - **Deterministic Grounded RAG:** Strict Temp = 0.1 extraction preventing hallucinated patent citations.
 - **Global South Inclusivity:** Direct ingestion of Indian Patent Office gazettes and grassroots innovation grants.

@@ -39,6 +39,7 @@ Slide 14: Break Even Analysis &bull; Fixed Costs Breakdown Pie & Variable Costs 
 Slide 15: 3-Year Projected Revenue Model (Assumptions & 3-Year Financial Forecast Table)
 Slide 16: 3-Year Projected Revenue Trajectory (Compounding Subscription Bar & Line Curve)
 Slide 17: Thank You & Viva Defense Readiness
+Slide 18: Course Outcome (CO1–CO4) Alignment Matrix & Curricular Synthesis
 ====================================================================================================
 ```
 
@@ -442,6 +443,26 @@ Slide 17: Thank You & Viva Defense Readiness
   - *Why 50% variable costs?* Covers 25% token compute, 15% manual legal pre-flight check, and 10% CAD cloud storage.
   - *Why 1,088 units BEP?* Requires only 2.42% of senior capstone students across 15 campus incubators.
   - *Why an 80% scholar fellowship?* Creates a viral supply of verified thesis projects from graduate scholars who currently receive 0% royalties.
+
+---
+
+## SLIDE 18: COURSE OUTCOME (CO1–CO4) ALIGNMENT MATRIX
+
+### 1. Slide Metadata & On-Slide Content
+- **Main Heading:** **COURSE OUTCOME (CO1–CO4) ALIGNMENT MATRIX**
+- **Subtitle:** *Curricular Synthesis & Academic Competency Delivery*
+- **Course & Domain:** AI & Entrepreneurship (AIE-701) • BML Munjal University
+- **Faculty Guide:** Dr. Nirupama M P
+- **Four-Quadrant Matrix Structure:**
+  - **CO1 – Opportunity Identification (C1, C2):** Delivered in Slides 05, 07. Empathetic fieldwork, 95% campus research dormancy burden, root-cause validation.
+  - **CO2 – Product & Business Model Design (C3, C4):** Delivered in Slides 06, 10, 11, 12. 3D CAD mesh parsing, generative design-arounds, Strategyzer VPC & Alexander Osterwalder BMC.
+  - **CO3 – Venture Analytics & Feasibility (C5, C6):** Delivered in Slides 08, 09, 13, 14, 15. Deterministic CVP break-even proof ($87,000 / 1,088 units), 47.9% Margin of Safety, Section 3 Advocates Act safe-harbor compliance.
+  - **CO4 – Scalable Venture Pitching (C7, C8):** Delivered in Slides 01–04, 16, 17, 18. 18-slide AlzoWatch reference deck, 3-year financial model ($1.037M cumulative), and BMU Propel incubator scaling roadmap.
+- **Assessment Pattern Compliance Banner:** Mid-Sem 25% • Assignment 15% • Quiz 20% • End-Term Evaluation 40% (100% Curricular Coverage).
+
+### 2. Slides Ke Peeche Ka Poora Concept
+- **Pedagogical Rationale:** Directly targets the faculty evaluation rubric. In academic defense presentations, linking project deliverables back to the official Course Outcomes (CO1–CO4) proves that the venture is not merely a technical hackathon toy, but a rigorous pedagogical capstone embodying every lecture competency from Introduction to Scaling.
+- **Viva Defense Anchor:** When Dr. Nirupama or external jurors evaluate the submission, this slide provides an unambiguous scorecard demonstrating how each criterion of the course syllabus was methodically addressed and validated.
 
 ---
 *Dossier prepared for submission in AIE-701 &bull; Dr. Nirupama M P &bull; BML Munjal University.*

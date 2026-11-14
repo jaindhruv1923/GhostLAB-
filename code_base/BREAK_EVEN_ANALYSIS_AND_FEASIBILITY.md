@@ -173,78 +173,31 @@ The 50% contribution margin incorporates the 15% direct verification labor and t
 ## 6. Cost Breakdown Visual Architecture (Slide 14 Reference)
 
 ### 6.1 Fixed Costs Breakdown Percentage Distribution
-Derived exactly from the reference slide:
-- **Salaries (Includes payroll taxes):** $20,000 / $43,500 = **46.0%**
-- **Rent:** $5,000 / $43,500 = **11.5%**
-- **Advertising:** $5,000 / $43,500 = **11.5%**
-- **Accounting & Legal:** $2,500 / $43,500 = **5.7%**
-- **Car, Delivery, Travel:** $2,000 / $43,500 = **4.6%**
-- **Insurance:** $2,000 / $43,500 (consolidated): **4.6%**
-- **Taxes (Real Estate, Municipal):** $1,500 / $43,500: **3.4%**
-- **Other (Cloud infrastructure & tools):** $1,500 / $43,500: **3.4%**
-- **Utilities:** $1,000 / $43,500: **2.3%**
-- **Interest:** $1,000 / $43,500: **2.3%**
-- **Repairs & Maintenance:** $1,000 / $43,500: **2.3%**
-- **Supplies:** $500 / $43,500: **1.1%**
-- **Telephone & Bandwidth:** $500 / $43,500: **1.1%**
-- **Total Fixed Costs:** **100.0% ($43,500)**
+Derived exactly from the authoritative Section 3 cost matrix and reference slide:
+- **Salaries (Founding Engineers & IP Curators):** ,000 / ,500 = **46.0%**
+- **Rent (Incubator office & prototyping lab):** ,000 / ,500 = **11.5%**
+- **Advertising (Campus roadshows & hackathons):** ,000 / ,500 = **11.5%**
+- **Accounting & Legal (Safe-Harbor counsel):** ,500 / ,500 = **5.7%**
+- **Car, Delivery, Travel (Campus TTO visits):** ,000 / ,500 = **4.6%**
+- **Taxes (Real Estate, Municipal, Statutory):** ,000 / ,500 = **4.6%**
+- **Utilities (Clean-room power & HVAC):** ,500 / ,500 = **3.4%**
+- **Other (Base cloud hosting, domain, CI/CD):** ,500 / ,500 = **3.4%**
+- **Insurance (Cyber & Professional Indemnity):** ,000 / ,500 = **2.3%**
+- **Interest (Pre-seed innovation loan):** ,000 / ,500 = **2.3%**
+- **Supplies & Sensors (Testbench hardware):** ,000 / ,500 = **2.3%**
+- **Repairs & Maintenance (Workstation calibration):**  / ,500 = **1.1%**
+- **Telephone & Bandwidth (Fiber optic connection):**  / ,500 = **1.1%**
+- **Total Fixed Costs:** **100.0% (,500 / ₹36,10,500)**
 
-### 6.2 Variable Costs (% of Sales) Distribution
-- **Inventory (CAD storage & download infrastructure):** **10.0%**
-- **Raw Materials (AI Tokens, compute, USPTO/IPO gazette APIs):** **25.0%**
-- **Direct Labor (IP Engineer triage & Safe-Harbor verification):** **15.0%**
-- **Total Variable Costs (% of Sales):** **50.0%**
+### 4.4 Margin of Safety ($) Analysis
+Using Year 1 projected revenue ({Y1} = \,000$):
+\text{Margin of Safety (\%)} = \frac{\text{Projected Sales} - \text{Break-Even Sales}}{\text{Projected Sales}} \times 100
+\text{Margin of Safety (\%)} = \frac{\,000 - \,000}{\,000} \times 100 = \frac{\,000}{\,000} \times 100 = \mathbf{47.90\%}
 
----
+In financial volume buffer:
+\text{Margin of Safety (Revenue Buffer)} = \,000 - \,000 = \mathbf{\,000 \text{ (₹66,40,000)}}
+At the blended license unit price of , this represents a downside safety cushion of:
+\text{Downside Unit Cushion} = \frac{\,000}{\} = \mathbf{1,000 \text{ License Units}}
+Meaning GhostLab sales can contract by up to 1,000 licenses (or 47.9% of total revenue) before falling below the break-even threshold.
 
-## 7. 3-Year Projected Revenue Model (Slide 15 Reference)
-
-### 7.1 Key Modeling Assumptions
-1. **Device / License Price (Per Unit):** **$80.00** (Revenue from the sale of one GhostLab Safe-Harbor license deed)
-2. **Subscription Price (Per Year):** **$87.00** (Annual subscription revenue for campus incubator platform seats & updates)
-3. **Yearly Sales Growth Rate:** **50.0%**
-4. **Customer Renewal Rate:** **80.0%** of customers renew their platform subscriptions in subsequent years
-
-### 7.2 3-Year Financial Model Table
-
-| Fiscal Year | Sales Volume (Units) | Device / License Revenue ($) | Subscription Revenue ($) | Total Annual Revenue ($) | Operating Costs ($) | Net EBITDA ($) |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Year 1** | 1,000 | $80,000 | $87,000 | **$167,000** | $127,000 | **+$40,000** |
-| **Year 2** | 1,500 | $120,000 | $130,500 (new) + $69,600 (80% of Yr 1) = **$200,100** | **$320,100** | $203,550 | **+$116,550** |
-| **Year 3** | 2,250 | $180,000 | $195,750 (new) + $174,600 (80% of prior renewals) = **$370,350** | **$550,350** | $318,675 | **+$231,675** |
-| **3-Year Total** | **4,750** | **$380,000** | **$657,450** | **$1,037,450** | **$649,225** | **+$388,225** |
-
-*(In Indian Rupees: 3-Year Total Cumulative Revenue = **₹8,61,08,350 (~₹8.61 Crores)**; 3-Year Cumulative EBITDA = **₹3,22,22,675 (~₹3.22 Crores)**).*
-
----
-
-## 8. Pitch Deck Integration Map (Directive 4)
-
-In direct fulfillment of Directive 4, the analysis is integrated into GhostLab's **Master Venture Pitch Deck**:
-
-| Deck Slide | Title & Subject | Reference PPT Slide Anchor | Key Financial Metric Communicated |
-| :--- | :--- | :--- | :--- |
-| **Slide 08** | Business Model Canvas & Cost Architecture | **Slide 12 (BMC)** | 9-Block matrix; Cost structure ($43.5k FC, 50% VC) and Revenue streams ($80 license, $87 SaaS). |
-| **Slide 09** | Break-Even Point (BEP) & Feasibility Proof | **Slide 13 (Formula)** | $\text{BEP} = \frac{\$43,500}{1 - 0.50} = \$87,000$ (1,088 units); 47.9% Margin of Safety; Month 6.2 breakeven. |
-| **Slide 10** | Cost Breakdown & Unit Economics Architecture | **Slide 14 (Charts)** | Fixed Costs Pie (Salaries 46%, Rent 11.5%, Ads 11.5%) + Variable Costs Bar (Raw Materials 25%, Labor 15%, Inventory 10%). |
-| **Slide 11** | 3-Year Projected Revenue & Growth Model | **Slide 15 (Table)** | 1,000 $\rightarrow$ 1,500 $\rightarrow$ 2,250 volume; $167k $\rightarrow$ $320.1k $\rightarrow$ $550.35k revenue; $1.037M cumulative GMV. |
-| **Slide 12** | 3-Year Revenue Growth Trajectory Curve | **Slide 16 (Chart)** | Bar + Line chart demonstrating SaaS expansion and compounding renewals surpassing $550k in Year 3. |
-
----
-
-## 9. Viva Defense & Examination Talking Points
-
-When presenting this work to Dr. Nirupama M P and external juries, use these verified academic defense anchors:
-
-1. **Question: Why is your variable cost ratio exactly 50%?**
-   - *Answer:* "Our variable cost ratio is anchored in three empirical drivers: 25% for GPU inference, multimodal mesh token processing, and real-time patent gazette API compute; 15% for certified IP engineering pre-flight verification and statutory deed execution; and 10% for encrypted CAD cloud storage and bandwidth egress. This leaves an exact 50% contribution margin to recover fixed costs and fund our 80% fellowship royalty pool."
-
-2. **Question: How will you achieve the $87,000 break-even volume with student founders who have limited budgets?**
-   - *Answer:* "Our unit break-even requirement is 1,088 licenses annually across our pilot cohort of 15 university incubators. With 45,000 graduating engineering students in these institutions, that requires converting only 2.42% of the cohort. Furthermore, at ₹1,999 (~$24), GhostLab is cheaper than a single legal consultation with a patent attorney (₹35,000) or building one failed physical prototype (₹1.5 Lakhs)."
-
-3. **Question: What happens if student license sales drop by 40%?**
-   - *Answer:* "Because our Margin of Safety is 47.9%, our revenue could drop from $167,000 to $87,000 without us incurring an accounting loss. In addition, our recurring incubator subscription tier ($87/seat with an 80% renewal rate) provides predictable recurring cash flow that decouples our financial survival from purely transactional maker volumes."
-
----
-*Dossier prepared for submission in AIE-701 &bull; Dr. Nirupama M P &bull; BML Munjal University.*
 
